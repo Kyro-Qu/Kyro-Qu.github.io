@@ -1,0 +1,11 @@
+{{ $image := .Site.Params.author.image | default "images/profile.png" }}
+<img
+  src="{{ $image | absURL }}"
+  alt="{{ .Site.Title }}"
+  class="site-brand-avatar"
+  width="32"
+  height="32"
+  loading="eager"
+  decoding="async"
+/>
+<span class="site-brand-text">{{ .Site.Title }}</span>
