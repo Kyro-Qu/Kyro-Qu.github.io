@@ -30,6 +30,21 @@ enableRobotsTXT = true
   description = "Kyro 的 Hugo 博客，记录编程、学习和项目实践。"
   tagline = "记录编程、学习和正在构建的东西"
 
+[params.giscus]
+  enabled = true
+  repo = "Kyro-Qu/blog-comments"
+  category = "Announcements"
+  repoId = "R_kgDOSiIgzg"
+  categoryId = "DIC_kwDOSiIgzs4C9Zeo"
+  mapping = "pathname"
+  strict = true
+  reactionsEnabled = true
+  emitMetadata = false
+  inputPosition = "top"
+  theme = "preferred_color_scheme"
+  lang = "zh-CN"
+  loading = "lazy"
+
 [params.author]
   name = "Kyro"
   image = "images/profile.png"
@@ -46,6 +61,11 @@ enableRobotsTXT = true
   name = "联系"
   url = "/contact/"
   weight = 20
+
+[[menu.main]]
+  name = "归档"
+  url = "/archive/"
+  weight = 25
 
 [[menu.main]]
   name = "标签"

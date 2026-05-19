@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "eq" "posts" }}
 <div class="container">
   <div class="author-profile-section">
     <div class="profile-photo-container">
@@ -88,6 +89,12 @@
     </div>
   </div>
 
+  {{ if .Content }}
+  <section class="home-intro-card">
+    {{ .Content }}
+  </section>
+  {{ end }}
+
   <div class="filter-section">
     <div class="filter-tags">
       <div class="tag active" data-tag="all">全部</div>
@@ -97,83 +104,7 @@
     </div>
   </div>
 
-  <div class="posts-list" id="posts-container">
-    {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{
-    $postsPerPage := 3 }} {{ range first $postsPerPage $posts }}
-    <article class="post-item{{ if .Params.featured }} featured{{ end }}">
-      <div class="post-content">
-        <div class="post-header-inline">
-          <h2 class="post-title-vaporwave">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-          </h2>
-        </div>
-
-        <div class="post-date-with-badges">
-          <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
-          {{ if .Params.featured }}
-          <span class="featured-badge">精选</span>
-          {{ end }} {{ if .Params.mood }}
-          <span class="post-mood">{{ .Params.mood }}</span>
-          {{ end }}
-        </div>
-
-        {{ if .Params.subtitle }}
-        <p class="post-list-subtitle">{{ .Params.subtitle }}</p>
-        {{ end }}
-
-        <p class="post-excerpt-vaporwave">
-          {{ .Summary | plainify | truncate 160 }}
-        </p>
-
-        {{ if .Params.tags }}
-        <div class="post-tags-vaporwave">
-          {{ range .Params.tags }}
-          <span class="post-tag-vaporwave">{{ . }}</span>
-          {{ end }}
-        </div>
-        {{ end }}
-
-        <a href="{{ .Permalink }}" class="continue-reading-vaporwave">
-          继续阅读
-        </a>
-      </div>
-
-      <div class="post-meta-sidebar">
-        <div class="reading-time-vaporwave">
-          <span class="coffee-cups">
-            {{ $coffees := "" }} {{ $maxCups := 5 }} {{ $cupsToShow := .ReadingTime
-            }} {{ if gt .ReadingTime $maxCups }} {{ $cupsToShow = $maxCups }} {{ end
-            }} {{ range (seq $cupsToShow) }} {{ $coffees = print $coffees "☕ " }} {{
-            end }} {{ $coffees }}
-          </span>
-          <span>{{ .ReadingTime }} 分钟阅读</span>
-        </div>
-      </div>
-    </article>
-    {{ end }}
-  </div>
-
-  {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{ if gt (len
-  $posts) 3 }}
-  <div class="load-more-section">
-    <button
-      id="load-more-btn"
-      class="load-more-btn"
-      data-loaded="3"
-      data-total="{{ len $posts }}"
-    >
-      <span class="load-more-text">加载更多文章</span>
-      <span class="load-more-icon">&#9749;</span>
-    </button>
-    <div class="load-more-loading" id="load-more-loading" style="display: none">
-      <span class="loading-text">正在加载更多内容...</span>
-      <div class="loading-dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  {{ end }}
+  {{ partial "post-feed.html" (dict "posts" $posts "initialCount" 3 "showLoadMore"
+  true) }}
 </div>
 {{ end }}

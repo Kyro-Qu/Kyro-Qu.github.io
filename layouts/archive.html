@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "eq" "posts" }}
+<div class="container">
+  <section class="list-page-header archive-page-header">
+    <p class="list-page-kicker">时间线</p>
+    <h1 class="list-page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="list-page-description">
+      {{ . }}
+    </div>
+    {{ end }}
+  </section>
+
+  <section class="archive-groups">
+    {{ range $posts.GroupByDate "2006年01月" }}
+    <div class="archive-group">
+      <h2 class="archive-group-title">{{ .Key }}</h2>
+      <div class="archive-items">
+        {{ range .Pages }}
+        <article class="archive-item">
+          <div class="archive-item-date">{{ .Date.Format "01.02" }}</div>
+          <div class="archive-item-body">
+            <h3 class="archive-item-title">
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+            {{ if .Params.subtitle }}
+            <p class="archive-item-subtitle">{{ .Params.subtitle }}</p>
+            {{ end }}
+            {{ if .Params.tags }}
+            <div class="archive-item-tags">
+              {{ range .Params.tags }}
+              <span class="post-tag-vaporwave">{{ . }}</span>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

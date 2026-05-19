@@ -71,6 +71,8 @@
                 </div>
                 {{ end }}
 
+                {{ partial "comments.html" . }}
+
                 <nav class="post-navigation">
                     {{ with .PrevInSection }}
                     <div class="nav-previous">

@@ -34,6 +34,10 @@
 />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta
+  property="og:image"
+  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/profile.png" | absURL }}{{ end }}"
+/>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta
@@ -43,6 +47,10 @@
 <meta
   name="twitter:description"
   content="{{ if $is404 }}你访问的页面不存在，可以返回首页或继续搜索站内文章。{{ else if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+/>
+<meta
+  name="twitter:image"
+  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/profile.png" | absURL }}{{ end }}"
 />
 
 <link rel="canonical" href="{{ .Permalink }}" />
