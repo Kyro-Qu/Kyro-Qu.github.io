@@ -6,11 +6,11 @@
 
 ## 首次推送
 
-1. 在 GitHub 上创建仓库 `Kyro.github.io`
+1. 在 GitHub 上创建仓库 `Kyro-Qu.github.io`
 2. 进入当前目录后执行：
 
 ```powershell
-git remote add origin https://github.com/Kyro-Qu/Kyro.github.io.git
+git remote add origin https://github.com/Kyro-Qu/Kyro-Qu.github.io.git
 git add .
 git commit -m "Initialize Hugo blog"
 git push -u origin main
@@ -20,10 +20,7 @@ git push -u origin main
    `Settings -> Pages -> Build and deployment -> Source`
 4. 选择 `GitHub Actions`
 
-如果保持当前仓库名，站点地址通常会是：
-`https://kyro-qu.github.io/Kyro.github.io/`
-
-如果你后续把仓库改名为 `Kyro-Qu.github.io`，站点地址会变成：
+站点地址会是：
 `https://kyro-qu.github.io/`
 
 ## 本地命令
