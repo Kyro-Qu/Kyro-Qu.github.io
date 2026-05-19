@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $isPost := eq .Section "posts" }}
 <div class="post-overlay active">
     <div class="post-overlay-backdrop"></div>
     <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
@@ -13,6 +14,7 @@
         <div class="post-layout">
             <article class="post-content{{ if .Params.contactCards }} page-contact{{ end }}">
                 <header class="post-header">
+                    {{ if $isPost }}
                     <div class="post-meta">
                         <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
                         <div class="reading-time-post">
@@ -31,12 +33,13 @@
                             <span>{{ .ReadingTime }} 分钟阅读</span>
                         </div>
                     </div>
+                    {{ end }}
                     <h1 class="post-title">{{ .Title }}</h1>
                     {{ if .Params.subtitle }}
                     <p class="post-subtitle">{{ .Params.subtitle }}</p>
                     {{ end }}
 
-                    {{ if .Params.tags }}
+                    {{ if and $isPost .Params.tags }}
                     <div class="post-tags-header">
                         {{ range .Params.tags }}
                         <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
@@ -48,6 +51,7 @@
                     {{ .Content }}
                 </div>
 
+                {{ if $isPost }}
                 {{ $related := .Site.RegularPages.Related . | first 3 }}
                 {{ with $related }}
                 <div class="related-posts">
@@ -92,6 +96,7 @@
                     <div></div>
                     {{ end }}
                 </nav>
+                {{ end }}
             </article>
 
             <aside class="sidebar">

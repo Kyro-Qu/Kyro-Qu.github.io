@@ -1,0 +1,41 @@
+{{- $pages := .RegularPages.ByDate.Reverse -}}
+{{- $title := .Site.Title -}}
+{{- $description := .Site.Params.description -}}
+{{- $isHomeFeed := or .IsHome (eq .Kind "home") -}}
+{{- if not $isHomeFeed -}}
+  {{- $title = printf "%s on %s" .Title .Site.Title -}}
+  {{- $description = printf "Recent content in %s on %s" .Title .Site.Title -}}
+{{- else -}}
+  {{- $pages = (where .Site.RegularPages "Section" "eq" "posts").ByDate.Reverse -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML -}}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ $title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ $description }}</description>
+    <generator>Hugo</generator>
+    <language>{{ .Site.Language.Locale | default "zh-CN" }}</language>
+    {{ with index $pages 0 }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    {{ end }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml"></atom:link>
+    {{ end }}
+    {{ range first 20 $pages }}
+    {{ $desc := "" }}
+    {{ with .Description }}
+      {{ $desc = . }}
+    {{ else }}
+      {{ $desc = .Summary | plainify }}
+    {{ end }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ printf "<![CDATA[%s]]>" $desc | safeHTML }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>
