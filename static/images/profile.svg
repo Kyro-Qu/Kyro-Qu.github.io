@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Kyro profile image</title>
+  <desc id="desc">A gradient avatar with the initials KQ.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9a6c" />
+      <stop offset="50%" stop-color="#ff6b9a" />
+      <stop offset="100%" stop-color="#7c5cff" />
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="52" fill="url(#bg)" />
+  <circle cx="74" cy="72" r="56" fill="url(#shine)" />
+  <text x="120" y="140" font-family="Arial, sans-serif" font-size="82" font-weight="700" text-anchor="middle" fill="#fff7ed">KQ</text>
+</svg>
