@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Locale }}" data-theme="light">
+<html lang="zh-CN" data-theme="light">
 <head>
     {{ partial "head.html" . }}
 </head>
 <body>
-    {{ if not .IsHome }}
+    {{ $is404 := eq .Kind "404" }}
+    {{ if and (not .IsHome) (not $is404) }}
     <div class="reading-progress"></div>
     {{ end }}
 
@@ -16,10 +17,11 @@
         {{ block "main" . }}{{ end }}
     </main>
 
-    {{ if not (eq .Type "posts") }}
+    {{ if and (not (eq .Type "posts")) (not $is404) }}
     {{ partial "ambient-bar.html" . }}
     {{ end }}
 
     <script src="{{ "js/main.js" | absLangURL }}"></script>
+    <script src="{{ "js/custom-ui.js" | absLangURL }}"></script>
 </body>
 </html>

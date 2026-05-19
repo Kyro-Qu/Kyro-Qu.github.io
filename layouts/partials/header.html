@@ -1,0 +1,33 @@
+<header class="site-header">
+    <nav>
+        <div class="nav-left">
+            <a href="{{ "/" | absLangURL }}" class="logo">{{ .Site.Title }}</a>
+        </div>
+
+        <div class="nav-links">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL | absLangURL }}" class="nav-link">{{ .Name }}</a>
+            {{ end }}
+        </div>
+
+        <div class="header-controls">
+            <button class="search-toggle" title="搜索文章"><span aria-hidden="true">&#128269;</span></button>
+            <button class="theme-toggle" title="切换明暗主题"><span aria-hidden="true">&#127769;</span></button>
+        </div>
+    </nav>
+
+    <div class="search-form-container" id="searchForm">
+        <div class="search-form">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="搜索文章..." autocomplete="off">
+                <button class="search-submit" type="button" aria-label="提交搜索">
+                    <span aria-hidden="true">&#128269;</span>
+                </button>
+                <button class="search-close" type="button" aria-label="关闭搜索">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>

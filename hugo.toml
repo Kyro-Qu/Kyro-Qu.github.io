@@ -5,6 +5,7 @@ hasCJKLanguage = true
 title = "Kyro Blog"
 theme = "loficode"
 enableEmoji = true
+enableRobotsTXT = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "pages"]

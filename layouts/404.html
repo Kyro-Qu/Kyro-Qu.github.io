@@ -1,0 +1,194 @@
+{{ define "main" }}
+<div class="container not-found-page">
+  <section class="not-found-card">
+    <p class="not-found-code">404</p>
+    <h1>页面不存在</h1>
+    <p class="not-found-lead">
+      你访问的地址可能已经移动、删除，或者暂时不可用。可以返回首页，或者直接搜索站内文章。
+    </p>
+
+    <div class="not-found-actions">
+      <a class="not-found-action" href="{{ "/" | absLangURL }}">返回首页</a>
+      <a class="not-found-action" href="{{ "/tags/" | absLangURL }}">浏览标签</a>
+    </div>
+
+    <section class="not-found-search">
+      <h2 class="not-found-section-title">站内搜索</h2>
+      <div class="not-found-search-row">
+        <input
+          id="notFoundSearchInput"
+          type="text"
+          placeholder="搜索文章标题、摘要或标签"
+          autocomplete="off"
+        />
+        <button id="notFoundSearchButton" type="button">搜索</button>
+      </div>
+      <p id="notFoundSearchStatus" class="not-found-search-status">正在加载文章索引...</p>
+      <div id="notFoundSearchResults" class="not-found-search-results"></div>
+    </section>
+
+    <section class="not-found-recent">
+      <h2 class="not-found-section-title">最近文章</h2>
+      <div id="notFoundRecentList" class="not-found-recent-list"></div>
+    </section>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const searchInput = document.getElementById("notFoundSearchInput");
+    const searchButton = document.getElementById("notFoundSearchButton");
+    const searchStatus = document.getElementById("notFoundSearchStatus");
+    const searchResults = document.getElementById("notFoundSearchResults");
+    const recentList = document.getElementById("notFoundRecentList");
+    let searchData = [];
+
+    function stripHtml(html) {
+      const temp = document.createElement("div");
+      temp.innerHTML = html || "";
+      return (temp.textContent || temp.innerText || "").trim();
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function normalizeItems(items) {
+      return (items || [])
+        .map((item) => ({
+          title: item.title || "",
+          url: item.url || item.permalink || "/",
+          excerpt: stripHtml(item.summary || item.excerpt || item.content || ""),
+          tags: Array.isArray(item.tags) ? item.tags : [],
+          date: item.date || "",
+          dateFormatted: item.dateFormatted || item.date || "",
+        }))
+        .sort((left, right) => new Date(right.date || 0) - new Date(left.date || 0));
+    }
+
+    function renderRecent(posts) {
+      if (!posts.length) {
+        recentList.innerHTML =
+          '<p class="not-found-empty">暂时没有可展示的文章，请稍后再回来看看。</p>';
+        return;
+      }
+
+      recentList.innerHTML = posts
+        .map(
+          (post) => `
+            <a class="not-found-recent-item" href="${escapeHtml(post.url)}">
+              <span class="not-found-recent-title">${escapeHtml(post.title)}</span>
+              <span class="not-found-recent-meta">${escapeHtml(post.dateFormatted)}</span>
+            </a>
+          `
+        )
+        .join("");
+    }
+
+    function renderResults(matches, query) {
+      if (!query.trim()) {
+        searchResults.innerHTML = "";
+        return;
+      }
+
+      if (!matches.length) {
+        searchResults.innerHTML = `<p class="not-found-empty">没有找到与“${escapeHtml(
+          query
+        )}”相关的文章。</p>`;
+        return;
+      }
+
+      searchResults.innerHTML = matches
+        .map(
+          (post) => `
+            <a class="not-found-result" href="${escapeHtml(post.url)}">
+              <span class="not-found-result-title">${escapeHtml(post.title)}</span>
+              <span class="not-found-result-meta">${escapeHtml(
+                post.dateFormatted
+              )} · ${escapeHtml(post.tags.join(" / "))}</span>
+              <div class="not-found-result-excerpt">${escapeHtml(
+                post.excerpt.slice(0, 140)
+              )}${post.excerpt.length > 140 ? "..." : ""}</div>
+            </a>
+          `
+        )
+        .join("");
+    }
+
+    function performSearch() {
+      const query = searchInput.value.trim();
+
+      if (!query) {
+        searchResults.innerHTML = "";
+        searchStatus.textContent = searchData.length
+          ? `已加载 ${searchData.length} 篇文章，可直接搜索。`
+          : "当前还没有可供搜索的文章。";
+        return;
+      }
+
+      if (!searchData.length) {
+        searchResults.innerHTML =
+          '<p class="not-found-empty">搜索索引尚未加载完成，请稍后刷新页面再试。</p>';
+        return;
+      }
+
+      const needle = query.toLocaleLowerCase();
+      const matches = searchData
+        .filter((post) => {
+          return (
+            post.title.toLocaleLowerCase().includes(needle) ||
+            post.excerpt.toLocaleLowerCase().includes(needle) ||
+            post.tags.some((tag) => tag.toLocaleLowerCase().includes(needle))
+          );
+        })
+        .slice(0, 8);
+
+      searchStatus.textContent = `找到 ${matches.length} 条与“${query}”相关的结果。`;
+      renderResults(matches, query);
+    }
+
+    async function loadSearchData() {
+      searchStatus.textContent = "正在加载文章索引...";
+
+      try {
+        const response = await fetch("/index.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Failed to load index.json: ${response.status}`);
+        }
+
+        searchData = normalizeItems(await response.json());
+        searchStatus.textContent = searchData.length
+          ? `已加载 ${searchData.length} 篇文章，可直接搜索。`
+          : "当前还没有可供搜索的文章。";
+        renderRecent(searchData.slice(0, 5));
+      } catch (error) {
+        console.error("404 search failed to load index data:", error);
+        searchData = [];
+        searchStatus.textContent = "暂时无法加载搜索索引，请稍后刷新页面再试。";
+        searchResults.innerHTML = "";
+        renderRecent([]);
+      }
+    }
+
+    searchButton.addEventListener("click", performSearch);
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        performSearch();
+      }
+    });
+    searchInput.addEventListener("input", () => {
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+      }
+    });
+
+    loadSearchData();
+  })();
+</script>
+{{ end }}

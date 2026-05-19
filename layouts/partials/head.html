@@ -1,11 +1,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{{ $is404 := eq .RelPermalink "/404.html" }}
 <title>
-  {{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{
+  {{ if $is404 }}页面不存在 - {{ .Site.Title }}{{ else if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{
   .Title }} - {{ .Site.Title }}{{ end }}
 </title>
 
-{{ if .Description }}
+{{ if $is404 }}
+<meta name="robots" content="noindex, nofollow" />
+{{ end }}
+
+{{ if $is404 }}
+<meta name="description" content="你访问的页面不存在，可以返回首页或继续搜索站内文章。" />
+{{ else if .Description }}
 <meta name="description" content="{{ .Description }}" />
 {{ else if .IsHome }}
 <meta name="description" content="{{ .Site.Params.description }}" />
@@ -15,11 +22,11 @@
 
 <meta
   property="og:title"
-  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  content="{{ if $is404 }}页面不存在{{ else if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
 />
 <meta
   property="og:description"
-  content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+  content="{{ if $is404 }}你访问的页面不存在，可以返回首页或继续搜索站内文章。{{ else if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
 />
 <meta
   property="og:type"
@@ -31,12 +38,19 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta
   name="twitter:title"
-  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  content="{{ if $is404 }}页面不存在{{ else if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
 />
 <meta
   name="twitter:description"
-  content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+  content="{{ if $is404 }}你访问的页面不存在，可以返回首页或继续搜索站内文章。{{ else if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
 />
+
+<link rel="canonical" href="{{ .Permalink }}" />
+<meta name="theme-color" content="#1A0B2E" />
+
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon.png" | absLangURL }}" />
+<link rel="shortcut icon" href="{{ "favicon.ico" | absLangURL }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absLangURL }}" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,0 +1,183 @@
+{{ define "main" }}
+<div class="container">
+  {{ if .IsHome }}
+  <div class="author-profile-section">
+    <div class="profile-photo-container">
+      <img
+        src="{{ .Site.Params.Author.image | absURL }}"
+        alt="{{ .Site.Params.Author.name }}"
+        class="profile-photo"
+      />
+    </div>
+    <p class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</p>
+    <div class="social-links">
+      {{ range $name, $url := .Site.Params.Social }} {{ if eq $name "github" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="GitHub"
+      >
+        <i class="fab fa-github social-icon"></i>
+      </a>
+      {{ else if eq $name "twitter" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="X"
+      >
+        <span class="social-icon x-icon">X</span>
+      </a>
+      {{ else if eq $name "linkedin" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="LinkedIn"
+      >
+        <i class="fab fa-linkedin social-icon"></i>
+      </a>
+      {{ else if eq $name "email" }}
+      <a href="mailto:{{ $url }}" class="social-link" title="邮箱">
+        <i class="fas fa-envelope social-icon"></i>
+      </a>
+      {{ else if eq $name "mastodon" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="Mastodon"
+      >
+        <i class="fab fa-mastodon social-icon"></i>
+      </a>
+      {{ else if eq $name "youtube" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="YouTube"
+      >
+        <i class="fab fa-youtube social-icon"></i>
+      </a>
+      {{ else if eq $name "instagram" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="Instagram"
+      >
+        <i class="fab fa-instagram social-icon"></i>
+      </a>
+      {{ else if eq $name "facebook" }}
+      <a
+        href="{{ $url }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="Facebook"
+      >
+        <i class="fab fa-facebook social-icon"></i>
+      </a>
+      {{ end }} {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  {{ if .IsHome }}
+  <div class="filter-section">
+    <div class="filter-tags">
+      <div class="tag active" data-tag="all">全部</div>
+      {{ range .Site.Taxonomies.tags.ByCount }}
+      <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Name }}</div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="posts-list" id="posts-container">
+    {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{
+    $postsPerPage := 3 }} {{ range first $postsPerPage $posts }}
+    <article class="post-item{{ if .Params.featured }} featured{{ end }}">
+      <div class="post-content">
+        <div class="post-header-inline">
+          <h2 class="post-title-vaporwave">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+        </div>
+
+        <div class="post-date-with-badges">
+          <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
+          {{ if .Params.featured }}
+          <span class="featured-badge">精选</span>
+          {{ end }} {{ if .Params.mood }}
+          <span class="post-mood">{{ .Params.mood }}</span>
+          {{ end }}
+        </div>
+
+        {{ if .Params.subtitle }}
+        <p class="post-list-subtitle">{{ .Params.subtitle }}</p>
+        {{ end }}
+
+        <p class="post-excerpt-vaporwave">
+          {{ .Summary | plainify | truncate 160 }}
+        </p>
+
+        {{ if .Params.tags }}
+        <div class="post-tags-vaporwave">
+          {{ range .Params.tags }}
+          <span class="post-tag-vaporwave">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <a href="{{ .Permalink }}" class="continue-reading-vaporwave">
+          继续阅读
+        </a>
+      </div>
+
+      <div class="post-meta-sidebar">
+        <div class="reading-time-vaporwave">
+          <span class="coffee-cups">
+            {{ $coffees := "" }} {{ $maxCups := 5 }} {{ $cupsToShow := .ReadingTime
+            }} {{ if gt .ReadingTime $maxCups }} {{ $cupsToShow = $maxCups }} {{ end
+            }} {{ range (seq $cupsToShow) }} {{ $coffees = print $coffees "☕ " }} {{
+            end }} {{ $coffees }}
+          </span>
+          <span>{{ .ReadingTime }} 分钟阅读</span>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{ if gt (len
+  $posts) 3 }}
+  <div class="load-more-section">
+    <button
+      id="load-more-btn"
+      class="load-more-btn"
+      data-loaded="3"
+      data-total="{{ len $posts }}"
+    >
+      <span class="load-more-text">加载更多文章</span>
+      <span class="load-more-icon">&#9749;</span>
+    </button>
+    <div class="load-more-loading" id="load-more-loading" style="display: none">
+      <span class="loading-text">正在加载更多内容...</span>
+      <div class="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
