@@ -242,14 +242,15 @@
     max-width: 30rem;
     margin: 0;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: 1.6;
 }
 
 .comments-embed {
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    background: rgba(12, 10, 22, 0.24);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
 }
 
 html[data-theme="light"] .site-brand-avatar {
@@ -265,7 +266,7 @@ html[data-theme="light"] .comments-shell {
 }
 
 html[data-theme="light"] .comments-embed {
-    background: rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.56);
     border-color: rgba(26, 11, 46, 0.08);
 }
 

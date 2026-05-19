@@ -87,8 +87,11 @@
   }
 
   function getGiscusTheme() {
+    const commentsSection = document.querySelector(".comments-section");
     const currentTheme = document.documentElement.getAttribute("data-theme");
-    return currentTheme === "dark" ? "transparent_dark" : "light";
+    const lightTheme = commentsSection?.dataset.giscusThemeLight;
+    const darkTheme = commentsSection?.dataset.giscusThemeDark;
+    return currentTheme === "dark" ? darkTheme || "transparent_dark" : lightTheme || "light";
   }
 
   function syncGiscusTheme() {
