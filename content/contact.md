@@ -5,10 +5,21 @@ description: "联系 Kyro 的方式。"
 
 # 联系方式
 
-目前最方便的联系渠道是 GitHub。
+你可以通过下面这些方式联系我：
 
-- GitHub 主页：
+- GitHub：
   [https://github.com/Kyro-Qu](https://github.com/Kyro-Qu)
-- 如果后续需要展示更多联系方式，可以直接修改这个页面
+- QQ：
+  `2258459541`
 
-也可以通过 Issue、Discussion 或个人主页的公开方式找到我。
+## 微信
+
+可以直接扫码添加：
+
+![微信联系二维码](/images/contact-wechat.png)
+
+## QQ
+
+也可以扫码联系：
+
+![QQ 联系二维码](/images/contact-qq.png)

@@ -31,7 +31,7 @@ enableEmoji = true
 
 [params.author]
   name = "Kyro"
-  image = "images/profile.svg"
+  image = "images/profile.png"
 
 [params.social]
   github = "https://github.com/Kyro-Qu"
