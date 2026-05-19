@@ -104,9 +104,9 @@ main .gsc-main {
 }
 
 main .gsc-comments > .gsc-header {
-  padding: 0 0 0.95rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 0 0.75rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 main .gsc-left-header {
@@ -118,18 +118,33 @@ main .gsc-left-header em {
   display: none !important;
 }
 
+main .gsc-reactions {
+  margin: 0 0 0.7rem;
+  padding: 0;
+}
+
+main .gsc-reactions-count {
+  display: none;
+}
+
+main .gsc-reactions > .flex {
+  justify-content: flex-start;
+  gap: 0.45rem;
+  opacity: 0.84;
+}
+
 main .gsc-comment-box,
 main .gsc-reply-box {
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(26, 31, 58, 0.9), rgba(18, 22, 42, 0.9));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 42px rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: none;
 }
 
 main .gsc-comment-box-tabs {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
 }
 
 main .gsc-comment-box-tabs button {
@@ -137,7 +152,7 @@ main .gsc-comment-box-tabs button {
 }
 
 main .gsc-comment-box-tabs button.color-bg-canvas {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 main .gsc-comment-box-main {
@@ -146,9 +161,9 @@ main .gsc-comment-box-main {
 
 main .gsc-comment-box-textarea,
 main .gsc-comment-box-preview {
-  min-height: 220px;
+  min-height: 210px;
   border: 0 !important;
-  background: rgba(8, 11, 24, 0.12) !important;
+  background: transparent !important;
   box-shadow: none !important;
 }
 
@@ -160,16 +175,16 @@ main .gsc-comment-box-preview:focus {
 
 main .gsc-comment-box-textarea-extras,
 main .gsc-comment-box-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 main .gsc-comment-box-textarea-extras {
-  background: rgba(255, 255, 255, 0.025);
+  background: transparent;
 }
 
 main .gsc-comment-box-bottom {
-  padding: 0.95rem 1rem;
-  background: rgba(7, 10, 23, 0.2);
+  padding: 0.85rem 1rem;
+  background: transparent;
 }
 
 main .gsc-comment-box-markdown-hint,
