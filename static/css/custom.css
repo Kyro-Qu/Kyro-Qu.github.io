@@ -1,0 +1,24 @@
+.page-contact .post-body p > img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    margin: 0.75rem 0 2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.page-contact .post-body p > img[alt*="QQ"] {
+    max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .page-contact .post-body p > img {
+        max-width: 180px;
+    }
+
+    .page-contact .post-body p > img[alt*="QQ"] {
+        max-width: 168px;
+    }
+}

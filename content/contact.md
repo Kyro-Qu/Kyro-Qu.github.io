@@ -1,6 +1,7 @@
 ---
 title: "联系"
 description: "联系 Kyro 的方式。"
+contactCards: true
 ---
 
 # 联系方式
