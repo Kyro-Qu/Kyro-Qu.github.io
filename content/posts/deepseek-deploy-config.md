@@ -1,5 +1,5 @@
 ---
-title: "DeepSeek 本地部署配置"
+title: "deepseek 本地部署配置"
 subtitle: "DeepSeek 与 Ollama 的本地部署记录"
 date: 2026-05-19T21:30:00+08:00
 draft: false
@@ -8,196 +8,218 @@ featured: false
 mood: "focus"
 description: "DeepSeek 蒸馏模型与 Ollama 本地部署配置记录。"
 ---
-## DeepSeek
+## deepseek 
 
-蒸馏模型适合本地部署，资源占用相对可控。
+蒸馏模型
 
-如果电脑运行内存是 8 GB，可以优先考虑 `1.5b`、`7b`、`8b` 这些蒸馏模型。
+如果你电脑运行内存为8G那可以下载1.5b，7b，8b的蒸馏后的模型
 
-如果电脑运行内存是 16 GB，可以继续尝试 `14b` 版本。
+如果你电脑运行内存为16G那可以下载14b的蒸馏后的模型
 
-我这里选择 `7b` 模型，参数越大，通常效果也会更好。
+我这里选择7b的模型，参数越大，使用DeepSeek的效果越好
 
-搜索结果里会出现很多个版本，主要区别就是参数规模不同。
+搜索出来有很多个版本，区别就是参数不一样。
 
-`1.5b`、`7b`、`8b`、`14b`、`32b`、`70b`、`671b`
+1.5b，7b，8b，14b，32b，70b，671b
 
-### 硬件建议
+### **硬件建议**
 
-- 7B 模型：至少 8 GB 内存
-- 14B 模型：推荐 16 GB 内存，最好配合 GPU 加速
-- 量化模型（如 `Q4`）：可以进一步降低显存占用
+- 7B模型：至少8GB内存
+- 14B模型：推荐16GB内存+GPU加速
+- 量化模型（如Q4）：可降低50%显存占用
 
-## Ollama
 
-Ollama 是一个轻量级的本地 AI 模型运行框架，官网是 [ollama.com](https://ollama.com/)。
 
-可以把 Ollama 理解成一个“后台引擎”。
+## Ollama 
 
-Ollama 支持 `Windows`、`Linux`、`macOS` 平台。
+Ollama 是一个轻量级的本地AI模型运行框架	https://ollama.com/
+
+Ollama是一个“后台引擎”
+
+ollama支持`windows`、`Linux`、`macos`平台
 
 **使用方式分为两种**
 
-- 用终端命令行（`curl`）或者自己写 Python、C++ 代码，直接向它的 API 发送请求。这种方式适合把 AI 接入到自己的项目中。
-- 下载第三方图形界面软件（比如 **Open WebUI** 或 **Chatbox**）。这些软件连接到 Ollama 的 `11434` 端口后，就可以像使用网页版聊天工具一样使用本地模型。
+- 终端命令行（`curl`）、或者自己写 Python、C++ 代码去直接向它的 API 发送请求。这种方式适合把 AI 接入到你自己的代码项目中。
+- 下载一个第三方的图形化界面软件（比如最著名的 **Open WebUI**，或者 **Chatbox**）。这些软件连接到 Ollama 的 11434 端口后，你就可以像使用网页版 ChatGPT 一样，有漂亮的聊天对话框、历史记录保存，甚至可以上传文件。
 
-## 部署
 
-### 安装 Ollama
 
-将 Ollama 压缩包解压到根目录下：
+## 部署 
 
-```bash
+### 安装ollama
+
+将ollama解压到根目录下
+
+```c
 sudo tar -xvf ollama-linux-amd64.tgz -C /
 ```
 
-验证是否安装成功：
 
-```bash
+验证是否安装成功
+
+```c
 # 验证安装
 ollama --version
-ollama help
+ollama help		
 ```
 
 ![image-20260316192245873](/images/posts/deepseek-deploy-config/image-20260316192245873.png)
 
-开启 Ollama 服务：
 
-```bash
+开启ollama服务
+
+```c
 ollama serve
 ```
 
+
+
 ### 模型下载
 
-模型搜索页面：[https://ollama.com/search](https://ollama.com/search)
+https://ollama.com/search
 
-#### DeepSeek 模型
+#### deepseek模型
 
-在 Ollama 服务已经启动的情况下（可以开两个终端），就能下载 DeepSeek 的不同版本：
+下载deepseek模型，在ollama服务已经打开的情况下(开两个终端),也可以下载其他版本
 
-```bash
-ollama pull deepseek-r1:1.5b
-ollama pull deepseek-r1:7b
+```c
+ollama pull deepseek-r1:1.5b			
+ollama pull deepseek-r1:7b				
 ```
 
-其他版本只需要切换模型后缀即可：
+其他版本：切换尾椎就行
 
-| 版本 | 说明 | 命令 |
-| --- | --- | --- |
-| `1.5b` | 适合一般文字编辑，约需 1.1 GB 空余空间 | `ollama run deepseek-r1:1.5b` |
-| `7b` | 更适合本地推理与通用问答，约需 4.7 GB 空余空间 | `ollama run deepseek-r1:7b` |
-| `8b` | 约需 4.9 GB 空余空间 | `ollama run deepseek-r1:8b` |
-| `14b` | 约需 9 GB 空余空间 | `ollama run deepseek-r1:14b` |
-| `32b` | 约需 20 GB 空余空间 | `ollama run deepseek-r1:32b` |
-| `70b` | 约需 43 GB 空余空间 | `ollama run deepseek-r1:70b` |
-| `671b` | 约需 404 GB 空余空间 | `ollama run deepseek-r1:671b` |
+```c
+版本：1.5b，适用于一般文字编辑使用（需要1.1GB空余空间）
+ollama run deepseek-r1:1.5b
+
+版本：7b，DeepSeek的第一代推理模型，性能与OpenAl-01相当，包括从基于Llama和Qwen的DeepSeekR1中提取的六个密集模型（需要4.7GB空余空间）
+ollama run deepseek-r1:7b
+
+版本：8b，（需要4.9GB空余空间）
+ollama run deepseek-r1:8b
+
+版本：14b，（需要9GB空余空间）
+ollama run deepseek-r1:14b
+
+版本：32b，（需要20GB空余空间）
+ollama run deepseek-r1:32b
+
+版本：70b，（需要43GB空余空间）
+ollama run deepseek-r1:70b
+
+版本：671b，（需要404GB空余空间）
+ollama run deepseek-r1:671b
+```
 
 #### 千问模型
 
-下载 `qwen3:14b` 模型：
+下载`qwen3:14b`模型
 
-```bash
+```c
 ollama pull qwen3:14b
 ```
 
-也可以直接执行 `ollama run qwen3:14b`。如果本地还没有这个模型，Ollama 会自动开始下载：
+可以直接输入`ollama run qwen3:14b`,ollama发现本地没有该模型，会自动进行下载
 
-```bash
+```c
 ollama run qwen3:14b
 ```
 
 ### 监听与环境变量
 
-在使用 DeepSeek 的时候，需要在前台保持 Ollama 服务运行：
+在使用deepseek的时候需要再前台使用
 
-```bash
+```c
 ollama serve
-# 开启服务后才能使用
+开启服务才能使用
 ```
 
-配置系统环境变量：
+配置系统环境变量
 
-```bash
-# 监听所有网络接口
+```c
+//监听所有的网络端口
 echo 'export OLLAMA_HOST="0.0.0.0"' >> ~/.bashrc
-echo 'export OLLAMA_ORIGINS="*"' >> ~/.bashrc
-
-# 写入后重新加载配置
+echo 'export OLLAMA_ORIGINS="*" ' >> ~/.bashrc
+//写入后重启服务
 source ~/.bashrc
-
-# 重新开启服务
+//重新开启服务
 ollama serve
 ```
 
 ## 对话
 
-```bash
-ollama serve # 启动基础推理服务
+```c
+ollama serve				   # 启动基础推理服务
 ```
 
-确认 Ollama 的后台程序有没有在正常工作：
+确认 Ollama 的后台程序到底有没有在正常工作：
 
-```bash
+```c
 curl http://localhost:11434/
 ```
 
-相当于喊了一声“喂，在吗？”，正在监听的 Ollama 会通过网络回复一句 `"Ollama is running"`。
+相当于喊了一声“喂，在吗？”，正在监听的 Ollama 听到了，赶紧通过网络回复了一句 `"Ollama is running"`
 
 ![image-20260316200231887](/images/posts/deepseek-deploy-config/image-20260316200231887.png)
 
+
+
 ### 命令行交互
 
-终端会变成一个类似微信的对话框（前面带个 `>>>` 提示符），它会自动记住之前说过的话，也就是有上下文记忆。
+终端会变成一个类似微信的对话框（前面带个 `>>>` 提示符），它会**自动记住你之前说过的话**（也就是有上下文记忆）。
 
-连续对话的聊天室模式：
+连续对话的聊天室模式
 
-```bash
-ollama serve              # 启动基础推理服务
-ollama run deepseek-r1:7b # 另开终端运行模型
-/bye                      # 结束对话
+```c
+ollama serve				   # 启动基础推理服务
+ollama run deepseek-r1:7b		# 另开终端运行模型
+/bye			//结束对话
 ```
 
 ![image-20260316205222813](/images/posts/deepseek-deploy-config/image-20260316205222813.png)
 
-### curl 方式
 
-这是最原始、最直接的 API 调用方式，返回的是结构化的 JSON 数据。
 
-如果开启流式输出，模型会一边生成一边返回内容，看起来会像打字机效果。
+### curl 方式：
 
-```bash
+底层通信通道，最原始、最直接的 **API 接口调用**。一次性的代码请求/响应，包含各种标记的 JSON 机器代码
+
+流式输出：一边思考，一边把字打出来（打字机效果）。AI 只要生成了哪怕半个词，就会立刻通过网络把这个词发给你。
+
+```c
 curl -X POST http://localhost:11434/api/generate \
-  -H "Content-Type: application/json" \
-  -d '{
-        "model": "deepseek-r1:1.5b",
-        "prompt": "新中国哪一年成立的？",
-        "stream": true
-      }'
+    -H "Content-Type: application/json" \
+    -d '{                            
+            "model":"deepseek-r1:1.5b", 
+            "prompt" : "新中国哪一年成立的？", 
+            "stream" : true  
+    }'
 ```
 
-`"model": "deepseek-r1:1.5b"` 表示这次请求要调用的具体模型。
+`"model": "deepseek-r1:1.5b"` 告诉 Ollama 后台，你要唤醒并使用哪一个具体的 AI 模型。(指定大脑)
 
-`"prompt": "hello"` 表示输入给模型的提示词。
+`"prompt": "hello"` (提示词/输入内容)
 
-`"stream": true` 表示开启流式传输；如果设为 `false`，模型会等整段内容生成完成后再一次性返回。
+`"stream": true` (流式传输开关)，当为 **`false`**（关闭）时：它会在后台把整篇长篇大论全部写完，然后一次性打包发给你。
 
 ![image-20260316200406390](/images/posts/deepseek-deploy-config/image-20260316200406390.png)
 
-### Python 方式
+### Python 方式：
 
-创建 `chat.py` 文件：
+创建 `chat.py` 文件
 
-```bash
+```c
 nano chat.py
 ```
 
-复制并粘贴下面这段代码：
+复制粘贴代码
 
-```python
+```c
 import urllib.request
 import json
 import sys
-
 
 def chat_with_ollama(prompt):
     url = "http://localhost:11434/api/generate"
@@ -207,23 +229,22 @@ def chat_with_ollama(prompt):
         "prompt": prompt,
         "stream": False
     }
-
+    
     # 将数据打包为 JSON 格式并设置请求头
     req = urllib.request.Request(
-        url,
-        json.dumps(data).encode("utf-8"),
-        {"Content-Type": "application/json"}
+        url, 
+        json.dumps(data).encode('utf-8'), 
+        {'Content-Type': 'application/json'}
     )
-
+    
     try:
         # 发送请求并接收回复
         with urllib.request.urlopen(req) as response:
-            result = json.loads(response.read().decode("utf-8"))
-            print("\\n🤖 DeepSeek 回复:\\n")
+            result = json.loads(response.read().decode('utf-8'))
+            print("\n🤖 DeepSeek 回复:\n")
             print(result.get("response", "没有获取到回复。"))
     except Exception as e:
-        print(f"\\n❌ 请求失败，请检查 Ollama 是否在运行。错误信息: {e}")
-
+        print(f"\n❌ 请求失败，请检查 Ollama 是否在运行。错误信息: {e}")
 
 if __name__ == "__main__":
     # 检查是否在命令行里输入了问题
@@ -232,28 +253,28 @@ if __name__ == "__main__":
         print(f"正在思考: {user_input} ... (请稍等)")
         chat_with_ollama(user_input)
     else:
-        print('请提供一个问题！例如: python3 chat.py "你好"')
+        print("请提供一个问题！例如: python3 chat.py \"你好\"")
 ```
 
-保存并退出：
+保存并退出
 
-1. 按 `Ctrl + O` 保存文件
-2. 按 `Enter` 确认文件名
-3. 按 `Ctrl + X` 退出编辑器
+在 nano 编辑器中，按照以下键盘顺序操作来保存：
 
-运行示例：
+1. 按 `Ctrl + O` （字母 O，代表保存，会提示你文件名，直接按回车确认）
+2. 按 `Enter` （回车）
+3. 按 `Ctrl + X` （代表退出编辑器）
 
-```bash
+```c
 python3 chat.py "新中国哪一年成立的？"
 ```
 
 ![image-20260316195046423](/images/posts/deepseek-deploy-config/image-20260316195046423.png)
 
-## 其他
+## 其它
 
-### 常用指令
+### **其它指令:**
 
-```bash
+```c
 # ========== 基础命令 ==========
 ollama --version                    # 查看版本
 
@@ -276,9 +297,9 @@ Ctrl + D                            # 退出交互模式
 /bye                                # 退出交互模式（同上）
 ```
 
-示例：
+**示例：**
 
-```bash
+```c
 ollama pull deepseek-r1:1.5b
 ollama rm deepseek-r1:1.5b
 ollama rm qwen:0.5b
@@ -286,36 +307,42 @@ ollama show qwen3:14b
 ollama stop qwen3:14b
 ```
 
-### IP 与端口
+### IP端口
 
 `http://localhost:11434/`
 
-**IP 地址** = **大楼的街道地址**，决定了数据要送到哪台电脑。
+**IP 地址** = **大楼的街道地址**（决定了数据要送到哪台电脑）。
 
-**端口（Port）** = **大楼里的房间号**，决定了数据由电脑里的哪个软件来接收。因为电脑里可能同时运行着很多程序（微信、浏览器、Ollama），必须用端口号把它们区分开。`11434` 就是 Ollama 专属的房间号。
+**端口 (Port)** = **大楼里的房间号**（决定了数据由电脑里的哪个软件来接收）。因为你的电脑同时运行着很多程序（微信、浏览器、Ollama），必须用端口号把它们区分开。`11434` 就是 Ollama 专属的房间号。
 
-#### 仅本机访问
+
+
+#### 内向封闭：
 
 `http://localhost:11434/`
 
-本机浏览器会显示 `Ollama is running`。
+本机浏览器显示`Ollama is running`
 
-这种方式只适合自己跟自己通信，同一局域网下的其他设备无法通过 `localhost` 访问你这台电脑上的 Ollama。
+用来**自己跟自己通信**，同一局域网下的其他设备（比如你的手机、其他电脑）是绝对无法通过 `localhost` 访问你这台电脑上的 Ollama 的。
 
-#### 局域网开放访问
+#### 外向开放型
 
 `http://192.168.6.120:11434/`
 
-只要在同一个 Wi-Fi 或局域网下，其他设备就可以通过这个地址访问你的电脑。
+用来**跨设备通信**的！只要在同一个 Wi-Fi 或局域网下，任何设备都可以通过这个地址找到你的电脑。
 
-默认情况下，Ollama 只监听 `localhost`。配置 `0.0.0.0` 之后，Ollama 会同时监听局域网网卡接口，允许手机、开发板或其他电脑发起请求。
+Ollama 只**监听 `localhost`（只听自己人的）。 配置了 `0.0.0.0` 之后，Ollama 不仅监听 `localhost`，同时也监听 `192.168.6.120` 这个网卡接口，允许局域网里的手机、开发板来向它请教问题。
 
-```bash
+```c
 OLLAMA_HOST="0.0.0.0"
 ```
 
+
+
 ### 参考资料
 
-- [Ollama 中文文档](https://ollama.cadn.net.cn/) - 适合快速查配置项和命令参数
-- [菜鸟教程 - Ollama](https://www.runoob.com/ollama) - 适合快速入门和基础命令回顾
-- [知乎 - DeepSeek 部署实践](https://zhuanlan.zhihu.com/p/1913901917786056107) - 适合参考社区经验和常见踩坑记录
+https://ollama.cadn.net.cn/
+
+https://www.runoob.com/ollama
+
+https://zhuanlan.zhihu.com/p/1913901917786056107
