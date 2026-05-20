@@ -42,7 +42,7 @@ Windows Subsystem for Linux（简称WSL）是一个在Windows 10\11上能够运�
 
 确认是否开启
 
-![image-20251118001215726](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118001215726.png)
+![image-20251118001215726](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118001215726.png)
 
 
 
@@ -54,9 +54,9 @@ Windows Subsystem for Linux（简称WSL）是一个在Windows 10\11上能够运�
 
  window 系统中开启 wsl 和虚拟化功能的使用，其具体操作如下图：
 
-![image-20251117234809308](/images/posts/windows11-wsl2-ubuntu-setup/image-20251117234809308.png)
+![image-20251117234809308](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251117234809308.png)
 
-![image-20251117234756416](/images/posts/windows11-wsl2-ubuntu-setup/image-20251117234756416.png)
+![image-20251117234756416](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251117234756416.png)
 
 从 VMWare Workstation/Player 15.5.5 版本开始，彻底解决了 VMWare Workstation/Player 与 Hyper-V 的冲突问题。
 
@@ -77,7 +77,7 @@ wsl --set-default-version 1           👈设置WSL 版本为 1
 wsl --update
 ```
 
-![image-20251118004455483](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118004455483.png)
+![image-20251118004455483](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118004455483.png)
 
 当出现如上图输出时，说明 wsl2 安装成功。
 
@@ -87,19 +87,19 @@ wsl --update
 
 安装 ubuntu 可以在“Microsoft store”中下载，我们在“Microsoft store”的搜索栏输入“ubuntu”,如下图：
 
-![image-20251117235657356](/images/posts/windows11-wsl2-ubuntu-setup/image-20251117235657356.png)
+![image-20251117235657356](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251117235657356.png)
 
 这里选择一个自己喜欢的 ubuntu 版本下载即可，我这里下载的是“Ubuntu 20.04.6 LTS”。
 
 **安装22.04版本的**
 
-![image-20251117235748153](/images/posts/windows11-wsl2-ubuntu-setup/image-20251117235748153.png)
+![image-20251117235748153](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251117235748153.png)
 
 
 
 下载完毕后，我们点击“Ubuntu 22.04.6 LTS”进入 ubuntu 系统，如下图：
 
-![image-20251118005127347](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118005127347.png)
+![image-20251118005127347](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118005127347.png)
 
 
 
@@ -109,7 +109,7 @@ wsl --update
 
 下载离线包进行解压 
 
-![image-20251118000312679](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118000312679.png)
+![image-20251118000312679](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118000312679.png)
 
 
 
@@ -121,7 +121,7 @@ wsl --update
 
 用户名规则：必须以**小写字母**开头，只能包含：**小写字母、数字、下划线、横杠****不能使用大写字母**
 
-![image-20251118000324506](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118000324506.png)
+![image-20251118000324506](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118000324506.png)
 
 
 
@@ -139,7 +139,7 @@ usbipd 是一个用于管理 USB/IP 服务的命令行工具，主要作用是�
 
 1.github 获取安装包安装：下载，usbipd 位 于https://github.com/dorssel/usbipd-win/releases，双击 usbipd-win_4.3.0 安装
 
-![image-20251118021940295](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118021940295.png)
+![image-20251118021940295](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118021940295.png)
 
 2.命令包安装：windows中打开powershell使用以下命令来安装usbipd工具：
 
@@ -149,7 +149,7 @@ winget install --interactive --exact dorssel.usbipd-win
 
 点击“install”安装，如下图：
 
-![img](/images/posts/windows11-wsl2-ubuntu-setup/v2-2ed1bd5bed26bd7e890374538f3179731440w.jpg)
+![img](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/v2-2ed1bd5bed26bd7e890374538f3179731440w.jpg)
 
 安装完成后，我们重启 windows 电脑，并再次启动 WSL2。
 
@@ -214,7 +214,7 @@ usbipd unbind --busid <busid>		# 解除绑定（可选）
 
 usbipd bind --busid 2-1	运行命令后，再次使用命令 usbipd list 验证设备是否已共享。（后面的设备状态变成 *Shared*）
 
-![alt text](/images/posts/windows11-wsl2-ubuntu-setup/o240425025628image.png)
+![alt text](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/o240425025628image.png)
 
 然后就可以附加 USB 设备了（注意，只要 USB 设备连接到 WSL，Windows 将无法使用它）。使用命令 `usbipd attach --wsl -b 2-1` 附加 USB 设备，附加到 WSL2 后，WSL2 运行的分发版本（也就是你 WSL 安装的 linux 系统，我的是 Ubuntu ）可以使用 USB 设备。 使用 `usbipd list` 验证设备是否已附加。
 
@@ -271,25 +271,25 @@ goto :eof
 
 
 
-![image-20251118023850842](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118023850842.png)
+![image-20251118023850842](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118023850842.png)
 
 这里我们需要绑定的设备是“USB 大容量存储设备”（U 盘、读卡器对应的都是“USB 大容量存储设备”），其对应的“BUSID”是“4-2”，我们输入“4-2”并回车，执行结果如下图
 
-![image-20251118024631128](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118024631128.png)
+![image-20251118024631128](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118024631128.png)
 
 这里我们需要“绑定 wsl”,我们输入“1”并回车，执行结果如下图：
 
-![image-20251118024644305](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118024644305.png)
+![image-20251118024644305](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118024644305.png)
 
 当出现如上图输出时，wsl2 ubuntu 绑定 usb 设备成功，我们进入 wsl2 ubuntu 命令行输入 lsusb,结果如下图：
 
-![image-20251118024700283](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118024700283.png)
+![image-20251118024700283](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118024700283.png)
 
 ubuntu 解除访问 usb 设备
 
 我们进入刚刚执行的“USB_wsl_v1.2”的终端。由于这里我们需要“解绑 wsl”,所以我们输入“2”，现象如下图：
 
-![image-20251118024722227](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118024722227.png)
+![image-20251118024722227](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118024722227.png)
 
 要重启不然
 
@@ -519,11 +519,11 @@ sudo umount /mnt/e
 
 在 cmd 或者 powershell 内输入 wsl 命令即可：
 
-![在这里插入图片描述](/images/posts/windows11-wsl2-ubuntu-setup/41af3839dc154cf29086ebeb10376138.png)
+![在这里插入图片描述](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/41af3839dc154cf29086ebeb10376138.png)
 
 左侧设置，右测打开
 
-![image-20251118021229772](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118021229772.png)
+![image-20251118021229772](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118021229772.png)
 
 ## 文件交互
 
@@ -531,13 +531,13 @@ sudo umount /mnt/e
 
 在 Windows 文件资源管理器左侧可以找到 Linux 的标志，点击 Linux 就可以操作 Linux 文件。
 
-![在这里插入图片描述](/images/posts/windows11-wsl2-ubuntu-setup/6eda3fe8a2d84a7d90620e90dff9d88b.png)
+![在这里插入图片描述](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/6eda3fe8a2d84a7d90620e90dff9d88b.png)
 
 ### Linux 操作 Windows 文件
 
 Windows 下的所有文件都被挂载在了 `/mnt` 下，在Windows 终端中的任意目录下输入 wsl，即可进入 Linux 对应的路径。
 
-![在这里插入图片描述](/images/posts/windows11-wsl2-ubuntu-setup/53f386e4f849471580c939730f02a893.png)
+![在这里插入图片描述](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/53f386e4f849471580c939730f02a893.png)
 
 
 
@@ -554,19 +554,19 @@ wsl --unregister Ubuntu-20.04
 
 **卸载系统安装软件**
 
-![请添加图片描述](/images/posts/windows11-wsl2-ubuntu-setup/2213131753ab51a2f259db0cdb2594bf.png)
+![请添加图片描述](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/2213131753ab51a2f259db0cdb2594bf.png)
 
 ## **VSCODE** 
 
 **安装插件WSL**
 
-![image-20251118033945692](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118033945692.png)
+![image-20251118033945692](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118033945692.png)
 
-![image-20251118033952038](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118033952038.png)
+![image-20251118033952038](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118033952038.png)
 
 显示系统版本则证明加载成功
 
-![image-20251118034014649](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118034014649.png)
+![image-20251118034014649](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118034014649.png)
 
 
 
@@ -574,8 +574,8 @@ wsl --unregister Ubuntu-20.04
 
 所有的代码编写都在工作目录下：
 
-![image-20251118034035559](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118034035559.png)
+![image-20251118034035559](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118034035559.png)
 
-![image-20251118034039415](/images/posts/windows11-wsl2-ubuntu-setup/image-20251118034039415.png)
+![image-20251118034039415](https://kyro-qu.github.io/blog-images-1/posts/windows11-wsl2-ubuntu-setup/image-20251118034039415.png)
 
 /mnt是我们的共享文件夹，与我们的电脑磁盘是绑定的

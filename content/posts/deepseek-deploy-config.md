@@ -64,7 +64,7 @@ ollama --version
 ollama help		
 ```
 
-![image-20260316192245873](/images/posts/deepseek-deploy-config/image-20260316192245873.png)
+![image-20260316192245873](https://kyro-qu.github.io/blog-images-1/posts/deepseek-deploy-config/image-20260316192245873.png)
 
 
 开启ollama服务
@@ -162,7 +162,7 @@ curl http://localhost:11434/
 
 相当于喊了一声“喂，在吗？”，正在监听的 Ollama 听到了，赶紧通过网络回复了一句 `"Ollama is running"`
 
-![image-20260316200231887](/images/posts/deepseek-deploy-config/image-20260316200231887.png)
+![image-20260316200231887](https://kyro-qu.github.io/blog-images-1/posts/deepseek-deploy-config/image-20260316200231887.png)
 
 
 
@@ -178,7 +178,7 @@ ollama run deepseek-r1:7b		# 另开终端运行模型
 /bye			//结束对话
 ```
 
-![image-20260316205222813](/images/posts/deepseek-deploy-config/image-20260316205222813.png)
+![image-20260316205222813](https://kyro-qu.github.io/blog-images-1/posts/deepseek-deploy-config/image-20260316205222813.png)
 
 
 
@@ -204,7 +204,7 @@ curl -X POST http://localhost:11434/api/generate \
 
 `"stream": true` (流式传输开关)，当为 **`false`**（关闭）时：它会在后台把整篇长篇大论全部写完，然后一次性打包发给你。
 
-![image-20260316200406390](/images/posts/deepseek-deploy-config/image-20260316200406390.png)
+![image-20260316200406390](https://kyro-qu.github.io/blog-images-1/posts/deepseek-deploy-config/image-20260316200406390.png)
 
 ### Python 方式：
 
@@ -268,7 +268,7 @@ if __name__ == "__main__":
 python3 chat.py "新中国哪一年成立的？"
 ```
 
-![image-20260316195046423](/images/posts/deepseek-deploy-config/image-20260316195046423.png)
+![image-20260316195046423](https://kyro-qu.github.io/blog-images-1/posts/deepseek-deploy-config/image-20260316195046423.png)
 
 ## 其它
 
