@@ -248,3 +248,4 @@ git submodule update --remote themes/loficode
 
 - [../authoring/drafts/README.md](D:\WorkSpace\Project\KyroBlog\authoring\drafts\README.md)
 - [../authoring/notes/image-repo-upgrade-plan.md](D:\WorkSpace\Project\KyroBlog\authoring\notes\image-repo-upgrade-plan.md)
+# Kyro-Qu Blog
