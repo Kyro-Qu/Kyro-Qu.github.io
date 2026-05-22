@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 更高权限设置"
 subtitle: "不用反复点确认的权限配置指南"
-date: 2026-05-23T12:00:00+08:00
+date: 2026-05-23T01:00:00+08:00
 draft: false
 tags: ["Claude", "Claude Code", "AI工具"]
 featured: false
