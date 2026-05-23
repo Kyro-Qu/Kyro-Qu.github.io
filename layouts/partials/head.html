@@ -36,7 +36,7 @@
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta
   property="og:image"
-  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/profile.png" | absURL }}{{ end }}"
+  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.author.image | default "images/profile-320.png" | absURL }}{{ end }}"
 />
 
 <meta name="twitter:card" content="summary_large_image" />
@@ -50,7 +50,7 @@
 />
 <meta
   name="twitter:image"
-  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/profile.png" | absURL }}{{ end }}"
+  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.author.image | default "images/profile-320.png" | absURL }}{{ end }}"
 />
 
 <link rel="canonical" href="{{ .Permalink }}" />

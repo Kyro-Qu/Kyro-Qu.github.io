@@ -8,6 +8,8 @@ featured: false
 mood: "focus"
 description: "记录 Windows 11 上启用虚拟化、安装 WSL2、部署 Ubuntu 以及常见注意事项。"
 ---
+这篇记录 Windows 11 上安装和维护 WSL2 Ubuntu 的常用流程。
+
 参考链接：
 https://learn.microsoft.com/zh-cn/windows/wsl/
 
@@ -129,7 +131,7 @@ WSL2：Windows11下的WSL2已经支持和VM共存，配置完后可以直接调�
 
 
 
-# 二、wsl2 ubuntu 访问 U 盘设备
+## 二、wsl2 ubuntu 访问 U 盘设备
 
 usbipd 是一个用于管理 USB/IP 服务的命令行工具，主要作用是在 Windows 系统上共享 USB设备，使其能够通过网络被其他计算机访问。USB/IP 是一种协议，允许通过网络共享 USB 设备。通过 usbipd 工具，用户可以将本地连接的 USB 设备共享给其他计算机，包括 Hyper-V 虚拟机和WSL 2（Windows Subsystem for Linux 2）。
 
@@ -324,7 +326,7 @@ wsl --export Ubuntu-22.04 D:\Ubuntu_2204.tar
 
 
 
-# 三、将已安装的系统转移到指定盘符
+## 三、将已安装的系统转移到指定盘符
 
 WSL的默认文件存储位置（通常位于系统盘C:\Users\<用户名>\AppData\Local\Packages\<发行版包名>\LocalState\rootfs），Linux发行版及其数据文件（如/home目录下的用户数据）会随使用逐渐膨胀，占用大量空间。通过迁移至其他磁盘（如D盘或外接硬盘），可有效释放系统盘压力。
 
@@ -408,7 +410,7 @@ wsl --shutdown
 
 此后，当你通过 `wsl` 或 `wsl -d Ubuntu-22.04` 启动时，系统将默认使用你指定的用户登录。
 
-# 四、修改默认发行版系统
+## 四、修改默认发行版系统
 
 当系统中安装了多个Linux发行版时，可以指定其中一个作为默认发行版。默认发行版会在运行 `wsl.exe` 而不带任何参数时启动。
 
@@ -443,7 +445,7 @@ C:\> wsl -l -v
 
 
 
-# 其它
+## 其它
 
 ## 命令
 

@@ -4,7 +4,7 @@
             <a href="{{ "/" | absLangURL }}" class="logo">{{ partial "site-brand.html" . }}</a>
         </div>
 
-        <div class="nav-links">
+        <div class="nav-links" id="siteNavLinks">
             {{ range .Site.Menus.main }}
             <a href="{{ .URL | absLangURL }}" class="nav-link">{{ .Name }}</a>
             {{ end }}
@@ -14,8 +14,11 @@
         </div>
 
         <div class="header-controls">
-            <button class="search-toggle" title="搜索文章"><span aria-hidden="true">&#128269;</span></button>
-            <button class="theme-toggle" title="切换明暗主题"><span aria-hidden="true">&#127769;</span></button>
+            <button class="mobile-menu-toggle" type="button" title="打开导航菜单" aria-label="打开导航菜单" aria-expanded="false" aria-controls="siteNavLinks">
+                <span aria-hidden="true">&#9776;</span>
+            </button>
+            <button class="search-toggle" type="button" title="搜索文章" aria-label="搜索文章"><span aria-hidden="true">&#128269;</span></button>
+            <button class="theme-toggle" type="button" title="切换明暗主题" aria-label="切换明暗主题"><span aria-hidden="true">&#127769;</span></button>
         </div>
     </nav>
 

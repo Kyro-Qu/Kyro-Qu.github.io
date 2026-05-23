@@ -58,9 +58,16 @@
   function localizeSearchResults(root) {
     root.querySelectorAll(".search-no-results").forEach((node) => {
       const query = document.getElementById("searchInput")?.value.trim();
-      node.textContent = query
-        ? `没有找到与“${query}”相关的文章，请换个关键词试试。`
-        : "没有找到相关文章。";
+      if (query) {
+        node.textContent = `没有找到与“${query}”相关的文章，请换个关键词试试。`;
+        return;
+      }
+
+      const results = document.getElementById("searchResults");
+      if (results && results.contains(node)) {
+        results.innerHTML = "";
+        results.classList.remove("has-results");
+      }
     });
   }
 
@@ -78,12 +85,62 @@
     });
   }
 
+  function localizeAmbientControls(root) {
+    const labelMap = {
+      "Click to start ambient sounds": "选择背景音效",
+      "Coffee Shop not available": "咖啡馆音效暂不可用",
+      "Rain not available": "雨声音效暂不可用",
+      "Fireplace not available": "壁炉音效暂不可用",
+    };
+
+    root.querySelectorAll(".ambient-label").forEach((node) => {
+      const text = node.textContent.trim();
+      if (labelMap[text]) {
+        node.textContent = labelMap[text];
+        return;
+      }
+
+      node.textContent = text
+        .replace(/^Playing:\s*Coffee Shop$/i, "正在播放：咖啡馆")
+        .replace(/^Playing:\s*Rain$/i, "正在播放：雨声")
+        .replace(/^Playing:\s*Fireplace$/i, "正在播放：壁炉")
+        .replace(/^Paused:\s*Coffee Shop$/i, "已暂停：咖啡馆")
+        .replace(/^Paused:\s*Rain$/i, "已暂停：雨声")
+        .replace(/^Paused:\s*Fireplace$/i, "已暂停：壁炉");
+    });
+
+    const controls = [
+      [".mute-toggle", "切换背景音效"],
+      ['.ambient-icon[data-sound="coffee"]', "咖啡馆音效"],
+      ['.ambient-icon[data-sound="rain"]', "雨声音效"],
+      ['.ambient-icon[data-sound="fireplace"]', "壁炉音效"],
+      [".volume-slider", "背景音量"],
+    ];
+
+    controls.forEach(([selector, label]) => {
+      root.querySelectorAll(selector).forEach((node) => {
+        node.setAttribute("title", label);
+        node.setAttribute("aria-label", label);
+      });
+    });
+  }
+
+  function localizeRelatedContent(root) {
+    root.querySelectorAll(".related-posts h3").forEach((node) => {
+      if (/^Related Content$/i.test(node.textContent.trim())) {
+        node.textContent = "相关文章";
+      }
+    });
+  }
+
   function localizeDom() {
     const root = document;
     localizeReadingTime(root);
     localizeLoadMore(root);
     localizeSearchResults(root);
     localizePostCards(root);
+    localizeAmbientControls(root);
+    localizeRelatedContent(root);
   }
 
   function getGiscusTheme() {
@@ -243,11 +300,6 @@
 
       if (loadPromise) {
         return loadPromise;
-      }
-
-      if (isSearchOpen) {
-        searchResults.innerHTML = '<div class="search-no-results">正在加载搜索索引...</div>';
-        searchResults.classList.add("has-results");
       }
 
       loadPromise = fetch("/index.json", { cache: "no-store" })
@@ -432,6 +484,55 @@
     });
   }
 
+  function setupMobileMenu() {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const navLinks = document.getElementById("siteNavLinks");
+
+    if (!toggle || !navLinks) {
+      return;
+    }
+
+    function setOpen(isOpen) {
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "关闭导航菜单" : "打开导航菜单");
+      toggle.title = isOpen ? "关闭导航菜单" : "打开导航菜单";
+      navLinks.classList.toggle("is-open", isOpen);
+      document.documentElement.classList.toggle("mobile-menu-open", isOpen);
+    }
+
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        toggle.getAttribute("aria-expanded") === "true" &&
+        !navLinks.contains(event.target) &&
+        !toggle.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 769px)").matches) {
+        setOpen(false);
+      }
+    });
+  }
+
   let scheduled = false;
   function scheduleLocalization() {
     if (scheduled) {
@@ -444,6 +545,7 @@
     });
   }
 
+  setupMobileMenu();
   setupJsonBackedSearch();
   setupGiscusThemeSync();
 

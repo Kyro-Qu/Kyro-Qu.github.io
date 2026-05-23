@@ -47,7 +47,7 @@ enableRobotsTXT = true
 
 [params.author]
   name = "Kyro"
-  image = "images/profile.png"
+  image = "images/profile-320.png"
 
 [params.social]
   github = "https://github.com/Kyro-Qu"
