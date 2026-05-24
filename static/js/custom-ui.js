@@ -533,6 +533,134 @@
     });
   }
 
+  function setupTocScrollSync() {
+    const tocContent = document.getElementById("toc-content");
+    if (!tocContent || tocContent.dataset.scrollSyncReady === "true") {
+      return;
+    }
+
+    const links = Array.from(tocContent.querySelectorAll('a[href^="#"]'));
+    if (!links.length) {
+      return;
+    }
+
+    const headings = Array.from(document.querySelectorAll(".post-body h2, .post-body h3"));
+    const pairs = links
+      .map((link, index) => {
+        let id = link.hash.slice(1);
+        try {
+          id = decodeURIComponent(id);
+        } catch (_error) {
+          // Keep the raw hash when it is not URI encoded.
+        }
+
+        const heading = document.getElementById(id) || headings[index];
+        return heading ? { link, heading } : null;
+      })
+      .filter(Boolean);
+
+    if (!pairs.length) {
+      return;
+    }
+
+    tocContent.dataset.scrollSyncReady = "true";
+
+    const overlayContent = document.querySelector(".post-overlay-content");
+    const usesOverlayScroll =
+      overlayContent && overlayContent.scrollHeight > overlayContent.clientHeight;
+    const scrollTarget = usesOverlayScroll ? overlayContent : window;
+
+    function getOffset() {
+      if (usesOverlayScroll) {
+        return (document.querySelector(".post-overlay-header")?.offsetHeight || 0) + 36;
+      }
+
+      return (document.querySelector(".site-header")?.offsetHeight || 0) + 36;
+    }
+
+    function isAtBottom() {
+      if (usesOverlayScroll) {
+        return (
+          overlayContent.scrollTop + overlayContent.clientHeight >=
+          overlayContent.scrollHeight - 4
+        );
+      }
+
+      const page = document.documentElement;
+      return window.scrollY + window.innerHeight >= page.scrollHeight - 4;
+    }
+
+    function setActive(activeIndex) {
+      pairs.forEach(({ link }, index) => {
+        link.classList.toggle("active", index === activeIndex);
+      });
+    }
+
+    function updateActiveToc() {
+      const containerTop = usesOverlayScroll
+        ? overlayContent.getBoundingClientRect().top
+        : 0;
+      const threshold = getOffset();
+      let activeIndex = 0;
+
+      pairs.forEach(({ heading }, index) => {
+        const top = heading.getBoundingClientRect().top - containerTop;
+        if (top <= threshold) {
+          activeIndex = index;
+        }
+      });
+
+      if (isAtBottom()) {
+        activeIndex = pairs.length - 1;
+      }
+
+      setActive(activeIndex);
+    }
+
+    function scrollToHeading(heading) {
+      const offset = getOffset() - 8;
+
+      if (usesOverlayScroll) {
+        const containerTop = overlayContent.getBoundingClientRect().top;
+        const top =
+          heading.getBoundingClientRect().top -
+          containerTop +
+          overlayContent.scrollTop -
+          offset;
+        overlayContent.scrollTo({ top, behavior: "smooth" });
+        return;
+      }
+
+      const top = heading.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
+    tocContent.addEventListener(
+      "click",
+      (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || !tocContent.contains(link)) {
+          return;
+        }
+
+        const pair = pairs.find((item) => item.link === link);
+        if (!pair) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        scrollToHeading(pair.heading);
+        setActive(pairs.indexOf(pair));
+      },
+      true
+    );
+
+    scrollTarget.addEventListener("scroll", updateActiveToc, { passive: true });
+    window.addEventListener("resize", updateActiveToc);
+    window.requestAnimationFrame(updateActiveToc);
+  }
+
   let scheduled = false;
   function scheduleLocalization() {
     if (scheduled) {
@@ -546,6 +674,7 @@
   }
 
   setupMobileMenu();
+  setupTocScrollSync();
   setupJsonBackedSearch();
   setupGiscusThemeSync();
 
@@ -558,6 +687,7 @@
   }
 
   const observer = new MutationObserver(() => {
+    setupTocScrollSync();
     scheduleLocalization();
   });
 

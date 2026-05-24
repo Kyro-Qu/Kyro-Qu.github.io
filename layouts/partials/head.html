@@ -72,8 +72,9 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
 
+{{ $customCssVersion := readFile "static/css/custom.css" | md5 }}
 <link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}">
-<link rel="stylesheet" href="{{ "css/custom.css" | absLangURL }}">
+<link rel="stylesheet" href="{{ "css/custom.css" | absLangURL }}?v={{ $customCssVersion }}">
 
 {{ range .AlternativeOutputFormats -}}
 <link
