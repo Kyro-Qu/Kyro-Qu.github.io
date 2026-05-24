@@ -51,10 +51,38 @@ html[data-theme="dark"] .site-header {
 }
 
 .post-body table {
-    display: block;
+    display: table;
     max-width: 100%;
-    overflow-x: auto;
+    width: 100%;
+    border: 1px solid var(--border-color);
     border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px;
+}
+
+.post-body table th,
+.post-body table td {
+    border: 1px solid var(--border-color);
+    padding: 0.65rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.post-body table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+}
+
+.post-body table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 768px) {
+    .post-body table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }
 
 .post-body pre,
