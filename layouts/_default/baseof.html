@@ -22,7 +22,8 @@
     {{ end }}
 
     {{ $assetVersion := readFile "static/js/custom-ui.js" | md5 }}
-    <script src="{{ "js/main.js" | absLangURL }}"></script>
+    {{ $mainJsVersion := readFile "static/js/main.js" | md5 }}
+    <script src="{{ "js/main.js" | absLangURL }}?v={{ $mainJsVersion }}"></script>
     <script src="{{ "js/custom-ui.js" | absLangURL }}?v={{ $assetVersion }}"></script>
 </body>
 </html>
