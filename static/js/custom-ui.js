@@ -133,6 +133,28 @@
     });
   }
 
+  function restorePostItemMotion(root) {
+    const posts = root.querySelectorAll(".post-item");
+    posts.forEach((post) => {
+      if (post.dataset.motionCleanupScheduled === "true") {
+        return;
+      }
+
+      const style = post.getAttribute("style") || "";
+      if (!/opacity\s*:|transform\s*:/i.test(style)) {
+        return;
+      }
+
+      post.dataset.motionCleanupScheduled = "true";
+      window.setTimeout(() => {
+        post.style.removeProperty("opacity");
+        post.style.removeProperty("transform");
+        post.style.removeProperty("transition");
+        delete post.dataset.motionCleanupScheduled;
+      }, 650);
+    });
+  }
+
   function localizeDom() {
     const root = document;
     localizeReadingTime(root);
@@ -141,6 +163,7 @@
     localizePostCards(root);
     localizeAmbientControls(root);
     localizeRelatedContent(root);
+    restorePostItemMotion(root);
   }
 
   function getGiscusTheme() {
