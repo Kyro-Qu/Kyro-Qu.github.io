@@ -14,39 +14,86 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 
 1. 先看“时态与语态、主谓一致、非谓语、从句”，建立句子骨架。
 2. 再看“倒装、虚拟语气、情态动词、特殊句型”，补齐考试常见结构。
-3. 最后集中背“词语辨析、固定搭配、不规则动词”，把表达落到具体用法。
+3. 最后集中背“词语辨析、词汇整理、固定搭配”，把表达落到具体用法。
 
 ## 目录
 
 - 时态与语态
+  - 现在时
+  - 完成时
+  - 进行时
+  - 过去式
+  - In / by / for 时间表达
 - 主谓一致
+  - be 动词与主语对应
   - 就近原则
   - 就远原则
+  - 数量表达与谓语单复数
 - 非谓语动词
+  - 非谓语基本形式
+  - 不定式 to do
+  - 动名词 doing
+  - 分词与独立主格
+  - 非谓语时态、语态与否定
 - 从句
+  - 主语从句
+  - 定语从句
+  - 状语从句
+  - 强调句与形式主语
+  - 时间状语从句
+  - reason 相关句型
+  - of + 关系代词
 - 倒装
+  - 部分倒装与全倒装
+  - as / though 让步倒装
+  - 反义疑问句
+  - so / neither / nor 倒装
+  - have / has 用法辨析
+  - 疑问句、感叹句与否定句
 - 虚拟语气
 - 数词
   - 基数词表达法
   - 倍数表达法
+  - 倍数句式
+  - 形容词比较级与最高级
   - 分数表达
+  - 生日表达
 - 情态动词
+  - 推测、义务、禁止
+  - can / could
+  - 情态动词表推测
+  - 情态动词表请求
 - 易混与特殊单词
+  - look 相关用法
 - 常见规律
 - 特殊句型
+  - there be
+  - no matter / so that / the reason is that
+  - too ... to / such ... that / so ... that
+  - both / either / neither / all / none
+  - of 和 for
 - 词语辨析
 - 主动形式表被动意义
 - 词性
   - 动词
   - 介词
+  - 祈使句
   - 名词
   - 代词
   - 副词和形容词
+  - 连词成句
+  - 词根词缀
 - 作文表达
 - 短语表
 - 词汇整理
-- 不规则动词及其过去式 75 个
+- 月份、词汇与补充考点
 - 固定搭配
+  - to do / doing 对比
+  - take turns
+  - doing 类搭配
+  - to do 类搭配
+  - worry about / be worried about
+  - take / bring / cut
 
 ## 时态与语态
 
@@ -75,6 +122,8 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 
 #### 常见从句类型
 
+#### 时间状语从句
+
 时间状语从句：
 
 - 引导词：as soon as, when, after, before, until, once
@@ -85,11 +134,15 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 - Before they drive any of the buses, they will have to pass a special test.
 - 然而在驾驶公共汽车前，他们必须通过专门测验。
 
+#### 条件状语从句
+
 条件状语从句：
 
 - 引导词：if, unless, provided that, as long as
 - I will help you if you need me.
 - 如果你需要我，我会帮助你。
+
+#### 让步状语从句
 
 让步状语从句：
 
@@ -165,7 +218,7 @@ since + did, have/has done
 
 It has been four years since John set up this IT company.
 
-进行时：
+### 进行时
 
 - 感官动词 Look! Listent
 - 表示某一刻 now ,at the moment,at persent,
@@ -183,19 +236,21 @@ more and more adj.”，表示“越来越受怎么样”，是一个正在变�
 
 Laptops as well as computers are becoming more and more popular in daily work.
 
-过去式：
+### 过去式
 
 the other day 前几天，一般过去时
 
 just now, three days ago, yesterday, the other day, last month
 
-In 特殊表达
+### In 的时间表达
 
 In+一段过去的时间 In the past few years. 现在完成时
 
 In+一小段时间 In three hours 一般将来时
 
 In+年份 根据具体的年份判断使用一般过去/将来
+
+### by 的时间表达
 
 by +过去的时间(单词或句子)，=> 句子使用过去完成时
 
@@ -213,6 +268,8 @@ By the time I arrive at the airport, they will have left for Beijing.
 
 By the time I finish my homework, my parent will have left (have left; will have left).
 
+### for + 时间段
+
 for+时间段：观察从句，判断是否结束
 
 发生的动作在后面句子表示现在已经结束 => 一般过去时间
@@ -229,11 +286,11 @@ The morning 过去时 evening 将来时
 
 ## 主谓一致
 
-### You are/were
+### be 动词与主语对应
 
-### Doing(动名词) / He/she + is/was
+#### Doing(动名词) / He/she + is/was
 
-### I am/was
+#### I am/was
 
 ### 就近原则
 1. not only...but also...
@@ -260,6 +317,9 @@ The morning 过去时 evening 将来时
 8.including
 
 9. in addition
+
+### 数量表达与谓语单复数
+
 - 谓语前 and 前后两种职业或身份，前面只有一个 the 是单三，前后各一个 the 为复数。
 - The + 姓氏复数，代表一家人，谓语不是单三：The Greens are
 - 动名词(doing)也是单三
@@ -311,6 +371,9 @@ He is the only one of the students who has passed the exam.（他是唯一通过
 This is the very one of the books that is worth reading.（这是唯一值得读的书。）
 
 ## 非谓语动词
+
+### 非谓语基本形式
+
 定语/状语：不定式，分词 主谓宾：动名词，不定式
 
 不定式：to do 表目的和将来
@@ -364,7 +427,7 @@ to do
 
 被修饰的词被 the only,最高级，序数词
 
-### 某些动词后面只能接“to do”形式作宾语的用法。
+### 只能接 to do 的动词
 
 这些动词后面必须用 “to do” 形式，不能用动名词或分词：
 
@@ -388,7 +451,7 @@ to do
 
 ### 只能用 doing 作宾语
 
-### 有些动词（词组）只能用 doing 形式作宾语，如：
+#### 常见 doing 宾语动词
 
 - advise, suggest, discuss, practice, allow, permit
 - appreciate, enjoy, finish, burst out
@@ -407,10 +470,10 @@ to do
 - prevent from, put off, succeed in, think of, thank sb. for, worry about
 - be busy (in), have difficulty/trouble (in), have a good/wonderful/hard time (in)
 
-#### Nobody will risk being killed.
+**例句：Nobody will risk being killed.**
 没有人会冒被杀的风险。
 
-#### I can hardly imagine spending so much money on a coat like that.
+**例句：I can hardly imagine spending so much money on a coat like that.**
 我很难想象花费那么多钱买一件那样的外套。
 
 天气、时间允许都是用主动 permitting：
@@ -421,10 +484,12 @@ Weather permitting, the foreign guests will visit the Panda Base.
 
 Time permitting, we will discuss this later.如果时间允许，我们稍后讨论这个问题。
 
-### 固定搭配："To one's + 情感名词"，强调某个结果让某人产生情感反应。
+### To one's + 情感名词
 To my surprise, he passed the exam.（令我惊讶的是，他通过了考试。）
 
 To their delight, the team won the championship.（令他们高兴的是，这支队伍赢得了冠军。）
+
+### 非谓语时态、语态与否定
 
 非谓语的时态：
 
@@ -485,6 +550,8 @@ having done（having been done）则在时间上显然先于谓语。
 
 admit 录取发生在 studied 之后，就要用 不定式 to do
 
+### 分词与独立主格
+
 当两个分句的主语相同时：可以省略第二句的主语，将其谓语改成非谓语，实际状语的主语在为主句的主语，第二句成为状语。
 
 You are very good at playing basketball and you are very tall.
@@ -524,6 +591,8 @@ The children are being left alone in the room while their parents talk outside.
 ## 从句
 同位语从句：解释抽象名词，且从句和主句完整，用 that（抽象名词：idea）
 
+### 主语从句
+
 主语从句：
 
 缺成分：that 不缺成分使用
@@ -543,6 +612,8 @@ that because 因为 whether(是否 or not 连用)
 if 如果(不能出现在句首，不与 or not 连用，不用于介词后)
 
 where 在..地方 why 为什么 how 如何，多么 when 当..时候
+
+### 定语从句
 
 定语从句：what 不引导定语从句，that 缺成分用
 
@@ -628,6 +699,8 @@ All________ can be done has been done. A．what B．which C．that
 
 由于这里是定语从句，what 不能用在定语从句，而 all 又是代词，所以这里用 that
 
+### 状语从句
+
 状语从句：
 
 Because：应为 why: ...的原因
@@ -650,6 +723,8 @@ No matter who=whomever 无论谁·，宾格
 
 There is no possibility that
 
+### 强调句
+
 强调句：
 
 1 常见结构：
@@ -670,7 +745,7 @@ It is / was + 被强调部分 + that / who + 句子剩余部分
 
 如果一句话是 “It is/was... that/who...” 结构，并且去掉 It is/was 和 that/who 后，不缺成分，能还原成一个正常句子，那就是强调句。
 
-形式主语
+### 形式主语
 
 这时，“It” 是形式主语，真正的主语放在句尾，叫真正的主语（real subject）。
 
@@ -687,6 +762,8 @@ It + verb + that... / to do...
 - 真正主语是 “that he is tired”
 - It is a pity that you missed the meeting.
 - 真正主语是 “that you missed the meeting”
+
+### 时间状语从句
 
 时间状语从句：
 
@@ -778,7 +855,7 @@ Given that this is the first time you have made a mistake, I forgive you.
 
 考虑到这是你第一次犯错误，我原谅你。
 
-### Reason
+### reason 相关句型
 1.the reason why+成分完整的定语从句+is: ……的原因是
 
 The reason why so many people caught the disease is still not clear.
@@ -818,6 +895,8 @@ The reason ________ (why/that) she explained to me for her absence was that she 
 她向我解释缺席的原因________（为什么/为什么）是她遇到了交通堵塞。
 
 这里的定语从句缺成分,既 explained 后面没有宾语，所以这里不能用 why,只能用 that
+
+### of + 关系代词
 
 介词 of+关系代词( which, whom)”的常见结构有:
 
@@ -879,6 +958,9 @@ My mother, who is a teacher, is very kind.
 他是一位作家，我对他知之甚少。
 
 ## 倒装
+
+### 部分倒装与全倒装
+
 部分倒装：将助动词提前
 
 1.Be 动词（am,is are）,助动词，动词 2.实义动词:添加 did/does/do（根据时态,单三，谓语要变原形）
@@ -908,6 +990,8 @@ Poor as (although/ as) she was, she never accepted anything for nothing.
 由于 Although 不倒装，所以 Although +句子 （句首）再句首表示虽然
 
 由于 as 倒装，as 句中 表虽然
+
+### as / though 让步倒装
 
 让步状语从句的倒装规则如下：
 
@@ -959,6 +1043,8 @@ Poor as (although/ as) she was, she never accepted anything for nothing.
 
 反义疑问句：http://www.yygrammar.com/Article/201905/5462.html
 
+### 反义疑问句
+
 结构：陈述句 +简短问句?
 
 1．前肯后否，前否后肯.否定的词语除了 did,
@@ -992,6 +1078,8 @@ She said nothing, did she? 她什么也没说，是不是？
 It is unfair, isn't it? 这不公平，不是吗?
 
 It is impossible, isn't it? 那是不可能的，是吗?
+
+### so / neither / nor 倒装
 
 so 和 neither/nor 的区别总结，后面倒装：
 
@@ -1043,7 +1131,9 @@ I have never seen the interesting movie, have you?
 
 have/has 除了在完成时中作为助动词外，“have/has”在其他情况下都是实义动词。以下是详细解释：
 
-### 1. “have/has”作为实义动词的常见用法
+### have / has 用法辨析
+
+#### “have/has”作为实义动词的常见用法
 - 表示“拥有”：
 
 She has a car.（她有一辆车。）
@@ -1060,21 +1150,21 @@ They have lunch at noon.（他们中午吃午饭。）
 
 I have my sister call me every day.（我让我的姐姐每天给我打电话。）
 
-### 2. “have/has”作为助动词的唯一情况
+#### “have/has”作为助动词的唯一情况
 - 构成完成时：
 
 She has finished her homework.（她已经完成了作业。）
 
 They have been waiting for hours.（他们已经等了几个小时了。）
 
-### 3. “have/has”在虚拟语气中的用法
+#### “have/has”在虚拟语气中的用法
 - 在虚拟语气中，“have”仍然作为助动词使用，帮助构成完成时的虚拟结构：
 
 If I had known, I would have told you.（如果我知道的话，我会告诉你的。）
 
 I wish I had more time.（我希望我有更多时间。）
 
-### 4. 总结
+#### 小结
 - “have/has”作为实义动词：表示“拥有”、“必须”、“吃/喝”等具体意义。
 - “have/has”作为助动词：仅用于构成完成时（包括现在完成时、过去完成时等）。
 
@@ -1090,7 +1180,7 @@ has to”中的“has”是实义动词（表示“必须”），而非助动�
 
 需借助助动词“do/does/did”。由于主语“Mary”是第三人称单数，且时态为一般现在时，应使用 doesn’t。
 
-特殊疑问句：
+### 特殊疑问句
 
 What/Who：
 
@@ -1119,7 +1209,7 @@ The main topic was history. What was the main topic?
 
 1Whom did you meet with yesterday? “whom”作为介词“of”或“with”的宾语
 
-### HOW
+### how 疑问句
 - How：主要修饰 谓语动词，表示 “如何做某事”，即 动作发生的方式、手段或过程。
 - How + 助动词 + 主语 + 谓语动词原形 + 其他部分？(翻译时候，放在谓语动作前)
 - How does she learn English?（她是如何学习英语的？） 修饰 learn
@@ -1183,7 +1273,7 @@ Twice a week"）
 
  ——In 5 minutes.（ 5 分钟之后。）
 
-选择疑问句：
+### 选择疑问句
 
 在句子中提供两个或多个选择项，通常用“or”连接。这类疑问句不以 yes 或 no 作答，而是要求在给出的选项中做出选择。
 
@@ -1215,6 +1305,8 @@ Do you like tea or coffee?
 
 Coffee.或 I like coffee.或者 I prefer coffee.
 
+### 感叹句
+
 将表语提前的感叹句！！
 
 How + 形容词/副词 + 主语 + 谓语：表达对某事物或某人状态的强烈感叹
@@ -1239,7 +1331,7 @@ ________ (What a/What) good time he had yesterday!
 
 Time 作为时间来所是不可数的，但作为时光是可数的，例如 have a good time
 
-改否定句：
+### 否定句
 
 1. Be 动词后加 not
 - 方法：在 be 动词后面直接加 not。
@@ -1284,7 +1376,7 @@ Time 作为时间来所是不可数的，但作为时光是可数的，例如 ha
 - 专有名词（人名、地名、国家名等）大写
 - 句中其他单词小写（除非是专有名词）。
 
-不同疑问词的回答技巧
+### 疑问词回答技巧
 
 | 疑问词 | 问题类型 | 回答方式 |
 
@@ -1389,7 +1481,7 @@ I got a double salary this month.（这个月我拿到了双倍工资。）
 ### 形容词比较级与最高级
 原级 比较级 (-er 或 more) 最高级（-est 或 most）
 
-### tall taller tallest
+#### 比较级和最高级变化规则
 happy happier happiest
 
 successful more successful most successful
@@ -1597,7 +1689,7 @@ A．feel better B．feel well C．feeling better D．to feel well
 - 基数词+in+基数词：one in ten = 1/10
 - 基数词+序数词(s) :three fifths (当分子大于 1，分母加 s)
 
-### one's Xth birthday，
+### 生日表达
 当前面已经有所有格限定词（如 my / your / his / her）时，不加 the：
 
 - on my fifteenth birthday.在我十五岁生日时，
@@ -1605,6 +1697,9 @@ A．feel better B．feel well C．feeling better D．to feel well
 - It will be my fifteenth birthday next Sunday.下星期天是我十五岁生日。
 
 ## 情态动词
+
+### 推测、义务、禁止
+
 - must be → 表示“（根据证据）一定是……”高度确定的推测
 - ✅The lights are on. They must be at home.（推测：灯亮着，他们一定在家。）
 - should be → 表示建议、义务（不能用于推测某事是真的）
@@ -1656,7 +1751,7 @@ Lucy didn't come to school today. l think she ___________(must/should)be ill.
 
 | mustn't do | （主观禁止）绝对不能做某事 | ✅ You mustn't smoke in the library. （你不能在图书馆抽烟。） | 语气更强，带有 命令 或 规则 的意味 |
 
-情态动词 can 和 could
+### can / could
 
 can 的用法
 
@@ -1688,7 +1783,7 @@ can 和 could 的区别总结
 
 mustn't do 禁止做什么 needn’t 不必,不需要 shouldn’t 不应该 can’t 不可能
 
-情态动词表推测：
+### 情态动词表推测
 
 must 一定/could /may/might 可能
 
@@ -1704,7 +1799,7 @@ She may be waiting for you at home.
 
 It must have rained last night. 昨晚肯定下雨了（过去）
 
-情态动词表请求：可不可以
+### 情态动词表请求
 
 Can > Could > May > Might 是从语气最直接到最委婉、最正式的排序。
 
@@ -1796,7 +1891,7 @@ arrive（到达）、leave（离开）、die（死亡）、stop（停止）、st
 - "die"（死亡）是短暂性动词，但 "be dying"（垂死）是延续性动词。
 - The old man has been dead for four years. 这位老人已经去世四年了
 
-### LOOK
+### look 相关用法
 延续性动词：看起来,显得,系动词，表示外表或状态
 
 - He was looking up a word in the dictionary when I called him.
@@ -2054,6 +2149,9 @@ so cold / so fast
 a beautiful little red flower 一朵美丽的小花。
 
 ## 特殊句型
+
+### there be 与“一……就”
+
 - there is going to be+n(名词或名词短语)
 - there will be 事件将要发生
 - "一...就..."，主句过去完成时，从句一般过去，主句部分倒装(主过完，从过)。
@@ -2067,6 +2165,9 @@ Hardly had I arrived when they started to leave.
 - Had no sooner had I arrived than they started to leave.
 - 我刚一到他们就开始离开了。
 - It's hight/about/good+time+(that)+(should do)/ (did/were) 是该做什么的时候
+
+### no matter / so that / the reason is that
+
 - No matter what+ 名词
 - No matter how+ 形容词/副词
 - why not do sth?=why don't you/we do sth? 为什么不做这个事情呢？
@@ -2097,7 +2198,7 @@ We can not work hard enough to achieve our goals.（为了实现我们的目标�
 
 You can hardly read too much to improve your knowledge.（为了提高你的知识水平，你再怎么多读书都不为过。）
 
-### 1. Too + adj. + to do
+### Too + adj. + to do
 表示“太……以至于不能……”，强调程度过高导致某事无法发生（带有否定含义）。
 
 结构：S + be + too + adj. + to do sth.
@@ -2106,7 +2207,7 @@ You can hardly read too much to improve your knowledge.（为了提高你的知�
 - He was too tired to continue working.（他太累了，无法继续工作。）
 - The problem is too difficult to solve.（这个问题太难了，解决不了。）
 
-### 2. Such + n. + that
+### Such + n. + that
 表示“如此……以至于……”，强调名词的程度导致某种结果。
 
 结构：S + be + such + (a/an) + adj. + n. + that + 结果
@@ -2115,7 +2216,7 @@ You can hardly read too much to improve your knowledge.（为了提高你的知�
 - She is such a kind person that everyone likes her.（她是一个如此善良的人，以至于人人都喜欢她。）
 - They had such bad luck that they lost everything.（他们运气太差，以至于失去了一切。）
 
-### 3. So + adj. + that
+### So + adj. + that
 表示“如此……以至于……”，强调形容词的程度导致某种结果。
 
 结构：S + be + so + adj. + that + 结果
@@ -2129,17 +2230,19 @@ You can hardly read too much to improve your knowledge.（为了提高你的知�
 
 不定代词 both, all, either, neither, none：
 
-### 1. 定“数量”
+### both / either / neither / all / none
 - both, either, neither：用于两者之间。
 - all, none：用于三者或三者以上。
 
-### 2. 辨“肯否”
+#### 辨“肯否”
 - 肯定：both, either, all。
 - 否定：neither, none。
 
-### 3. 看“含义”
+#### 看“含义”
 - both, neither, all, none：表示“全（不）”或“都（不）”。
 - either：表示“任何之一”。
+
+### of 和 for
 
 "of" 和 "for" 的区别总结:
 
@@ -2293,7 +2396,7 @@ Doctors and nurses are needed in every part of the world.
 
 ### 动词
 
-### 使动”类动词用法：V+sb, 使某人做什么 / sb.+ be done
+#### 使动类动词
 - seat 不是“坐”，而是“v. 使某人坐”，所以用法是 seat sb，由此衍生出被动结构 sb. be seated，可见 sb. 与 seat 是被动关系。
 - sit 是“v. (某人)坐”，所以用法是 sb. sit，可见 sb. 与 sit 是主动关系。
 
@@ -2338,7 +2441,7 @@ Doctors and nurses are needed in every part of the world.
 - 用法：The event determined him to change his career.
 - 被动结构：He was determined to change his career.
 
-### 例题
+#### 例题
 
 The sale usually takes place outside the house, with the audience ________ (seated/seating) on
 
@@ -2432,7 +2535,7 @@ benches.
 - 对一个人：Stand up.（站起来。）
 - 对一群人：Stand up.（站起来。）
 
-祈使句的类型
+#### 祈使句类型
 
 1. 肯定祈使句
 
@@ -2474,7 +2577,7 @@ benches.
 - Please sit down.（请坐。）
 - Pass me the salt, please.（请把盐递给我。）
 
-特殊的祈使句
+#### 特殊祈使句
 
 1. "Be" 开头的祈使句
 - 当谓语动词是 be 时，仍然使用原形 be。
@@ -2519,8 +2622,6 @@ A．or B．and C．because D．so
 
 努力学习，你就会在英语上取得很大进步。
 
-形式主语
-
 to do 做真正的主语。
 
 客观评价（重要、容易、困难等）（necessary, possible, hard, easy, useful, impossible）
@@ -2558,7 +2659,7 @@ It is known that...（众所周知……）
 
 2.可数名词的复数形式有如下情况：
 
-不可数名词的分类
+#### 不可数名词
 
 分类：（包括但不限于以下）
 
@@ -2686,7 +2787,7 @@ three-storey 复合形容词 三层的
 
 a three-storey house（一栋三层的房子）
 
-名词所有格：
+#### 名词所有格
 
 单数加’s 复数有 S 的就 S’, 看名词前的 a/an 或则通过语境判断。
 
@@ -2731,7 +2832,8 @@ Lily (Lily/ Lily's) and Sarah's new apartment has two big windows
 从 apartment 单数和 has 单三可看出 为共同的公寓。
 
 ### 代词
-it 作形式宾语的用法：
+
+#### it 作形式宾语
 
 在英语中，某些动词（如 find, feel, think, consider, make, believe, suppose 等）后接 不定式 (to do) 作为宾语时，通常需要使用 it 作为形式宾语，而将真正的宾语（即 不定式短语）后置。
 
@@ -2757,7 +2859,7 @@ tell A from B. 区分 A 和 B
 
 这里注意 its 这里做形容词性物主代词
 
-反身代词放在句末，用于强调主语亲自做某事：
+#### 反身代词
 
 I clean the room myself. 我自己打扫房间。
 
@@ -2782,6 +2884,8 @@ These apples are fresh.
 those 翻译为那些，是 that 的复数形式（距离比较远）
 
 Those trees are tall.
+
+#### that / those 指代
 
 that 和 those 可以用来代替前面提到的事物，避免重复。
 
@@ -2816,6 +2920,8 @@ C. that 指代上文出现的---同类不同物 单数
 D. those 指代上文出现的---同类不同物 复数
 
 Joyce likes the shape of the cake. It (It/ One) is a heart.
+
+#### it / one / the other
 
 It 单数-特指 One 单数-泛指
 
@@ -2881,7 +2987,7 @@ D. none of 三者都不
 
 ### 副词和形容词
 
-### 1.副词 ly 修饰动词，有时候在句未,动词前,句首,动词后。
+#### 副词 ly 修饰动词
 形容词/副词 + enough：足够的程度 副词
 
 big enough：足够大 fast enough：足够快
@@ -2892,7 +2998,7 @@ enough + 名词：足够的某物
 
 enough money：足够的钱 enough time：足够的时间
 
-### 2.形容词修饰名词，在名词前面 / be/感官系动词 +adj.
+#### 形容词修饰名词
 available：adj. 可获得的”或“可用的：后置形容词
 
 a room available：一个可用的房间
@@ -2901,10 +3007,10 @@ seats available：可用的座位
 
 a person available：有空的人
 
-### 3.不定代词+形容词：something, anything, everything + adj.
+#### 不定代词 + 形容词
 I don’t have anything important to say. 我没有什么重要的事要说。
 
-### 4. “of + 抽象名词” = 形容词，可作表语、定语、补语
+#### of + 抽象名词
  常见抽象名词：importance, use, help, value, difference, significance
 
  前面可加 little, any, great, no, some, vital, much, low 等修饰词
@@ -2988,7 +3094,7 @@ with her friends 放在句末
 
 对：Emma played happily with her friends in the park.
 
-阅读填词
+#### 阅读填词
 
 - 1. 要注意填写的词的时态，词性。
 
@@ -2996,7 +3102,7 @@ with her friends 放在句末
 
 - 2.非句首的词，不要大写。
 
-阅读回答
+#### 阅读回答
 
 - 1.询问时间
 
@@ -3999,7 +4105,7 @@ have gone 去了，还没回来
 
 have been 去过，已经回来了
 
-## 不规则动词及其过去式 75 个
+## 月份、词汇与补充考点
 
 健(J: January)步如飞(F: February)，又迎来了新的一年，你妈(March)让你吃苹果(April)
 
@@ -4235,7 +4341,7 @@ discussions
 
 不确定数量 : hundreds /handreds/ millions/ dozens of+单数 几千个
 
-### 倍数表达法
+### 补充：倍数表达法
 “倍数＋比较级”结构：A is three times bigger（形容词比较级）than B
 
 “倍数＋as...as”结构：A is three times as big（形容词原级）as B
@@ -4348,6 +4454,8 @@ We sincerely appreciate your understanding and support.
 
 ## 固定搭配
 
+### to do / doing 对比
+
 | 短语结构 | 中文解释 | 对应的另一种结构 | 中文解释 |
 
 | --- | --- | --- | --- |
@@ -4392,14 +4500,16 @@ I prefer to teach myself rather than turn to him for help. (turn)
 
 I prefer jazz to (to/ than) rock music.
 
+### take turns
+
 - take turns 轮流去做某事
 
-### take turns to do 现在还未发生，但是即将要发生的动作
+#### take turns to do
 You should take turns to play computer games.
 
 我们应该轮流玩电脑游戏。
 
-### take turns doing 已经在发生的，并且还会一直继续做下去的事情
+#### take turns doing
 We always take turns cleaning our classroom.
 
 我们总是轮流打扫教室。
@@ -4410,7 +4520,7 @@ used
 - used to do 过去常常
 - be used to do 被用于做…
 
-### Doing
+### doing 类搭配
 - It is/was useless/no use/ no good + doing sth. 做某事没有用处
 - It is/was a waste of time + doing sth. 做某事浪费时间
 
@@ -4457,7 +4567,7 @@ Weather permitting, the foreign guests will visit the Panda Base.
 
 - Time permitting, we will discuss this later.如果时间允许，我们稍后讨论这个问题。
 
-### To do
+### to do 类搭配
 - It + be + adj. / n. + (for / of sb.) + to do sth. 对于某人来说做某事是……的。
 - It takes (sb.) + 时间/金钱 + to do sth. 做某事花费/金钱（某人）……。
 - the + 序数词 + 名词 + to do...，第几个……去做某事
@@ -4855,11 +4965,11 @@ Of
 - account for：解释，说明，占比
 - figure out：解决，弄清
 
-### worry about
+### worry about / be worried about
 - worry 是动词，about 是介词，worry about 是动词带介词结构。worry about：是一个表示担心的动作。
 - I worry about my daughter. 我很担心我的女儿。
 
-### be worried about
+#### be worried about
 - be 是系动词，worried 是形容词，about 是介词，系动词+形容词表语+介词结构。be worried about：是一个表示担心的状态，处于担心之中。
 - I‘m worried about your cold. 我很担心你的感冒。
 - be chosen to be+n.；表示被选为什么；
@@ -4879,7 +4989,7 @@ Now I am ____ qualified for _____ the position because of my education backgroun
 
 以我的教育背景和工作经验，现在我有资格担任该职位。
 
-### Cut
+### take / bring / cut
 - cut up：词性为动词短语，将某物切碎或切开的行为
 - - He cut up the fruit. 他把水果切碎了。
 - He cut up the food into small pieces. 他把食物切成小块。
