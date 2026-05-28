@@ -1,7 +1,7 @@
 ---
 title: "英语语法与固定搭配总笔记"
 subtitle: "从时态、从句到固定搭配的一份复习型整理"
-date: 2026-05-28T19:36:47+08:00
+date: 2025-04-19T00:00:00+08:00
 draft: false
 tags: ["英语"]
 featured: false
@@ -16,7 +16,37 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 2. 再看“倒装、虚拟语气、情态动词、特殊句型”，补齐考试常见结构。
 3. 最后集中背“词语辨析、固定搭配、不规则动词”，把表达落到具体用法。
 
-## 语法总览
+## 目录
+
+- 时态与语态
+- 主谓一致
+  - 就近原则
+  - 就远原则
+- 非谓语动词
+- 从句
+- 倒装
+- 虚拟语气
+- 数词
+  - 基数词表达法
+  - 倍数表达法
+  - 分数表达
+- 情态动词
+- 易混与特殊单词
+- 常见规律
+- 特殊句型
+- 词语辨析
+- 主动形式表被动意义
+- 词性
+  - 动词
+  - 介词
+  - 名词
+  - 代词
+  - 副词和形容词
+- 作文表达
+- 短语表
+- 词汇整理
+- 不规则动词及其过去式 75 个
+- 固定搭配
 
 ## 时态与语态
 
@@ -1329,148 +1359,6 @@ It is suggested that you ( should ) attend the opening ceremony. 有人建议请
 - Albert Einstein often stressed to interviewers that his accomplishments would certainly have been achieved by others, Had he never lived.
 - 阿尔伯特·爱因斯坦经常向采访者强调，如果他活着，他的成就肯定会被别人取得。
 
-## 反义疑问句
-- 陈述句+一般疑问句：前肯后否,前否后肯
-- never，seldom, hardly，few，little，barely, scarcely, nothing 等否定意义的词也算否定
-- unhappy,dislike,unfriendly 等含有否定词缀的派生词，也就是有 un-前缀、-less 后缀等含有词缀而意思否定的词，当做肯定句处理
-- 当主句的主语为第一人称时，其后的简短问句应与从句相一致。
-- 当主句的主语为第二、三人称时，其后的简短问句则应与主句相一致
-- think, suppose, believe, expect ,imagine, guess 等后的宾语从句如果是否定句，要把否定转移到主句的 think 等动词上，这叫做“否定前移”或“否定前置”
-
-We don't think he had a good time in the summer camp,did he?
-
-虽然第一人称 We,从句为肯定，但是由于是 think,所以否定前移，这个否定是从句的，所以后面为肯定
-
-It is the first time that we have met each other in the school,isn't it ?
-
-Do check the details carefully and correct the mistakes in time, will you ? 祈使句：will you
-
-没有 do,is,情态动词是用对应的 do 形式：
-
-You never lives,does he?
-
-## 动词
-
-### 使动”类动词用法：V+sb, 使某人做什么 / sb.+ be done
-- seat 不是“坐”，而是“v. 使某人坐”，所以用法是 seat sb，由此衍生出被动结构 sb. be seated，可见 sb. 与 seat 是被动关系。
-- sit 是“v. (某人)坐”，所以用法是 sb. sit，可见 sb. 与 sit 是主动关系。
-
-二者以上的区别，对于二者用作谓语动词（即时态）和非谓语动词是有影响的，举例如下：
-
-译 1 谓语：他坐在教室的后面。
-
-- seat：He is seated at the back of the classroom. 被动语态
-- sit：He sits at the back of the classroom. 主动语态
-
-译 2 非谓语动词：坐在教室的后面，他感觉很放松。
-
-- seat：Seated at the back of the classroom, he feels relaxed.
-- He 与 seat 为被动关系，所以用过去分词 seated
-- sit：Sitting at the back of the classroom, he feels relaxed.
-- He 与 sit 为主动关系，所以用现在分词 sitting
-
-事实上，英语中存在大量的像 seat 这类“使某人……”的动词，如 amaze、shock、interest、prepare、determine 等，逻辑和用法都与 seat 是一样的。
-
- amaze（使…惊奇）
-
-- 用法：The result amazed him.
-- 被动结构：He was amazed by the result.
-
- shock（使…震惊）
-
-- 用法：The news shocked everyone.
-- 被动结构：Everyone was shocked by the news.
-
- interest（使…感兴趣）
-
-- 用法：The lecture interested many students.
-- 被动结构：Many students were interested in the lecture.
-
- prepare（使…准备好）
-
-- 用法：They prepared the team for the competition.
-- 被动结构：The team was well prepared for the competition.
-
- determine（使…下定决心/确定）
-
-- 用法：The event determined him to change his career.
-- 被动结构：He was determined to change his career.
-
-### 例题
-
-The sale usually takes place outside the house, with the audience ________ (seated/seating) on
-
-benches.
-
-拍卖通常在房子外面进行，观众坐在的长椅上。
-
-“with the audience…”这样的结构，这是 with 的复合结构。
-
-“seat”，意思是“使……就座”，后面得接人。比如说“seat sb.” （让某人就座）。
-
-虽然是观众主动做，但这里 seat 是使动词，所以用被动表主动。
-
-| 动词 | 中文释义 | 常见搭配例句或结构 |
-
-| --- | --- | --- |
-
-| arrive | 到达 | arrive at/in a place |
-
-| come | 来 | come to school |
-
-| go | 去 | go to the park |
-
-| happen | 发生 | What happened to him? |
-
-| occur | 发生（突然想起） | The idea occurred to me. |
-
-| stay | 停留 | stay at home |
-
-| live | 居住 | live in a city |
-
-| fall | 掉落 / 跌倒 | fall off/from the bike |
-
-| fly | 飞 | fly in the sky |
-
-| walk | 走路 | walk to school |
-
-| run | 跑步 | run on the track |
-
-| swim | 游泳 | swim in the river |
-
-| laugh | 笑 | laugh at a joke |
-
-| cry | 哭 | cry for help |
-
-| sleep | 睡觉 | sleep well / sleep on the sofa |
-
-| wait | 等待 | wait for the bus |
-
-| work | 工作 | work as a teacher / work hard |
-
-| rise | 上升（如太阳） | The sun rises in the east. |
-
-| exist | 存在 | Dinosaurs no longer exist. |
-
-| disappear | 消失 | The cat disappeared suddenly. |
-
-## 介词
-- in:泛指那一天，或者没有具体到日 in 年，in 月，in 季节
-- in the morning/afteroon/evening in winter
-- at,时间 小时 at half past two 在两点半 / at night / at 11.45
-- at weekends , on Monday
-- on:特定指向具体的那一天，日期具体日，周几
-- on 6 June/on 24 September
-- on Friday morning
-- on Saturday night 具体到某一天的早/中/晚上 用 on
-- on Thursday
-- Japan is __to____ the east of China. In 在...里面 in the middle of，on 表示接壤，to 强调方向，不接壤
-- at：具体场所，at the station
-- on: 接城市以内的地点
-- in：接大于城市的地点或在什么里面：in a room
-- in Japan
-- at:具体到某个时刻或者瞬间，在几点。接具体场所，at staion.
-
 ## 数词
 
 ### 基数词表达法
@@ -1882,607 +1770,6 @@ A. should B. may C. can D. would
 
 may/might as well do 不妨，不如 做某事
 
-## 祈使句
-是用来表达命令、请求、建议、劝告或警告的句子，其基本结构通常以动词原形（base form of the verb）开头。在祈使句中，动词没有时态和数的变化，这是因为祈使句的主语通常是“you”，但在句子中是省略的，因此动词直接使用原形。
-
-- 主语省略：
-- 祈使句的主语一般是“you”，但通常不显式表达。
-- 例：
-- (You) Close the door.（把门关上。）
-- (You) Be quiet.（安静。）
-- 动词无时态变化：
-- 祈使句中的动词只使用原形，不受时态影响。
-- 例如：
-- 一般陈述句：She goes to school every day.（一般现在时）
-- 祈使句：Go to school.（去上学。）
-- 动词无数的变化：
-- 无论听话者是单数还是复数，动词都不发生变化。
-- 例如：
-- 对一个人：Stand up.（站起来。）
-- 对一群人：Stand up.（站起来。）
-
-祈使句的类型
-
-1. 肯定祈使句
-
-直接用动词原形开头，表示命令、建议或请求。
-
-- 例：
-- Come here.（过来。）
-- Try your best.（尽力而为。）
-- Keep quiet.（保持安静。）
-2. 否定祈使句
-- 用 "Don't" + 动词原形，表示禁止或警告。
-- 例：
-- Don't touch it.（别碰它。）
-- Don't be late.（别迟到。）
-- 形式更正式或更有礼貌时，也可以用 Never 代替 Don't：
-- Never give up.（永不放弃。）
-3. Let's 句型（第一人称祈使句）
-- Let’s + 动词原形，表示提议或建议，主语是第一人称复数（我们）。
-- 例：
-- Let's go.（我们走吧。）
-- Let's have a rest.（我们休息一下。）
-- 否定形式是 Let's not + 动词原形：
-- Let's not argue.（我们别争论了。）
-4. 带有宾语的祈使句
-- 祈使句可以加上宾语，使句子更具体。
-- 例：
-- Open your book.（打开你的书。）
-- Tell me the truth.（告诉我真相。）
-5. 强调祈使句
-- 用 do + 动词原形 进行强调，使语气更强烈或更有礼貌。
-- 例：
-- Do be careful.（务必小心。）
-- Do come in.（请进。）
-
-含有 Please 的祈使句（更礼貌）
-
-- 在祈使句前或后加 please，使语气更委婉。
-- 例：
-- Please sit down.（请坐。）
-- Pass me the salt, please.（请把盐递给我。）
-
-特殊的祈使句
-
-1. "Be" 开头的祈使句
-- 当谓语动词是 be 时，仍然使用原形 be。
-- 例：
-- Be careful.（小心点。）
-- Be quiet.（安静。）
-2. 祈使句 + and/or
-- “祈使句 + and”：表示如果做某事，就会发生好的结果。
-- Work hard, and you will succeed.（努力工作，你就会成功。）
-- “祈使句 + or”：表示如果不做某事，就会发生不好的结果。
-- Hurry up, or you will be late.（快点，否则你会迟到。）
-
-例题 1：
-
-________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a dog is not long.
-
-Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
-
-例题 2：
-
-________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a dog is not long.
-
-Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
-
-祈使句 + and/or + 陈述句:
-
-and 表示 祈使句作用后的结果：
-
-Stick to your principles, and you will win through. 坚持你的原则，就会胜利。
-
-or 表示 不然，否则：
-
-Drop that gun, or I’ll shoot you. 放下枪，不然我就打死你。
-
-Make haste, or we’ll miss the bus. 赶快，否则我们赶不上汽车了。
-
-**例题**
-
-Study hard, and you’ll make great progress in English.
-
-A．or B．and C．because D．so
-
-努力学习，你就会在英语上取得很大进步。
-
-形式主语
-
-to do 做真正的主语。
-
-客观评价（重要、容易、困难等）（necessary, possible, hard, easy, useful, impossible）
-
-It is +n./adj. +(for/of sb.) to do sth.
-
-It is important to practice English every day.每天练习英语很重要。
-
-It is difficult for me to get up early.对我来说，早起很难。
-
-doing sth. 做真正的主语。
-
-It is no use/good/pleasure doing sth. “做......没有用/好处/乐趣”
-
-That 从句做真正的主语：
-
-It is said/reported/believed... that...
-
-It is said that...（据说……）
-
-It is believed that...（人们相信……）
-
-It is reported that...（据报道……）
-
-It is known that...（众所周知……）
-
-## 名词
-定义：为物体或人的名称，例如：书、桌子、椅子、老虎、白色、打印机、台灯、汤姆等。
-
-分类：专有名词、普通名词。而普通名词中又包含可数名词和不可数名词。
-
-注意：
-
-1.可数名词的单数不能单独出现。
-
-2.可数名词的复数形式有如下情况：
-
-不可数名词的分类
-
-分类：（包括但不限于以下）
-
-①无法分割的东西：air, water, soup, meat, milk, bread.
-
-②体积微小的东西：hair, popcorn, sand, rice, salt,corn.
-
-③一类物品的总称：food, fruit, money, clothing.
-
-④学科类名词：math, history, science.
-
-- 抽象名词：life, love, noise, nutrition.
-
-1.单复数同形 sheep，deer，means，Chinese，Japanese
-
-通过 a/an 来判断：A sheep is...
-
-Sheep are…
-
-2.集体名词形式为单数但含义为复数 people，police
-
-3.有些词常以复数形式出现，例如：glasses，trousers，clothes，shorts，jeans -are/were
-
-4.以-s 结尾，但实为不可数名词或单数名词，例如：news，maths，politics 政治，physics 物理
-
-5.常见不可数名词：advice，news，information，weather，furniture，luggage，progress，water，air，rice，salt，money，bread （1. 谓语用单三 is /2. 前面不加 a/an)
-
-常见的不可数名词：
-
-news n. (不可数) 消息
-
-furniture n. (不可数) 家具；装置
-
-information n. (不可数) 信息
-
-knowledge n. (不可数) 知识
-
-anger n. (不可数) 怒火
-
-luck n. (不可数) 幸运
-
-wealth n. (不可数) 财富
-
-progress n. (不可数) 进步
-
-experience n. (不可数) 经验
-
-pollution n. (不可数) 污染
-
-equipment n. (不可数) 设备
-
-**例题**
-
-What ____ lovely weather it is!
-
-A. / B. the C. an D. a
-
-以 -ics 结尾、表示学科等含义的名词作主语时，谓语动词一般用单数形式：
-
-- mathematics：数学
-- physics：物理学
-- economics：经济学
-- electronics：电子学
-- ethics：伦理学
-- politics：政治学
-- statistics：统计学
-- gymnastics：体操
-- athletics：田径运动
-
-注意：economics、electronics、ethics、politics、statistics 表示学科以外的其他含义时，可作复数用。
-
-复合名词变复数：复合名词由两个或两个以上的词组合而成
-
-三种连接形式：
-
-第一种：两部分分开的:woman teacher,woman doctor, post office, bus stop 等
-
-第二种：两部分连写:bookshop, raincoat 等
-
-第三种：两部分通过连词符-连接:cold-blooded, hard-working 等
-
-1.“man/woman+名词”构成的复合名词，两个词均须变为复数
-
-woman teacher => women teachers man waiter => men waiters
-
-woman singer=>women singers man servant=>men servants
-
-2.以-man/-woman/-child 结尾的复合名词，将-man/-woman/-child 变为复数。例如：
-
-fireman =>firemen（消防员） chairwoman =>chairwomen（女主席）
-
-grandchild =>grandchildren（孙子/女） Englishman =>Englishmen（英国人）
-
-Frenchman =>Frenchmen（法国人）
-
-3.其他的“名词+名词”组成的复合名词变复数时，一般只把后面的名词变成复数。
-
-girl friend=>girl friends，pocket bag=> pocket bags，story-teller=> story-tellers
-
-4. “可数名词+介词或介词短语”构成的复合名词，将主体名词（或者说中心名词）变为复数。例如：
-
-runner-up=>runners-up（亚军） passer-by=>passers-by（过路人）
-
-looker-on=>lookers-on（旁观者） mother-in-law => mothers-in-law(岳母/婆婆）
-
-editor-in-chief=>editors-in-chief(总编辑） bride-to-be=>brides-to-be（准新娘）
-
-5.当复合名词是从动词短语演变而来,它没有主体名词,结构是“动词/动词的过去分词+副词“，它的复数形式要在词尾加 s
-
-stand-by=>stand-bys grown-up=> grown-up take-off=>take offs
-
-forget，breakdown=>breakdowns，go-between=> go-betweens
-
-6.当复合名词是以不可数名词结尾时，它是没有复数形式的，例如 housework, newspaper 等这样的词
-
-There are fifty woman teachers in our school. They are all friendly to us.
-
-Storey n.楼层，层
-
-ten storeys 名词 十层
-
-This building has ten storeys.（这栋楼有十层。）
-
-three-storey 复合形容词 三层的
-
-a three-storey house（一栋三层的房子）
-
-名词所有格：
-
-单数加’s 复数有 S 的就 S’, 看名词前的 a/an 或则通过语境判断。
-
-单数所有格：student’s 复数所有格 students’
-
-a soldier’s primary duty soldiers’ soldier’s duty
-
-复数所有格 weeks’ vacation
-
-双重所有格：a of B’s of 后面是人
-
-- of+名词‘s：the friend of Mike’s Mike 的朋友
-- of + 名词性物主代词，the friend of mine 我的朋友
-
-**例题**
-
-This is a book of Shirley's (Shirley/ Shirley's).
-
-并列名词的所有格
-
-- 一、如果表示共有：只在最后一个名词后面加 -’s 或 -’。
-- 被修饰的名词是单数。
-- ✅ 结构：A and B’s + 名词
-- ✅ 例句：Lucy and Lily’s brother（露西和莉莉共同的一个哥哥）
-- 二、如果表示分别拥有：每个名词后面都要加 -’s 或 -’。
-- 被修饰的名词是复数。
-- ✅ 结构：A’s and B’s + 名词（复数）
-- ✅ 例句：Lucy’s and Lily’s brothers（露西和莉莉各自的哥哥们）
-
-**例题**
-
-_________mothers couldn’t go to the meeting, because they have gone to Shanghai .
-
-A. Mary and Peter’s B. Mary and Peter
-
-C. Mary’s and Peter D. Mary’s and Peter’s
-
-并列所有格主要看所有格后面的名词，复数：分别加所有格/单数：左后一个加所有格。
-
-Lily (Lily/ Lily's) and Sarah's new apartment has two big windows
-
-从 apartment 单数和 has 单三可看出 为共同的公寓。
-
-## 代词
-it 作形式宾语的用法：
-
-在英语中，某些动词（如 find, feel, think, consider, make, believe, suppose 等）后接 不定式 (to do) 作为宾语时，通常需要使用 it 作为形式宾语，而将真正的宾语（即 不定式短语）后置。
-
-句型结构：主语 + 动词 + it（形式宾语）+ 宾语补足语(形容词/名词) + to do（真正宾语）
-
-例句解析：
-
-I found it difficult to solve the problem. 我发现解决这个问题很难。
-
-She made it clear to follow the instructions. 她让遵循指示变得清晰。
-
-He thought it unnecessary to explain further. 他认为进一步解释是不必要的。
-
-I found it easy to learn English. 我发现学英语很容易。
-
-We consider it important to follow the rules. 我们认为遵守规则很重要。
-
-He made it possible to complete the project on time. 他让按时完成项目成为可能。
-
-The two girls are so alike that the neighbors find____ (that/it)difficult to tell one from the other.
-
-tell A from B. 区分 A 和 B
-
-这里注意 its 这里做形容词性物主代词
-
-反身代词放在句末，用于强调主语亲自做某事：
-
-I clean the room myself. 我自己打扫房间。
-
-He built the house himself.（他亲自建造了这座房子。）
-
-例题：He does not want to make any effort ___ (him/himself).
-
-指示代词 this, those, that, these 可以做主语和宾语
-
-this 翻译为这个（距离比较近）。
-
-This book is mine.
-
-that 翻译为那个（距离比较远）。
-
-That house is old.
-
-these 翻译为这些，是 this 的复数形式（距离也较近）。
-
-These apples are fresh.
-
-those 翻译为那些，是 that 的复数形式（距离比较远）
-
-Those trees are tall.
-
-that 和 those 可以用来代替前面提到的事物，避免重复。
-
-That 代替前面的事物：
-
-The weather today is better than that of yesterday.（今天的天气比昨天好。）
-
-Those 代替前面的事物：
-
-These apples are fresher than those in the market.（这些苹果比市场上的那些更新鲜。）
-
-| 代词 | 含义 | 所指代的名词 | 例句 |
-
-| --- | --- | --- | --- |
-
-| it（复数：they/them） | 它 | 同类同物（特指） | Where is my new pen? I can't find it. |
-
-| one（复数：ones） | 一个 | 同类不同物（泛指） | This apple is small. Please give me a big one. |
-
-| that（复数：those） | 那个 | 同类不同物（特指） | His handwriting is like that of a child |
-
-⑥ Things made by hand are usually more expensive than
-
-produced in factories.
-
-A. these 下文
-
-B. this
-
-C. that 指代上文出现的---同类不同物 单数
-
-D. those 指代上文出现的---同类不同物 复数
-
-Joyce likes the shape of the cake. It (It/ One) is a heart.
-
-It 单数-特指 One 单数-泛指
-
-The other + 单数名词，one…the other…，一个……另一个……
-
-特指两个或两部分中的另一个或另一部分，
-
-he other map 另一张地图，the other book 另外的一本书。
-
-The other+复数形式：其他的….
-
-the other flowers 其他的花朵，the other teachers 其它的老师们。
-
-**例题**
-
-Tom owns more books than the other _____ (student/students) in our class.
-
-Tom 拥有的书比我们班上其他的_____还多。”
-
-复合不定代词,:everything, something, anything , nothing
-
-作主语时, 谓语动词常用单数形。
-
-- everything 每件事,用于肯定句、疑问句或否定句中。
-- I hope everything goes well. 我希望一切顺利。
-- something 某事；某物。用于肯定句中，也可用于征求对方意见的疑问句中。
-- Something is wrong with my ears. 我的耳朵有点毛病。
-- anything 意为某事；任何事。一般用于否定句或疑问句中。
-- Can you hear anything? 你能听到某种声音吗?
-- nothing 意为没有什么；没有东西。肯定句
-- Tom saw nothing. 汤姆什么也没看见
-- nothing=not anything
-- everything 最重要的.
-- Money is everything to him.金钱对他比什么都重要。
-
-**例题**
-
-I need some stamps. Are there any (any/ all) in your bag?
-
-Any 一些：not 否定句或者疑问句？/ some 一些，肯定句
-
-both & either & neither & all & any & none 区别：
-
-| 范围 / 含义 | 都 | 任意一个 | 都不 |
-
-| --- | --- | --- | --- |
-
-| 两者 | both（谓复） | either（谓单） | neither（谓单或复） |
-
-| 三者（以上 | all（谓单或复） | any（谓单） | none（谓单或复） |
-
-**例题**
-
-The young couple often eats out because ____ of them can cook.
-
-A. both of 两者都-复数
-
-B. either of 两者其中一个-单数
-
-C. neither of 两者都不----单数
-
-D. none of 三者都不
-
-## 副词和形容词
-
-### 1.副词 ly 修饰动词，有时候在句未,动词前,句首,动词后。
-形容词/副词 + enough：足够的程度 副词
-
-big enough：足够大 fast enough：足够快
-
-quickly enough：足够快地 carefully enough：足够小心地
-
-enough + 名词：足够的某物
-
-enough money：足够的钱 enough time：足够的时间
-
-### 2.形容词修饰名词，在名词前面 / be/感官系动词 +adj.
-available：adj. 可获得的”或“可用的：后置形容词
-
-a room available：一个可用的房间
-
-seats available：可用的座位
-
-a person available：有空的人
-
-### 3.不定代词+形容词：something, anything, everything + adj.
-I don’t have anything important to say. 我没有什么重要的事要说。
-
-### 4. “of + 抽象名词” = 形容词，可作表语、定语、补语
- 常见抽象名词：importance, use, help, value, difference, significance
-
- 前面可加 little, any, great, no, some, vital, much, low 等修饰词
-
-The decision is of great importance to us.（这个决定对我们来说非常重要。）
-
-The decision is very important to us.（这个决定对我们来说很重要。）
-
-- sometime 副词，某个时候（通常指将来或过去的不确定时间）
-- I met her sometime last year. 我去年某个时候见过她
-- sometimes 副词，有时，偶尔（表示频率）
-
-I sometimes go jogging in the morning. 我有时早上去慢跑。
-
-**例题**
-
-This castle is said to have been built ________ (sometime/sometimes) around 1900.
-
-这座城堡大概在 1900 年左右的某个时候建造的。
-
-副词短语 as well 表示「也…」的意思，语义相当于 too、also：放在句未
-
-由于 as well 并非连接词，故连接不同的语法单位时（短语、从句等），须与连接词（and 或 but）搭配。
-
-例句：
-
-- I like cooking new dishes and baking desserts as well.
-- = I like cooking new dishes and baking desserts, too.
-- = I like cooking new dishes and I also love baking desserts.
-- 我喜欢烹煮新料理，也喜欢烘焙甜点。
-
-Here 作为地点副词，表示“这里”，通常可以放在句末
-
-I will wait for you here. （我会在这里等你。）
-
-She was born here. （她出生在这里。）
-
-## 连词成句
-
-时间或顺序的副词放在句末：first,soon
-
-1.your homework, finish, first, you, should.
-
-✅ You should finish your homework first.
-
-❌You should first finish your homework .
-
-- 2.He is reading in the room above. 他正在楼上的房间里读？
-
-above 形容词时用在名词前面, above 名词之后，表示在上面是副词
-
-well done 形容词短语或形容词
-
-That was a well-done job.（干得漂亮的工作。）
-
-I want my steak well done.（我要全熟的牛排。）
-
-关于频度的时间状语，如 often, always, seldom, never, ever, usually 等，通常位于行为动词前、be 动词后或情态动词后：
-
-I always drink coffee in the morning.我总是早上喝咖啡。
-
-They are always busy with work.他们总是忙于工作。
-
-He can always help you with that.他总是能帮你做这件事。
-
-关于多个状语修饰同一个动词时的顺序：方式状语 → 地点状语 → 时间状语
-
-She speaks English fluently in the classroom every day. 她每天在教室里流利地说英语。
-
-先出现被指代的词，再出现代词
-
-Tom is our role model and he is the best.
-
-with her friends 放在句末
-
-英语喜欢“主谓先行，修饰随后”的语序：主语 + 谓语 + 宾语/补语 + 状语
-
-在描述一个场景时，我们通常会先说“谁做了什么”，然后再补充“和谁一起”、“在哪里”等信息。
-
-错：Emma with her friends played happily in the park.
-
-对：Emma played happily with her friends in the park.
-
-阅读填词
-
-- 1. 要注意填写的词的时态，词性。
-
-由于阅读原句的和选词填空的句子细微变化，造成时态，单复数，词性的变化。从连词（and,or）前后词性时态相同，句子其它动词看时态，等等。
-
-- 2.非句首的词，不要大写。
-
-阅读回答
-
-- 1.询问时间
-
-How soon ➝ 询问 多久之后 发生？（回答："In + 时间"）
-
- How long ➝ 询问 持续多久？（回答："For + 时间"）
-
- How often ➝ 询问 多久一次？（回答："Once
-
-Twice a week"）
-
-When 回答 In
-
-- 2. How +v. 询问方式=> By+句子
-
-- 3. why 询问原因 => because
-
 ## 易混与特殊单词
 延续性动词：stay, keep, know, have
 
@@ -2868,6 +2155,26 @@ You can hardly read too much to improve your knowledge.（为了提高你的知�
 
 | Important for sth. | 描述某事对另一事物的重要性 | Good sleep is important for your health.（良好的睡眠对健康很重要。） |
 
+### 反义疑问句
+- 陈述句+一般疑问句：前肯后否,前否后肯
+- never，seldom, hardly，few，little，barely, scarcely, nothing 等否定意义的词也算否定
+- unhappy,dislike,unfriendly 等含有否定词缀的派生词，也就是有 un-前缀、-less 后缀等含有词缀而意思否定的词，当做肯定句处理
+- 当主句的主语为第一人称时，其后的简短问句应与从句相一致。
+- 当主句的主语为第二、三人称时，其后的简短问句则应与主句相一致
+- think, suppose, believe, expect ,imagine, guess 等后的宾语从句如果是否定句，要把否定转移到主句的 think 等动词上，这叫做“否定前移”或“否定前置”
+
+We don't think he had a good time in the summer camp,did he?
+
+虽然第一人称 We,从句为肯定，但是由于是 think,所以否定前移，这个否定是从句的，所以后面为肯定
+
+It is the first time that we have met each other in the school,isn't it ?
+
+Do check the details carefully and correct the mistakes in time, will you ? 祈使句：will you
+
+没有 do,is,情态动词是用对应的 do 形式：
+
+You never lives,does he?
+
 ## 词语辨析
 Only to do 意想不到的事
 
@@ -2982,7 +2289,732 @@ Doctors and nurses are needed in every part of the world.
 
 被动语态，表示“医生和护士是被需要的
 
-## 词根词缀
+## 词性
+
+### 动词
+
+### 使动”类动词用法：V+sb, 使某人做什么 / sb.+ be done
+- seat 不是“坐”，而是“v. 使某人坐”，所以用法是 seat sb，由此衍生出被动结构 sb. be seated，可见 sb. 与 seat 是被动关系。
+- sit 是“v. (某人)坐”，所以用法是 sb. sit，可见 sb. 与 sit 是主动关系。
+
+二者以上的区别，对于二者用作谓语动词（即时态）和非谓语动词是有影响的，举例如下：
+
+译 1 谓语：他坐在教室的后面。
+
+- seat：He is seated at the back of the classroom. 被动语态
+- sit：He sits at the back of the classroom. 主动语态
+
+译 2 非谓语动词：坐在教室的后面，他感觉很放松。
+
+- seat：Seated at the back of the classroom, he feels relaxed.
+- He 与 seat 为被动关系，所以用过去分词 seated
+- sit：Sitting at the back of the classroom, he feels relaxed.
+- He 与 sit 为主动关系，所以用现在分词 sitting
+
+事实上，英语中存在大量的像 seat 这类“使某人……”的动词，如 amaze、shock、interest、prepare、determine 等，逻辑和用法都与 seat 是一样的。
+
+ amaze（使…惊奇）
+
+- 用法：The result amazed him.
+- 被动结构：He was amazed by the result.
+
+ shock（使…震惊）
+
+- 用法：The news shocked everyone.
+- 被动结构：Everyone was shocked by the news.
+
+ interest（使…感兴趣）
+
+- 用法：The lecture interested many students.
+- 被动结构：Many students were interested in the lecture.
+
+ prepare（使…准备好）
+
+- 用法：They prepared the team for the competition.
+- 被动结构：The team was well prepared for the competition.
+
+ determine（使…下定决心/确定）
+
+- 用法：The event determined him to change his career.
+- 被动结构：He was determined to change his career.
+
+### 例题
+
+The sale usually takes place outside the house, with the audience ________ (seated/seating) on
+
+benches.
+
+拍卖通常在房子外面进行，观众坐在的长椅上。
+
+“with the audience…”这样的结构，这是 with 的复合结构。
+
+“seat”，意思是“使……就座”，后面得接人。比如说“seat sb.” （让某人就座）。
+
+虽然是观众主动做，但这里 seat 是使动词，所以用被动表主动。
+
+| 动词 | 中文释义 | 常见搭配例句或结构 |
+
+| --- | --- | --- |
+
+| arrive | 到达 | arrive at/in a place |
+
+| come | 来 | come to school |
+
+| go | 去 | go to the park |
+
+| happen | 发生 | What happened to him? |
+
+| occur | 发生（突然想起） | The idea occurred to me. |
+
+| stay | 停留 | stay at home |
+
+| live | 居住 | live in a city |
+
+| fall | 掉落 / 跌倒 | fall off/from the bike |
+
+| fly | 飞 | fly in the sky |
+
+| walk | 走路 | walk to school |
+
+| run | 跑步 | run on the track |
+
+| swim | 游泳 | swim in the river |
+
+| laugh | 笑 | laugh at a joke |
+
+| cry | 哭 | cry for help |
+
+| sleep | 睡觉 | sleep well / sleep on the sofa |
+
+| wait | 等待 | wait for the bus |
+
+| work | 工作 | work as a teacher / work hard |
+
+| rise | 上升（如太阳） | The sun rises in the east. |
+
+| exist | 存在 | Dinosaurs no longer exist. |
+
+| disappear | 消失 | The cat disappeared suddenly. |
+
+### 介词
+- in:泛指那一天，或者没有具体到日 in 年，in 月，in 季节
+- in the morning/afteroon/evening in winter
+- at,时间 小时 at half past two 在两点半 / at night / at 11.45
+- at weekends , on Monday
+- on:特定指向具体的那一天，日期具体日，周几
+- on 6 June/on 24 September
+- on Friday morning
+- on Saturday night 具体到某一天的早/中/晚上 用 on
+- on Thursday
+- Japan is __to____ the east of China. In 在...里面 in the middle of，on 表示接壤，to 强调方向，不接壤
+- at：具体场所，at the station
+- on: 接城市以内的地点
+- in：接大于城市的地点或在什么里面：in a room
+- in Japan
+- at:具体到某个时刻或者瞬间，在几点。接具体场所，at staion.
+
+### 祈使句
+是用来表达命令、请求、建议、劝告或警告的句子，其基本结构通常以动词原形（base form of the verb）开头。在祈使句中，动词没有时态和数的变化，这是因为祈使句的主语通常是“you”，但在句子中是省略的，因此动词直接使用原形。
+
+- 主语省略：
+- 祈使句的主语一般是“you”，但通常不显式表达。
+- 例：
+- (You) Close the door.（把门关上。）
+- (You) Be quiet.（安静。）
+- 动词无时态变化：
+- 祈使句中的动词只使用原形，不受时态影响。
+- 例如：
+- 一般陈述句：She goes to school every day.（一般现在时）
+- 祈使句：Go to school.（去上学。）
+- 动词无数的变化：
+- 无论听话者是单数还是复数，动词都不发生变化。
+- 例如：
+- 对一个人：Stand up.（站起来。）
+- 对一群人：Stand up.（站起来。）
+
+祈使句的类型
+
+1. 肯定祈使句
+
+直接用动词原形开头，表示命令、建议或请求。
+
+- 例：
+- Come here.（过来。）
+- Try your best.（尽力而为。）
+- Keep quiet.（保持安静。）
+2. 否定祈使句
+- 用 "Don't" + 动词原形，表示禁止或警告。
+- 例：
+- Don't touch it.（别碰它。）
+- Don't be late.（别迟到。）
+- 形式更正式或更有礼貌时，也可以用 Never 代替 Don't：
+- Never give up.（永不放弃。）
+3. Let's 句型（第一人称祈使句）
+- Let’s + 动词原形，表示提议或建议，主语是第一人称复数（我们）。
+- 例：
+- Let's go.（我们走吧。）
+- Let's have a rest.（我们休息一下。）
+- 否定形式是 Let's not + 动词原形：
+- Let's not argue.（我们别争论了。）
+4. 带有宾语的祈使句
+- 祈使句可以加上宾语，使句子更具体。
+- 例：
+- Open your book.（打开你的书。）
+- Tell me the truth.（告诉我真相。）
+5. 强调祈使句
+- 用 do + 动词原形 进行强调，使语气更强烈或更有礼貌。
+- 例：
+- Do be careful.（务必小心。）
+- Do come in.（请进。）
+
+含有 Please 的祈使句（更礼貌）
+
+- 在祈使句前或后加 please，使语气更委婉。
+- 例：
+- Please sit down.（请坐。）
+- Pass me the salt, please.（请把盐递给我。）
+
+特殊的祈使句
+
+1. "Be" 开头的祈使句
+- 当谓语动词是 be 时，仍然使用原形 be。
+- 例：
+- Be careful.（小心点。）
+- Be quiet.（安静。）
+2. 祈使句 + and/or
+- “祈使句 + and”：表示如果做某事，就会发生好的结果。
+- Work hard, and you will succeed.（努力工作，你就会成功。）
+- “祈使句 + or”：表示如果不做某事，就会发生不好的结果。
+- Hurry up, or you will be late.（快点，否则你会迟到。）
+
+例题 1：
+
+________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a dog is not long.
+
+Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
+
+例题 2：
+
+________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a dog is not long.
+
+Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
+
+祈使句 + and/or + 陈述句:
+
+and 表示 祈使句作用后的结果：
+
+Stick to your principles, and you will win through. 坚持你的原则，就会胜利。
+
+or 表示 不然，否则：
+
+Drop that gun, or I’ll shoot you. 放下枪，不然我就打死你。
+
+Make haste, or we’ll miss the bus. 赶快，否则我们赶不上汽车了。
+
+**例题**
+
+Study hard, and you’ll make great progress in English.
+
+A．or B．and C．because D．so
+
+努力学习，你就会在英语上取得很大进步。
+
+形式主语
+
+to do 做真正的主语。
+
+客观评价（重要、容易、困难等）（necessary, possible, hard, easy, useful, impossible）
+
+It is +n./adj. +(for/of sb.) to do sth.
+
+It is important to practice English every day.每天练习英语很重要。
+
+It is difficult for me to get up early.对我来说，早起很难。
+
+doing sth. 做真正的主语。
+
+It is no use/good/pleasure doing sth. “做......没有用/好处/乐趣”
+
+That 从句做真正的主语：
+
+It is said/reported/believed... that...
+
+It is said that...（据说……）
+
+It is believed that...（人们相信……）
+
+It is reported that...（据报道……）
+
+It is known that...（众所周知……）
+
+### 名词
+定义：为物体或人的名称，例如：书、桌子、椅子、老虎、白色、打印机、台灯、汤姆等。
+
+分类：专有名词、普通名词。而普通名词中又包含可数名词和不可数名词。
+
+注意：
+
+1.可数名词的单数不能单独出现。
+
+2.可数名词的复数形式有如下情况：
+
+不可数名词的分类
+
+分类：（包括但不限于以下）
+
+①无法分割的东西：air, water, soup, meat, milk, bread.
+
+②体积微小的东西：hair, popcorn, sand, rice, salt,corn.
+
+③一类物品的总称：food, fruit, money, clothing.
+
+④学科类名词：math, history, science.
+
+- 抽象名词：life, love, noise, nutrition.
+
+1.单复数同形 sheep，deer，means，Chinese，Japanese
+
+通过 a/an 来判断：A sheep is...
+
+Sheep are…
+
+2.集体名词形式为单数但含义为复数 people，police
+
+3.有些词常以复数形式出现，例如：glasses，trousers，clothes，shorts，jeans -are/were
+
+4.以-s 结尾，但实为不可数名词或单数名词，例如：news，maths，politics 政治，physics 物理
+
+5.常见不可数名词：advice，news，information，weather，furniture，luggage，progress，water，air，rice，salt，money，bread （1. 谓语用单三 is /2. 前面不加 a/an)
+
+常见的不可数名词：
+
+news n. (不可数) 消息
+
+furniture n. (不可数) 家具；装置
+
+information n. (不可数) 信息
+
+knowledge n. (不可数) 知识
+
+anger n. (不可数) 怒火
+
+luck n. (不可数) 幸运
+
+wealth n. (不可数) 财富
+
+progress n. (不可数) 进步
+
+experience n. (不可数) 经验
+
+pollution n. (不可数) 污染
+
+equipment n. (不可数) 设备
+
+**例题**
+
+What ____ lovely weather it is!
+
+A. / B. the C. an D. a
+
+以 -ics 结尾、表示学科等含义的名词作主语时，谓语动词一般用单数形式：
+
+- mathematics：数学
+- physics：物理学
+- economics：经济学
+- electronics：电子学
+- ethics：伦理学
+- politics：政治学
+- statistics：统计学
+- gymnastics：体操
+- athletics：田径运动
+
+注意：economics、electronics、ethics、politics、statistics 表示学科以外的其他含义时，可作复数用。
+
+复合名词变复数：复合名词由两个或两个以上的词组合而成
+
+三种连接形式：
+
+第一种：两部分分开的:woman teacher,woman doctor, post office, bus stop 等
+
+第二种：两部分连写:bookshop, raincoat 等
+
+第三种：两部分通过连词符-连接:cold-blooded, hard-working 等
+
+1.“man/woman+名词”构成的复合名词，两个词均须变为复数
+
+woman teacher => women teachers man waiter => men waiters
+
+woman singer=>women singers man servant=>men servants
+
+2.以-man/-woman/-child 结尾的复合名词，将-man/-woman/-child 变为复数。例如：
+
+fireman =>firemen（消防员） chairwoman =>chairwomen（女主席）
+
+grandchild =>grandchildren（孙子/女） Englishman =>Englishmen（英国人）
+
+Frenchman =>Frenchmen（法国人）
+
+3.其他的“名词+名词”组成的复合名词变复数时，一般只把后面的名词变成复数。
+
+girl friend=>girl friends，pocket bag=> pocket bags，story-teller=> story-tellers
+
+4. “可数名词+介词或介词短语”构成的复合名词，将主体名词（或者说中心名词）变为复数。例如：
+
+runner-up=>runners-up（亚军） passer-by=>passers-by（过路人）
+
+looker-on=>lookers-on（旁观者） mother-in-law => mothers-in-law(岳母/婆婆）
+
+editor-in-chief=>editors-in-chief(总编辑） bride-to-be=>brides-to-be（准新娘）
+
+5.当复合名词是从动词短语演变而来,它没有主体名词,结构是“动词/动词的过去分词+副词“，它的复数形式要在词尾加 s
+
+stand-by=>stand-bys grown-up=> grown-up take-off=>take offs
+
+forget，breakdown=>breakdowns，go-between=> go-betweens
+
+6.当复合名词是以不可数名词结尾时，它是没有复数形式的，例如 housework, newspaper 等这样的词
+
+There are fifty woman teachers in our school. They are all friendly to us.
+
+Storey n.楼层，层
+
+ten storeys 名词 十层
+
+This building has ten storeys.（这栋楼有十层。）
+
+three-storey 复合形容词 三层的
+
+a three-storey house（一栋三层的房子）
+
+名词所有格：
+
+单数加’s 复数有 S 的就 S’, 看名词前的 a/an 或则通过语境判断。
+
+单数所有格：student’s 复数所有格 students’
+
+a soldier’s primary duty soldiers’ soldier’s duty
+
+复数所有格 weeks’ vacation
+
+双重所有格：a of B’s of 后面是人
+
+- of+名词‘s：the friend of Mike’s Mike 的朋友
+- of + 名词性物主代词，the friend of mine 我的朋友
+
+**例题**
+
+This is a book of Shirley's (Shirley/ Shirley's).
+
+并列名词的所有格
+
+- 一、如果表示共有：只在最后一个名词后面加 -’s 或 -’。
+- 被修饰的名词是单数。
+- ✅ 结构：A and B’s + 名词
+- ✅ 例句：Lucy and Lily’s brother（露西和莉莉共同的一个哥哥）
+- 二、如果表示分别拥有：每个名词后面都要加 -’s 或 -’。
+- 被修饰的名词是复数。
+- ✅ 结构：A’s and B’s + 名词（复数）
+- ✅ 例句：Lucy’s and Lily’s brothers（露西和莉莉各自的哥哥们）
+
+**例题**
+
+_________mothers couldn’t go to the meeting, because they have gone to Shanghai .
+
+A. Mary and Peter’s B. Mary and Peter
+
+C. Mary’s and Peter D. Mary’s and Peter’s
+
+并列所有格主要看所有格后面的名词，复数：分别加所有格/单数：左后一个加所有格。
+
+Lily (Lily/ Lily's) and Sarah's new apartment has two big windows
+
+从 apartment 单数和 has 单三可看出 为共同的公寓。
+
+### 代词
+it 作形式宾语的用法：
+
+在英语中，某些动词（如 find, feel, think, consider, make, believe, suppose 等）后接 不定式 (to do) 作为宾语时，通常需要使用 it 作为形式宾语，而将真正的宾语（即 不定式短语）后置。
+
+句型结构：主语 + 动词 + it（形式宾语）+ 宾语补足语(形容词/名词) + to do（真正宾语）
+
+例句解析：
+
+I found it difficult to solve the problem. 我发现解决这个问题很难。
+
+She made it clear to follow the instructions. 她让遵循指示变得清晰。
+
+He thought it unnecessary to explain further. 他认为进一步解释是不必要的。
+
+I found it easy to learn English. 我发现学英语很容易。
+
+We consider it important to follow the rules. 我们认为遵守规则很重要。
+
+He made it possible to complete the project on time. 他让按时完成项目成为可能。
+
+The two girls are so alike that the neighbors find____ (that/it)difficult to tell one from the other.
+
+tell A from B. 区分 A 和 B
+
+这里注意 its 这里做形容词性物主代词
+
+反身代词放在句末，用于强调主语亲自做某事：
+
+I clean the room myself. 我自己打扫房间。
+
+He built the house himself.（他亲自建造了这座房子。）
+
+例题：He does not want to make any effort ___ (him/himself).
+
+指示代词 this, those, that, these 可以做主语和宾语
+
+this 翻译为这个（距离比较近）。
+
+This book is mine.
+
+that 翻译为那个（距离比较远）。
+
+That house is old.
+
+these 翻译为这些，是 this 的复数形式（距离也较近）。
+
+These apples are fresh.
+
+those 翻译为那些，是 that 的复数形式（距离比较远）
+
+Those trees are tall.
+
+that 和 those 可以用来代替前面提到的事物，避免重复。
+
+That 代替前面的事物：
+
+The weather today is better than that of yesterday.（今天的天气比昨天好。）
+
+Those 代替前面的事物：
+
+These apples are fresher than those in the market.（这些苹果比市场上的那些更新鲜。）
+
+| 代词 | 含义 | 所指代的名词 | 例句 |
+
+| --- | --- | --- | --- |
+
+| it（复数：they/them） | 它 | 同类同物（特指） | Where is my new pen? I can't find it. |
+
+| one（复数：ones） | 一个 | 同类不同物（泛指） | This apple is small. Please give me a big one. |
+
+| that（复数：those） | 那个 | 同类不同物（特指） | His handwriting is like that of a child |
+
+⑥ Things made by hand are usually more expensive than
+
+produced in factories.
+
+A. these 下文
+
+B. this
+
+C. that 指代上文出现的---同类不同物 单数
+
+D. those 指代上文出现的---同类不同物 复数
+
+Joyce likes the shape of the cake. It (It/ One) is a heart.
+
+It 单数-特指 One 单数-泛指
+
+The other + 单数名词，one…the other…，一个……另一个……
+
+特指两个或两部分中的另一个或另一部分，
+
+he other map 另一张地图，the other book 另外的一本书。
+
+The other+复数形式：其他的….
+
+the other flowers 其他的花朵，the other teachers 其它的老师们。
+
+**例题**
+
+Tom owns more books than the other _____ (student/students) in our class.
+
+Tom 拥有的书比我们班上其他的_____还多。”
+
+复合不定代词,:everything, something, anything , nothing
+
+作主语时, 谓语动词常用单数形。
+
+- everything 每件事,用于肯定句、疑问句或否定句中。
+- I hope everything goes well. 我希望一切顺利。
+- something 某事；某物。用于肯定句中，也可用于征求对方意见的疑问句中。
+- Something is wrong with my ears. 我的耳朵有点毛病。
+- anything 意为某事；任何事。一般用于否定句或疑问句中。
+- Can you hear anything? 你能听到某种声音吗?
+- nothing 意为没有什么；没有东西。肯定句
+- Tom saw nothing. 汤姆什么也没看见
+- nothing=not anything
+- everything 最重要的.
+- Money is everything to him.金钱对他比什么都重要。
+
+**例题**
+
+I need some stamps. Are there any (any/ all) in your bag?
+
+Any 一些：not 否定句或者疑问句？/ some 一些，肯定句
+
+both & either & neither & all & any & none 区别：
+
+| 范围 / 含义 | 都 | 任意一个 | 都不 |
+
+| --- | --- | --- | --- |
+
+| 两者 | both（谓复） | either（谓单） | neither（谓单或复） |
+
+| 三者（以上 | all（谓单或复） | any（谓单） | none（谓单或复） |
+
+**例题**
+
+The young couple often eats out because ____ of them can cook.
+
+A. both of 两者都-复数
+
+B. either of 两者其中一个-单数
+
+C. neither of 两者都不----单数
+
+D. none of 三者都不
+
+### 副词和形容词
+
+### 1.副词 ly 修饰动词，有时候在句未,动词前,句首,动词后。
+形容词/副词 + enough：足够的程度 副词
+
+big enough：足够大 fast enough：足够快
+
+quickly enough：足够快地 carefully enough：足够小心地
+
+enough + 名词：足够的某物
+
+enough money：足够的钱 enough time：足够的时间
+
+### 2.形容词修饰名词，在名词前面 / be/感官系动词 +adj.
+available：adj. 可获得的”或“可用的：后置形容词
+
+a room available：一个可用的房间
+
+seats available：可用的座位
+
+a person available：有空的人
+
+### 3.不定代词+形容词：something, anything, everything + adj.
+I don’t have anything important to say. 我没有什么重要的事要说。
+
+### 4. “of + 抽象名词” = 形容词，可作表语、定语、补语
+ 常见抽象名词：importance, use, help, value, difference, significance
+
+ 前面可加 little, any, great, no, some, vital, much, low 等修饰词
+
+The decision is of great importance to us.（这个决定对我们来说非常重要。）
+
+The decision is very important to us.（这个决定对我们来说很重要。）
+
+- sometime 副词，某个时候（通常指将来或过去的不确定时间）
+- I met her sometime last year. 我去年某个时候见过她
+- sometimes 副词，有时，偶尔（表示频率）
+
+I sometimes go jogging in the morning. 我有时早上去慢跑。
+
+**例题**
+
+This castle is said to have been built ________ (sometime/sometimes) around 1900.
+
+这座城堡大概在 1900 年左右的某个时候建造的。
+
+副词短语 as well 表示「也…」的意思，语义相当于 too、also：放在句未
+
+由于 as well 并非连接词，故连接不同的语法单位时（短语、从句等），须与连接词（and 或 but）搭配。
+
+例句：
+
+- I like cooking new dishes and baking desserts as well.
+- = I like cooking new dishes and baking desserts, too.
+- = I like cooking new dishes and I also love baking desserts.
+- 我喜欢烹煮新料理，也喜欢烘焙甜点。
+
+Here 作为地点副词，表示“这里”，通常可以放在句末
+
+I will wait for you here. （我会在这里等你。）
+
+She was born here. （她出生在这里。）
+
+### 连词成句
+
+时间或顺序的副词放在句末：first,soon
+
+1.your homework, finish, first, you, should.
+
+✅ You should finish your homework first.
+
+❌You should first finish your homework .
+
+- 2.He is reading in the room above. 他正在楼上的房间里读？
+
+above 形容词时用在名词前面, above 名词之后，表示在上面是副词
+
+well done 形容词短语或形容词
+
+That was a well-done job.（干得漂亮的工作。）
+
+I want my steak well done.（我要全熟的牛排。）
+
+关于频度的时间状语，如 often, always, seldom, never, ever, usually 等，通常位于行为动词前、be 动词后或情态动词后：
+
+I always drink coffee in the morning.我总是早上喝咖啡。
+
+They are always busy with work.他们总是忙于工作。
+
+He can always help you with that.他总是能帮你做这件事。
+
+关于多个状语修饰同一个动词时的顺序：方式状语 → 地点状语 → 时间状语
+
+She speaks English fluently in the classroom every day. 她每天在教室里流利地说英语。
+
+先出现被指代的词，再出现代词
+
+Tom is our role model and he is the best.
+
+with her friends 放在句末
+
+英语喜欢“主谓先行，修饰随后”的语序：主语 + 谓语 + 宾语/补语 + 状语
+
+在描述一个场景时，我们通常会先说“谁做了什么”，然后再补充“和谁一起”、“在哪里”等信息。
+
+错：Emma with her friends played happily in the park.
+
+对：Emma played happily with her friends in the park.
+
+阅读填词
+
+- 1. 要注意填写的词的时态，词性。
+
+由于阅读原句的和选词填空的句子细微变化，造成时态，单复数，词性的变化。从连词（and,or）前后词性时态相同，句子其它动词看时态，等等。
+
+- 2.非句首的词，不要大写。
+
+阅读回答
+
+- 1.询问时间
+
+How soon ➝ 询问 多久之后 发生？（回答："In + 时间"）
+
+ How long ➝ 询问 持续多久？（回答："For + 时间"）
+
+ How often ➝ 询问 多久一次？（回答："Once
+
+Twice a week"）
+
+When 回答 In
+
+- 2. How +v. 询问方式=> By+句子
+
+- 3. why 询问原因 => because
+
+### 词根词缀
 - un-：表示否定、相反或缺乏，如 unhappy（不开心的）、unjust（不公正的）。
 - re-：表示再一次、回退或重复，如 rewrite（重写）、rethink（重新考虑）。
 - pre-：表示在预先或之前，如 prehistoric（史前的）、prepaid（预付的）。
