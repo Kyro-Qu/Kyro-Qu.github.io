@@ -124,8 +124,6 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 
 #### 时间状语从句
 
-时间状语从句：
-
 - 引导词：as soon as, when, after, before, until, once
 - She will call me when she gets home.
 - 她到家后会给我打电话。
@@ -136,15 +134,11 @@ description: "整理英语语法核心知识、常见句型、词语辨析与固
 
 #### 条件状语从句
 
-条件状语从句：
-
 - 引导词：if, unless, provided that, as long as
 - I will help you if you need me.
 - 如果你需要我，我会帮助你。
 
 #### 让步状语从句
-
-让步状语从句：
 
 - 引导词：whatever, whoever, wherever, whether ... or not
 - Whatever happens, I will support you.
@@ -593,8 +587,6 @@ The children are being left alone in the room while their parents talk outside.
 
 ### 主语从句
 
-主语从句：
-
 缺成分：that 不缺成分使用
 
 What: ..的东西，..的事情..所说的，多代替宾语
@@ -701,8 +693,6 @@ All________ can be done has been done. A．what B．which C．that
 
 ### 状语从句
 
-状语从句：
-
 Because：应为 why: ...的原因
 
 If: 如果 unless:如果不，除非
@@ -724,8 +714,6 @@ No matter who=whomever 无论谁·，宾格
 There is no possibility that
 
 ### 强调句
-
-强调句：
 
 1 常见结构：
 
@@ -764,8 +752,6 @@ It + verb + that... / to do...
 - 真正主语是 “that you missed the meeting”
 
 ### 时间状语从句
-
-时间状语从句：
 
 1.since 自从
 
