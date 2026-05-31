@@ -1,18 +1,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-{{ $is404 := eq .RelPermalink "/404.html" }}
 <title>
-  {{ if $is404 }}页面不存在 - {{ .Site.Title }}{{ else if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{
+  {{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{
   .Title }} - {{ .Site.Title }}{{ end }}
 </title>
 
-{{ if $is404 }}
-<meta name="robots" content="noindex, nofollow" />
-{{ end }}
-
-{{ if $is404 }}
-<meta name="description" content="你访问的页面不存在，可以返回首页或继续搜索站内文章。" />
-{{ else if .Description }}
+<!-- Meta Description -->
+{{ if .Description }}
 <meta name="description" content="{{ .Description }}" />
 {{ else if .IsHome }}
 <meta name="description" content="{{ .Site.Params.description }}" />
@@ -20,13 +14,14 @@
 <meta name="description" content="{{ .Summary | truncate 160 }}" />
 {{ end }}
 
+<!-- Open Graph -->
 <meta
   property="og:title"
-  content="{{ if $is404 }}页面不存在{{ else if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
 />
 <meta
   property="og:description"
-  content="{{ if $is404 }}你访问的页面不存在，可以返回首页或继续搜索站内文章。{{ else if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
+  content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
 />
 <meta
   property="og:type"
@@ -34,32 +29,19 @@
 />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-<meta
-  property="og:image"
-  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.author.image | default "images/profile-320.png" | absURL }}{{ end }}"
-/>
 
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta
   name="twitter:title"
-  content="{{ if $is404 }}页面不存在{{ else if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
+  content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
 />
 <meta
   name="twitter:description"
-  content="{{ if $is404 }}你访问的页面不存在，可以返回首页或继续搜索站内文章。{{ else if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
-/>
-<meta
-  name="twitter:image"
-  content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.author.image | default "images/profile-320.png" | absURL }}{{ end }}"
+  content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}"
 />
 
-<link rel="canonical" href="{{ .Permalink }}" />
-<meta name="theme-color" content="#1A0B2E" />
-
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon.png" | absLangURL }}" />
-<link rel="shortcut icon" href="{{ "favicon.ico" | absLangURL }}" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absLangURL }}" />
-
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -67,19 +49,16 @@
   rel="stylesheet"
 />
 
+<!-- FontAwesome -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
 />
 
-{{ $customCssVersion := readFile "static/css/custom.css" | md5 }}
-{{ $styleCssVersion := readFile "static/css/style.css" | md5 }}
-<link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}?v={{ $styleCssVersion }}">
-<link rel="stylesheet" href="{{ "css/custom.css" | absLangURL }}?v={{ $customCssVersion }}">
+<!-- Styles -->
+<link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}">
 
+<!-- RSS -->
 {{ range .AlternativeOutputFormats -}}
 <link
   rel="{{ .Rel }}"
@@ -87,3 +66,17 @@
   href="{{ .Permalink | safeURL }}"
 />
 {{ end -}}
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0t0I/c6HvDr0s0EgVhXVYmMQFq9NBF6MRFLt2vQ2Fn2vIax7I2bxkI7M8Jo0K" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-RmaudI+uPyk6aHw9M/W2+2Mh11X6FsVfW0H0+8F3P6N2B8B9HBLShf45OkTCbIo" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJmHnqQ5e/BnJJ+Hn2RHLiVqDKNIiKaY1Q5Njd4B10s" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\[', right: '\]', display: true},
+      {left: '\(', right: '\)', display: false},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
