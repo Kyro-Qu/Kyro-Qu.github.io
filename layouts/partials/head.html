@@ -57,6 +57,7 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}">
+<link rel="stylesheet" href="{{ "css/custom.css" | absLangURL }}">
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}
@@ -68,9 +69,9 @@
 {{ end -}}
 
 <!-- KaTeX -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0t0I/c6HvDr0s0EgVhXVYmMQFq9NBF6MRFLt2vQ2Fn2vIax7I2bxkI7M8Jo0K" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-RmaudI+uPyk6aHw9M/W2+2Mh11X6FsVfW0H0+8F3P6N2B8B9HBLShf45OkTCbIo" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJmHnqQ5e/BnJJ+Hn2RHLiVqDKNIiKaY1Q5Njd4B10s" crossorigin="anonymous"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
   onload="renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

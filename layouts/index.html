@@ -1,110 +1,12 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }}
 <div class="container">
-  <div class="author-profile-section">
-    <div class="profile-photo-container">
-      <img
-        src="{{ .Site.Params.Author.image | absURL }}"
-        alt="{{ .Site.Params.Author.name }}"
-        class="profile-photo"
-      />
-    </div>
-    <p class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</p>
-    <div class="social-links">
-      {{ range $name, $url := .Site.Params.Social }} {{ if eq $name "github" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="GitHub"
-      >
-        <i class="fab fa-github social-icon"></i>
-      </a>
-      {{ else if eq $name "twitter" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="X"
-      >
-        <span class="social-icon x-icon">X</span>
-      </a>
-      {{ else if eq $name "linkedin" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="LinkedIn"
-      >
-        <i class="fab fa-linkedin social-icon"></i>
-      </a>
-      {{ else if eq $name "email" }}
-      <a href="mailto:{{ $url }}" class="social-link" title="邮箱">
-        <i class="fas fa-envelope social-icon"></i>
-      </a>
-      {{ else if eq $name "mastodon" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="Mastodon"
-      >
-        <i class="fab fa-mastodon social-icon"></i>
-      </a>
-      {{ else if eq $name "youtube" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="YouTube"
-      >
-        <i class="fab fa-youtube social-icon"></i>
-      </a>
-      {{ else if eq $name "instagram" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="Instagram"
-      >
-        <i class="fab fa-instagram social-icon"></i>
-      </a>
-      {{ else if eq $name "facebook" }}
-      <a
-        href="{{ $url }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="Facebook"
-      >
-        <i class="fab fa-facebook social-icon"></i>
-      </a>
-      {{ end }} {{ end }}
-    </div>
-  </div>
-
   {{ if .Content }}
   <section class="home-intro-card">
     {{ .Content }}
   </section>
   {{ end }}
 
-  <div class="filter-section">
-    <div class="filter-tags">
-      <div class="tag active" data-tag="all">全部</div>
-      {{ range .Site.Taxonomies.tags.ByCount }}
-      <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Name }}</div>
-      {{ end }}
-    </div>
-  </div>
-
-  {{ partial "post-feed.html" (dict "posts" $posts "initialCount" 3 "showLoadMore"
-  true) }}
+  {{ partial "post-feed.html" (dict "posts" $posts "initialCount" 3 "showLoadMore" true) }}
 </div>
 {{ end }}

@@ -9,11 +9,7 @@
 
   <div class="tags-cloud">
     {{ range .Data.Terms.ByCount }}
-    <a
-      href="{{ .Page.Permalink }}"
-      class="tag-cloud-item"
-      data-count="{{ .Count }}"
-    >
+    <a href="{{ .Page.Permalink }}" class="tag-cloud-item" data-count="{{ .Count }}">
       <span class="tag-name">{{ .Page.Title }}</span>
       <span class="tag-count">{{ .Count }}</span>
     </a>

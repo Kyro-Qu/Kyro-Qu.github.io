@@ -10,7 +10,8 @@
       <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
       {{ if .Params.featured }}
       <span class="featured-badge">精选</span>
-      {{ end }} {{ if .Params.mood }}
+      {{ end }}
+      {{ if .Params.mood }}
       <span class="post-mood">{{ .Params.mood }}</span>
       {{ end }}
     </div>
@@ -31,19 +32,11 @@
     </div>
     {{ end }}
 
-    <a href="{{ .Permalink }}" class="continue-reading-vaporwave">
-      继续阅读
-    </a>
+    <a href="{{ .Permalink }}" class="continue-reading-vaporwave">继续阅读</a>
   </div>
 
   <div class="post-meta-sidebar">
     <div class="reading-time-vaporwave">
-      <span class="coffee-cups">
-        {{ $coffees := "" }} {{ $maxCups := 5 }} {{ $cupsToShow := .ReadingTime
-        }} {{ if gt .ReadingTime $maxCups }} {{ $cupsToShow = $maxCups }} {{ end
-        }} {{ range (seq $cupsToShow) }} {{ $coffees = print $coffees "☕ " }} {{
-        end }} {{ $coffees }}
-      </span>
       <span>{{ .ReadingTime }} 分钟阅读</span>
     </div>
   </div>

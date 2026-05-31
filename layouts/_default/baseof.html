@@ -4,8 +4,7 @@
     {{ partial "head.html" . }}
 </head>
 <body>
-    {{ $is404 := eq .Kind "404" }}
-    {{ if and (not .IsHome) (not $is404) }}
+    {{ if not .IsHome }}
     <div class="reading-progress"></div>
     {{ end }}
 
@@ -17,13 +16,6 @@
         {{ block "main" . }}{{ end }}
     </main>
 
-    {{ if and (not (eq .Type "posts")) (not $is404) }}
-    {{ partial "ambient-bar.html" . }}
-    {{ end }}
-
-    {{ $assetVersion := readFile "static/js/custom-ui.js" | md5 }}
-    {{ $mainJsVersion := readFile "themes/loficode/static/js/main.js" | md5 }}
-    <script src="{{ "js/main.js" | absLangURL }}?v={{ $mainJsVersion }}"></script>
-    <script src="{{ "js/custom-ui.js" | absLangURL }}?v={{ $assetVersion }}"></script>
+    <script src="{{ "js/main.js" | absLangURL }}"></script>
 </body>
 </html>

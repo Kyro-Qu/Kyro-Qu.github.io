@@ -1,74 +1,71 @@
 {{ define "main" }}
 <div class="container">
-    <div class="taxonomy-header">
-        <div class="breadcrumb">
-            <a href="{{ "/" | absLangURL }}">首页</a>
-            <span class="breadcrumb-separator">→</span>
-            <a href="{{ printf "/%s/" .Data.Plural | absLangURL }}">{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}</a>
-            <span class="breadcrumb-separator">→</span>
-            <span class="current-page">{{ .Title }}</span>
-        </div>
-
-        <h1 class="taxonomy-title">
-            <span class="tag-emoji" aria-hidden="true">🏷️</span>
-            {{ .Title }}
-        </h1>
-
-        <p class="taxonomy-subtitle">
-            当前共有 {{ .Pages.Len }} 篇文章使用“{{ .Title }}”{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}。
-        </p>
+  <div class="taxonomy-header">
+    <div class="breadcrumb">
+      <a href="{{ "/" | absLangURL }}">首页</a>
+      <span class="breadcrumb-separator">→</span>
+      <a href="{{ printf "/%s/" .Data.Plural | absLangURL }}">{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}</a>
+      <span class="breadcrumb-separator">→</span>
+      <span class="current-page">{{ .Title }}</span>
     </div>
 
-    {{ $currentTerm := .Title }}
-    {{ $relatedTerms := slice }}
-    {{ if eq .Data.Plural "tags" }}
-        {{ range .Pages }}
-            {{ range .Params.tags }}
-                {{ if ne . $currentTerm }}
-                    {{ $relatedTerms = $relatedTerms | append . }}
-                {{ end }}
-            {{ end }}
+    <h1 class="taxonomy-title">{{ .Title }}</h1>
+
+    <p class="taxonomy-subtitle">
+      当前共有 {{ .Pages.Len }} 篇文章使用“{{ .Title }}”{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}。
+    </p>
+  </div>
+
+  {{ $currentTerm := .Title }}
+  {{ $relatedTerms := slice }}
+  {{ if eq .Data.Plural "tags" }}
+    {{ range .Pages }}
+      {{ range .Params.tags }}
+        {{ if ne . $currentTerm }}
+          {{ $relatedTerms = $relatedTerms | append . }}
         {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $relatedTerms }}
+  <div class="related-tags-section">
+    <h3>相关主题</h3>
+    <div class="related-tags">
+      {{ range ($relatedTerms | uniq | first 8) }}
+      <a href="{{ printf "/tags/%s/" (. | urlize) | absLangURL }}" class="related-tag">{{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="posts-list">
+    {{ $paginator := .Paginate .Pages }}
+    {{ range $paginator.Pages }}
+    {{ partial "post-list-item.html" . }}
+    {{ end }}
+  </div>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <div class="pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-btn">← 上一页</a>
     {{ end }}
 
-    {{ if $relatedTerms }}
-    <div class="related-tags-section">
-        <h3>相关主题</h3>
-        <div class="related-tags">
-            {{ range ($relatedTerms | uniq | first 8) }}
-            <a href="{{ printf "/tags/%s/" (. | urlize) | absLangURL }}" class="related-tag">{{ . }}</a>
-            {{ end }}
-        </div>
+    <div class="pagination-info">
+      第 {{ $paginator.PageNumber }} 页，共 {{ $paginator.TotalPages }} 页
     </div>
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination-btn">下一页 →</a>
     {{ end }}
+  </div>
+  {{ end }}
 
-    <div class="posts-list">
-        {{ $paginator := .Paginate .Pages }}
-        {{ range $paginator.Pages }}
-        {{ partial "post-list-item.html" . }}
-        {{ end }}
-    </div>
-
-    {{ if gt $paginator.TotalPages 1 }}
-    <div class="pagination">
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="pagination-btn">← 上一页</a>
-        {{ end }}
-
-        <div class="pagination-info">
-            第 {{ $paginator.PageNumber }} 页，共 {{ $paginator.TotalPages }} 页
-        </div>
-
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="pagination-btn">下一页 →</a>
-        {{ end }}
-    </div>
-    {{ end }}
-
-    <div class="taxonomy-footer">
-        <a href="{{ printf "/%s/" .Data.Plural | absLangURL }}" class="back-to-tags">
-            ← 浏览全部{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}
-        </a>
-    </div>
+  <div class="taxonomy-footer">
+    <a href="{{ printf "/%s/" .Data.Plural | absLangURL }}" class="back-to-tags">
+      → 浏览全部{{ if eq .Data.Plural "tags" }}标签{{ else }}分类{{ end }}
+    </a>
+  </div>
 </div>
 {{ end }}
