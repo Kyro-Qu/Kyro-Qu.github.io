@@ -1,0 +1,5 @@
+{{ if eq .Type "inline" }}
+<span class="math-inline">\({{ .Inner }}\)</span>
+{{ else }}
+<div class="math-block">\[{{ .Inner }}\]</div>
+{{ end }}
