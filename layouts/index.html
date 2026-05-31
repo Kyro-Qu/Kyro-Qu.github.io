@@ -3,7 +3,29 @@
 <div class="container">
   {{ if .Content }}
   <section class="home-intro-card">
-    {{ .Content }}
+    <div class="home-intro-shell">
+      <p class="home-intro-kicker">WELCOME</p>
+      <div class="home-intro-header">
+        <h1 class="home-intro-title">欢迎来到 Kyro Blog</h1>
+        <p class="home-intro-lead">
+          这里记录编程、学习和项目实践中的过程、问题与结果。
+        </p>
+      </div>
+      <div class="home-intro-body">
+        <div class="home-intro-copy">
+          {{ .Content }}
+        </div>
+        <div class="home-intro-panel" aria-label="博客内容导览">
+          <p class="home-intro-panel-title">这里会持续更新</p>
+          <ul class="home-intro-highlights">
+            <li>技术折腾和项目搭建记录</li>
+            <li>学习笔记与问题排查</li>
+            <li>工具使用心得</li>
+            <li>值得沉淀下来的想法</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
   {{ end }}
 
