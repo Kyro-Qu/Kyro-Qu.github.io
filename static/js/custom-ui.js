@@ -33,8 +33,35 @@
     root.querySelectorAll(".reading-time-vaporwave span:last-child").forEach((node) => {
       const match = node.textContent.match(/(\d+)\s*min(?:ute)?(?:s)?/i);
       if (match) {
-        node.textContent = `${match[1]} 分钟阅读`;
+        node.textContent = `${match[1]} min`;
       }
+    });
+  }
+
+  function ensureCoffeeReadingTime(root) {
+    root.querySelectorAll(".reading-time-vaporwave").forEach((node) => {
+      const textNode = node.querySelector("span:last-child");
+      if (!textNode) {
+        return;
+      }
+
+      const match = textNode.textContent.match(/(\d+)/);
+      if (!match) {
+        return;
+      }
+
+      const readingTime = parseInt(match[1], 10);
+      const cupsToShow = Math.min(readingTime, 5);
+      let cupsNode = node.querySelector(".coffee-cups");
+
+      if (!cupsNode) {
+        cupsNode = document.createElement("span");
+        cupsNode.className = "coffee-cups";
+        node.insertBefore(cupsNode, textNode);
+      }
+
+      cupsNode.textContent = "☕".repeat(cupsToShow);
+      textNode.textContent = `${readingTime} min`;
     });
   }
 
@@ -158,6 +185,7 @@
   function localizeDom() {
     const root = document;
     localizeReadingTime(root);
+    ensureCoffeeReadingTime(root);
     localizeLoadMore(root);
     localizeSearchResults(root);
     localizePostCards(root);
