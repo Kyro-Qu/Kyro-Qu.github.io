@@ -598,6 +598,10 @@ html[data-theme="light"] .not-found-empty {
     padding: 1.7rem 1.8rem 1.85rem;
 }
 
+.list-page-shell {
+    padding: 1.7rem 1.8rem 1.85rem;
+}
+
 .home-intro-kicker {
     margin: 0 0 0.8rem;
     font-size: 0.78rem;
@@ -641,10 +645,42 @@ html[data-theme="light"] .not-found-empty {
 
 .list-page-title {
     margin: 0;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
 }
 
 .list-page-description {
     margin-top: 0.8rem;
+    max-width: 46rem;
+    font-size: 1.02rem;
+}
+
+.archive-page-header .list-page-kicker {
+    display: block;
+    margin-bottom: 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+.archive-page-header > .list-page-shell {
+    width: 100%;
+    padding: 1.7rem 1.8rem 1.85rem !important;
+    box-sizing: border-box;
+}
+
+.archive-page-header .list-page-title {
+    margin-top: 0;
+}
+
+.archive-page-header .list-page-description {
+    margin-top: 0.8rem;
+}
+
+.archive-page-header .list-page-description p {
+    margin: 0;
 }
 
 .archive-groups {
@@ -1198,6 +1234,14 @@ html[data-theme="light"] .comments-embed {
 
     .home-intro-shell {
         padding: 1.2rem 1.25rem 1.3rem;
+    }
+
+    .list-page-shell {
+        padding: 1.2rem 1.25rem 1.3rem;
+    }
+
+    .archive-page-header > .list-page-shell {
+        padding: 1.2rem 1.25rem 1.3rem !important;
     }
 
     .comments-shell {

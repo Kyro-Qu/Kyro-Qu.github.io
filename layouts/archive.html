@@ -2,17 +2,19 @@
 {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }}
 <div class="container">
   <section class="list-page-header archive-page-header">
-    <p class="list-page-kicker">时间线</p>
-    <h1 class="list-page-title">{{ .Title }}</h1>
-    {{ with .Content }}
-    <div class="list-page-description">
-      {{ . }}
+    <div class="list-page-shell">
+      <p class="list-page-kicker">TIMELINE</p>
+      <h1 class="list-page-title">{{ .Title }}</h1>
+      {{ with .Content }}
+      <div class="list-page-description">
+        {{ . }}
+      </div>
+      {{ end }}
     </div>
-    {{ end }}
   </section>
 
   <section class="archive-groups">
-    {{ range $posts.GroupByDate "2006年01月" }}
+    {{ range $posts.GroupByDate "2006-01" }}
     <div class="archive-group">
       <h2 class="archive-group-title">{{ .Key }}</h2>
       <div class="archive-items">
