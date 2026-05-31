@@ -67,6 +67,46 @@ html[data-theme="dark"] .not-found-card {
 .site-header {
     isolation: isolate;
     overflow: visible;
+    position: sticky;
+    top: 0;
+    z-index: 140;
+    transform: translateY(0);
+    opacity: 1;
+    transition:
+        transform 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.36s ease,
+        background 0.36s ease;
+    will-change: transform, opacity;
+}
+
+.site-header.is-compact {
+    box-shadow: 0 14px 36px rgba(15, 10, 32, 0.14), var(--glass-inset) !important;
+}
+
+.site-header.is-hidden {
+    transform: translateY(calc(-100% - 10px));
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.site-header.is-revealed {
+    animation: header-slide-down 0.62s cubic-bezier(0.2, 0.88, 0.24, 1.08);
+}
+
+@keyframes header-slide-down {
+    0% {
+        transform: translateY(calc(-100% - 14px));
+        opacity: 0;
+    }
+    68% {
+        transform: translateY(6px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .site-header .search-form-container {
@@ -936,6 +976,15 @@ html[data-theme="light"] .comments-embed {
 
     nav {
         position: relative;
+    }
+
+    .site-header {
+        position: relative;
+        top: auto;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        animation: none !important;
     }
 
     .mobile-menu-toggle {

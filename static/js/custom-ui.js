@@ -584,6 +584,76 @@
     });
   }
 
+  function setupSmartHeader() {
+    const header = document.querySelector(".site-header");
+    if (!header) {
+      return;
+    }
+
+    const media = window.matchMedia("(max-width: 768px)");
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    let revealTimer = null;
+
+    function resetHeaderState() {
+      header.classList.remove("is-hidden", "is-compact", "is-revealed");
+    }
+
+    function markRevealed() {
+      header.classList.remove("is-revealed");
+      void header.offsetWidth;
+      header.classList.add("is-revealed");
+
+      window.clearTimeout(revealTimer);
+      revealTimer = window.setTimeout(() => {
+        header.classList.remove("is-revealed");
+      }, 700);
+    }
+
+    function updateHeader() {
+      ticking = false;
+
+      if (media.matches || document.documentElement.classList.contains("mobile-menu-open")) {
+        resetHeaderState();
+        lastScrollY = window.scrollY;
+        return;
+      }
+
+      const currentScrollY = Math.max(window.scrollY, 0);
+      const delta = currentScrollY - lastScrollY;
+      const goingDown = delta > 0;
+      const goingUp = delta < 0;
+      const passedThreshold = currentScrollY > 96;
+
+      header.classList.toggle("is-compact", currentScrollY > 18);
+
+      if (passedThreshold && goingDown && delta > 6) {
+        header.classList.add("is-hidden");
+      } else if (goingUp && Math.abs(delta) > 4) {
+        const wasHidden = header.classList.contains("is-hidden");
+        header.classList.remove("is-hidden");
+        if (wasHidden) {
+          markRevealed();
+        }
+      } else if (currentScrollY <= 12) {
+        resetHeaderState();
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateHeader);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateHeader();
+  }
+
   function setupTocScrollSync() {
     const tocContent = document.getElementById("toc-content");
     if (!tocContent || tocContent.dataset.scrollSyncReady === "true") {
@@ -725,6 +795,7 @@
   }
 
   setupMobileMenu();
+  setupSmartHeader();
   setupTocScrollSync();
   setupJsonBackedSearch();
   setupGiscusThemeSync();
