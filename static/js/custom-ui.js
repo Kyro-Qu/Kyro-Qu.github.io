@@ -585,8 +585,10 @@
   }
 
   function setupSmartHeader() {
-    const header = document.querySelector(".site-header");
-    if (!header) {
+    const headers = Array.from(
+      document.querySelectorAll(".site-header, .post-overlay-header")
+    );
+    if (!headers.length) {
       return;
     }
 
@@ -595,19 +597,33 @@
     let ticking = false;
     let revealTimer = null;
 
+    function forEachHeader(callback) {
+      headers.forEach((header) => {
+        if (header) {
+          callback(header);
+        }
+      });
+    }
+
     function resetHeaderState() {
-      header.classList.remove("is-hidden", "is-compact", "is-revealed");
+      forEachHeader((header) => {
+        header.classList.remove("is-hidden", "is-compact", "is-revealed");
+      });
     }
 
     function markRevealed() {
-      header.classList.remove("is-revealed");
-      void header.offsetWidth;
-      header.classList.add("is-revealed");
+      forEachHeader((header) => {
+        header.classList.remove("is-revealed");
+        void header.offsetWidth;
+        header.classList.add("is-revealed");
+      });
 
       window.clearTimeout(revealTimer);
       revealTimer = window.setTimeout(() => {
-        header.classList.remove("is-revealed");
-      }, 700);
+        forEachHeader((header) => {
+          header.classList.remove("is-revealed");
+        });
+      }, 520);
     }
 
     function updateHeader() {
@@ -625,14 +641,20 @@
       const goingUp = delta < 0;
       const passedThreshold = currentScrollY > 96;
 
-      header.classList.toggle("is-compact", currentScrollY > 18);
+      forEachHeader((header) => {
+        header.classList.toggle("is-compact", currentScrollY > 18);
+      });
 
       if (passedThreshold && goingDown && delta > 6) {
-        header.classList.add("is-hidden");
+        forEachHeader((header) => {
+          header.classList.add("is-hidden");
+        });
       } else if (goingUp && Math.abs(delta) > 4) {
-        const wasHidden = header.classList.contains("is-hidden");
-        header.classList.remove("is-hidden");
-        if (wasHidden) {
+        const hadHiddenHeader = headers.some((header) => header.classList.contains("is-hidden"));
+        forEachHeader((header) => {
+          header.classList.remove("is-hidden");
+        });
+        if (hadHiddenHeader) {
           markRevealed();
         }
       } else if (currentScrollY <= 12) {
@@ -665,7 +687,7 @@
       return;
     }
 
-    const headings = Array.from(document.querySelectorAll(".post-body h2, .post-body h3"));
+    const headings = Array.from(document.querySelectorAll(".post-body h2, .post-body h3, .post-body h4"));
     const pairs = links
       .map((link, index) => {
         let id = link.hash.slice(1);
@@ -712,9 +734,23 @@
     }
 
     function setActive(activeIndex) {
+      let activeLink = null;
+
       pairs.forEach(({ link }, index) => {
-        link.classList.toggle("active", index === activeIndex);
+        const isActive = index === activeIndex;
+        link.classList.toggle("active", isActive);
+        if (isActive) {
+          activeLink = link;
+        }
       });
+
+      if (activeLink) {
+        activeLink.scrollIntoView({
+          block: "nearest",
+          inline: "nearest",
+          behavior: "smooth",
+        });
+      }
     }
 
     function updateActiveToc() {

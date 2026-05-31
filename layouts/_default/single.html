@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $isPost := eq .Section "posts" }}
+{{ $toc := .TableOfContents }}
 <div class="post-overlay active">
     <div class="post-overlay-backdrop"></div>
     <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
@@ -81,10 +82,11 @@
                 {{ end }}
             </article>
 
-            <aside class="sidebar">
-                <nav class="toc">
+            <aside class="sidebar{{ if not $toc }} sidebar-empty{{ end }}">
+                <nav class="toc"{{ if not $toc }} aria-hidden="true"{{ end }}>
                     <h4>目录</h4>
                     <div id="toc-content">
+                        {{ $toc }}
                     </div>
                 </nav>
             </aside>

@@ -30,3 +30,22 @@ Kyro Blog 是一个长期维护的个人博客，用来整理开发过程、学�
 
 GitHub:
 [Kyro-Qu](https://github.com/Kyro-Qu)
+
+## 联系方式
+
+你可以通过下面这些方式联系我：
+
+- GitHub: [https://github.com/Kyro-Qu](https://github.com/Kyro-Qu)
+- QQ: `2258459541`
+
+### 微信
+
+可以直接扫码添加：
+
+![微信联系二维码](/images/contact-wechat.png)
+
+### QQ
+
+也可以扫码联系：
+
+![QQ 联系二维码](/images/contact-qq.png)
