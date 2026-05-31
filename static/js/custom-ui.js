@@ -592,10 +592,19 @@
       return;
     }
 
+    const overlayContent = document.querySelector(".post-overlay-content");
+    const scrollContainer =
+      overlayContent && overlayContent.scrollHeight > overlayContent.clientHeight
+        ? overlayContent
+        : window;
     const media = window.matchMedia("(max-width: 768px)");
-    let lastScrollY = window.scrollY;
+    let lastScrollY = scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
     let ticking = false;
     let revealTimer = null;
+
+    function getScrollY() {
+      return scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
+    }
 
     function forEachHeader(callback) {
       headers.forEach((header) => {
@@ -631,11 +640,11 @@
 
       if (media.matches || document.documentElement.classList.contains("mobile-menu-open")) {
         resetHeaderState();
-        lastScrollY = window.scrollY;
+        lastScrollY = getScrollY();
         return;
       }
 
-      const currentScrollY = Math.max(window.scrollY, 0);
+      const currentScrollY = Math.max(getScrollY(), 0);
       const delta = currentScrollY - lastScrollY;
       const goingDown = delta > 0;
       const goingUp = delta < 0;
@@ -671,7 +680,7 @@
       }
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    scrollContainer.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     updateHeader();
   }
