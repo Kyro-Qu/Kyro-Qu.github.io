@@ -27,8 +27,8 @@ enableRobotsTXT = true
   path = "page"
 
 [params]
-  description = "Kyro 的 Hugo 博客，记录编程、学习和项目实践。"
-  tagline = "记录编程、学习和正在构建的东西"
+  description = "Kyro Blog built with Hugo, focused on coding, learning, and project notes."
+  tagline = "Building, learning, and shipping."
 
 [params.giscus]
   enabled = true
@@ -47,10 +47,11 @@ enableRobotsTXT = true
 
 [params.author]
   name = "Kyro"
-  image = "images/profile-320.png"
+  image = "images/profile.png"
 
 [params.social]
   github = "https://github.com/Kyro-Qu"
+  twitter = "https://x.com/Jaquyu1"
 
 [[menu.main]]
   name = "关于"

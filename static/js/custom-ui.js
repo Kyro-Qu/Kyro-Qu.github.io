@@ -29,6 +29,160 @@
     return clone;
   }
 
+  function normalizeTagName(tag) {
+    return String(tag || "").trim().toLocaleLowerCase();
+  }
+
+  function createPostCard(post) {
+    const article = document.createElement("article");
+    article.className = `post-item${post.featured ? " featured" : ""}`;
+
+    const readingTime = Number(post.readingTime) || 1;
+    const cupsToShow = Math.min(readingTime, 5);
+    const tags = Array.isArray(post.tags) ? post.tags.filter(Boolean) : [];
+    const tagsHtml = tags
+      .map((tag) => `<span class="post-tag-vaporwave">${escapeHtml(tag)}</span>`)
+      .join("");
+
+    article.innerHTML = `
+      <div class="post-content">
+        <div class="post-header-inline">
+          <h2 class="post-title-vaporwave">
+            <a href="${post.url}">${escapeHtml(post.title || "")}</a>
+          </h2>
+        </div>
+
+        <div class="post-date-with-badges">
+          <span class="post-date">${escapeHtml(post.dateFormatted || post.date || "")}</span>
+          ${post.featured ? '<span class="featured-badge">精选</span>' : ""}
+          ${post.mood ? `<span class="post-mood">${escapeHtml(post.mood)}</span>` : ""}
+        </div>
+
+        ${
+          post.subtitle
+            ? `<p class="post-list-subtitle">${escapeHtml(post.subtitle)}</p>`
+            : ""
+        }
+
+        <p class="post-excerpt-vaporwave">
+          ${escapeHtml(post.excerpt || stripHtml(post.summary || "") || "")}
+        </p>
+
+        ${tagsHtml ? `<div class="post-tags-vaporwave">${tagsHtml}</div>` : ""}
+
+        <a href="${post.url}" class="continue-reading-vaporwave">继续阅读</a>
+      </div>
+
+      <div class="post-meta-sidebar">
+        <div class="reading-time-vaporwave">
+          <span class="coffee-cups">${"☕".repeat(cupsToShow)}</span>
+          <span>${readingTime} min</span>
+        </div>
+      </div>
+    `;
+
+    return article;
+  }
+
+  function setupHomepageTagFilter() {
+    const postsContainer = document.getElementById("posts-container");
+    const filterTags = document.querySelectorAll(".filter-tags .tag");
+
+    if (!postsContainer || !filterTags.length) {
+      return;
+    }
+
+    if (postsContainer.dataset.jsonFilterReady === "true") {
+      return;
+    }
+
+    postsContainer.dataset.jsonFilterReady = "true";
+
+    let postsData = null;
+    let loadPromise = null;
+
+    async function loadPostsData() {
+      if (postsData) {
+        return postsData;
+      }
+
+      if (loadPromise) {
+        return loadPromise;
+      }
+
+      loadPromise = fetch("/index.json", { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to load index.json: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((items) => {
+          postsData = Array.isArray(items) ? items : [];
+          return postsData;
+        })
+        .finally(() => {
+          loadPromise = null;
+        });
+
+      return loadPromise;
+    }
+
+    function setLoadMoreVisible(visible) {
+      const loadMoreSection = document.querySelector(".load-more-section");
+      if (loadMoreSection) {
+        loadMoreSection.style.display = visible ? "" : "none";
+      }
+    }
+
+    function renderPosts(posts) {
+      postsContainer.innerHTML = "";
+      posts.forEach((post) => {
+        postsContainer.appendChild(createPostCard(post));
+      });
+      localizeDom();
+    }
+
+    filterTags.forEach((tag) => {
+      tag.addEventListener(
+        "click",
+        async (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+
+          filterTags.forEach((item) => item.classList.remove("active"));
+          tag.classList.add("active");
+
+          const tagName = tag.dataset.tag || tag.textContent;
+          const posts = await loadPostsData();
+
+          if (tagName === "all") {
+            renderPosts(posts.slice(0, 3));
+            setLoadMoreVisible(posts.length > 3);
+
+            const loadMoreBtn = document.getElementById("load-more-btn");
+            if (loadMoreBtn) {
+              loadMoreBtn.dataset.loaded = Math.min(3, posts.length);
+              loadMoreBtn.style.display = posts.length > 3 ? "flex" : "none";
+            }
+            return;
+          }
+
+          const normalizedTag = normalizeTagName(tagName);
+          const filteredPosts = posts.filter((post) =>
+            (Array.isArray(post.tags) ? post.tags : []).some(
+              (postTag) => normalizeTagName(postTag) === normalizedTag
+            )
+          );
+
+          renderPosts(filteredPosts);
+          setLoadMoreVisible(false);
+        },
+        true
+      );
+    });
+  }
+
   function localizeReadingTime(root) {
     root.querySelectorAll(".reading-time-vaporwave span:last-child").forEach((node) => {
       const match = node.textContent.match(/(\d+)\s*min(?:ute)?(?:s)?/i);
@@ -842,6 +996,7 @@
   setupMobileMenu();
   setupSmartHeader();
   setupTocScrollSync();
+  setupHomepageTagFilter();
   setupJsonBackedSearch();
   setupGiscusThemeSync();
 
@@ -855,6 +1010,7 @@
 
   const observer = new MutationObserver(() => {
     setupTocScrollSync();
+    setupHomepageTagFilter();
     scheduleLocalization();
   });
 

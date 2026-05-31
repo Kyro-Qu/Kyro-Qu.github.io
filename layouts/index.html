@@ -1,11 +1,52 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }}
 <div class="container">
-  <section class="home-intro-card">
-    <div class="home-intro-shell">
-      <p class="home-intro-kicker">WELCOME</p>
-      <h1 class="home-intro-title">欢迎来到 Kyro Blog</h1>
-      <p class="home-intro-lead">这里记录编程、学习和项目实践中的过程、问题与结果。</p>
+  <section class="author-profile-section home-theme-hero">
+    <div class="profile-photo-container">
+      <img
+        src="{{ .Site.Params.Author.image | absURL }}"
+        alt="{{ .Site.Params.Author.name }}"
+        class="profile-photo"
+      />
+    </div>
+
+    <p class="profile-tagline">
+      {{ .Site.Params.tagline | default "Building, learning, and shipping." | markdownify }}
+    </p>
+
+    <div class="social-links">
+      {{ with .Site.Params.Social.github }}
+      <a
+        href="{{ . }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="GitHub"
+      >
+        <i class="fab fa-github social-icon"></i>
+      </a>
+      {{ end }}
+
+      {{ with .Site.Params.Social.twitter }}
+      <a
+        href="{{ . }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="X (formerly Twitter)"
+      >
+        <span class="social-icon x-icon">X</span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="filter-section">
+    <div class="filter-tags">
+      <div class="tag active" data-tag="all">All</div>
+      {{ range .Site.Taxonomies.tags.ByCount }}
+      <div class="tag" data-tag="{{ .Page.Title }}">{{ .Page.Title }}</div>
+      {{ end }}
     </div>
   </section>
 

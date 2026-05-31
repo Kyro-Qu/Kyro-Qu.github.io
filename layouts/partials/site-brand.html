@@ -1,7 +1,6 @@
 {{ $image := .Site.Params.author.image | default "images/profile-320.png" }}
 <img
   src="{{ $image | absURL }}"
-  srcset="{{ "images/profile-160.png" | absURL }} 160w, {{ "images/profile-320.png" | absURL }} 320w"
   sizes="32px"
   alt="{{ .Site.Title }}"
   class="site-brand-avatar"
