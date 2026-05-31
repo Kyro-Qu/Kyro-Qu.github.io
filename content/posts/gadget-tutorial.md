@@ -3,7 +3,7 @@ title: "搞机教程"
 subtitle: "从备份、解锁 BL 到 Root 的完整入门笔记"
 date: 2026-05-19T22:00:00+08:00
 draft: false
-tags: ["Android", "Fastboot", "Root", "Magisk", "KernelSU"]
+tags: ["Android"]
 featured: false
 mood: "focus"
 description: "一篇面向新手的安卓搞机流程梳理，涵盖 BL、Fastboot、Recovery、TWRP、Magisk 与 KernelSU。"

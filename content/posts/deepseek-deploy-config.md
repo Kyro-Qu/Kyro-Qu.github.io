@@ -3,7 +3,7 @@ title: "deepseek 本地部署配置"
 subtitle: "DeepSeek 与 Ollama 的本地部署记录"
 date: 2026-05-19T21:30:00+08:00
 draft: false
-tags: ["DeepSeek", "Ollama", "Linux"]
+tags: ["AI"]
 featured: false
 mood: "focus"
 description: "DeepSeek 蒸馏模型与 Ollama 本地部署配置记录。"

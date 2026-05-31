@@ -3,7 +3,7 @@ title: "Claude Code 更高权限设置"
 subtitle: "不用反复点确认的权限配置指南"
 date: 2026-05-23T12:00:00+08:00
 draft: false
-tags: ["Claude", "Claude Code", "AI工具"]
+tags: ["AI"]
 featured: false
 mood: "focus"
 description: "Claude Code 四种权限模式详解及 Bypass Permissions 模式的开启步骤。"

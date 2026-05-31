@@ -3,7 +3,7 @@ title: "Windows 11 安装 WSL2 Ubuntu"
 subtitle: "从开启虚拟化到安装 Ubuntu 的完整记录"
 date: 2026-05-19T22:20:00+08:00
 draft: false
-tags: ["WSL2", "Windows 11", "Ubuntu", "Linux"]
+tags: ["Linux"]
 featured: false
 mood: "focus"
 description: "记录 Windows 11 上启用虚拟化、安装 WSL2、部署 Ubuntu 以及常见注意事项。"

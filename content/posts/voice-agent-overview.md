@@ -3,7 +3,7 @@ title: "Voice Agent"
 subtitle: "从唤醒、ASR、LLM 到 TTS 的整体框架梳理"
 date: 2026-05-19T22:40:00+08:00
 draft: false
-tags: ["Voice Agent", "ASR", "TTS", "LLM", "MCP"]
+tags: ["AI"]
 featured: false
 mood: "focus"
 description: "一篇关于 Voice Agent 架构的入门笔记，整理唤醒、语音识别、LLM、MCP 与 TTS 的协作链路。"
