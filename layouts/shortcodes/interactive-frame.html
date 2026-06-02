@@ -1,0 +1,14 @@
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" | default "Interactive demo" -}}
+{{- $height := .Get "height" | default "640px" -}}
+{{- if $src -}}
+<div class="interactive-frame" style="--interactive-frame-height: {{ $height | safeCSS }};">
+    <iframe
+        src="{{ $src | relURL }}"
+        title="{{ $title }}"
+        loading="eager"
+        sandbox="allow-scripts allow-same-origin"
+        referrerpolicy="no-referrer"
+    ></iframe>
+</div>
+{{- end -}}
