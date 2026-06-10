@@ -50,7 +50,7 @@ jobs:
             --gc \
             --minify \
             --buildFuture \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://kyroqu.xyz/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
