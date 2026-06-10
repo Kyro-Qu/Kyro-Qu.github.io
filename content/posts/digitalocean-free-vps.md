@@ -18,7 +18,7 @@ description: "记录通过 GitHub Student Developer Pack 领取 DigitalOcean 学
 
 https://education.github.com/pack
 
-![GitHub Student Developer Pack 页面](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609181421565.png)
+![GitHub Student Developer Pack 页面](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609181421565.png)
 
 正常登录 GitHub 账号，并完成学生身份相关授权后，进入 DigitalOcean 的领取流程。DigitalOcean 仍然会要求绑定支付方式，常见选择包括 PayPal、信用卡和支付宝。
 
@@ -26,13 +26,13 @@ https://education.github.com/pack
 
 截至 2026-06-10，GitHub Student Developer Pack 页面展示的 DigitalOcean 云服务权益是 200 美元平台额度，有效期 1 年。额度、适用范围和限制可能调整，正式使用前以 GitHub 和 DigitalOcean 页面为准。
 
-![DigitalOcean 学生权益通过页面](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/2cf094270fa90b6996ae44c238efe2fb.png)
+![DigitalOcean 学生权益通过页面](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/2cf094270fa90b6996ae44c238efe2fb.png)
 
 ## 查看赠金
 
 领取完成后，进入 DigitalOcean 控制台的 Billing 页面查看 Credits。这里会显示初始额度、剩余额度和到期时间。
 
-![在 Billing 页面查看 Credits](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609181330929.png)
+![在 Billing 页面查看 Credits](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609181330929.png)
 
 后续每次创建资源前，建议先回到 Billing 看一下剩余额度。DigitalOcean 的账单是按资源使用计费的，不是“领取了额度就完全不用管”。
 
@@ -40,23 +40,23 @@ https://education.github.com/pack
 
 DigitalOcean 里的资源通常挂在 Project 下面。可以先创建一个新项目，也可以选择已有项目。
 
-![创建或选择项目](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609181651874.png)
+![创建或选择项目](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609181651874.png)
 
 进入项目后，才能继续创建云服务器，也就是 DigitalOcean 里的 Droplet。
 
-![项目里的资源创建入口](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609182009127.png)
+![项目里的资源创建入口](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609182009127.png)
 
 如果页面入口样式不同，也可以从 Create 菜单进入 Droplet 创建流程。
 
-![另一种创建入口](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609182146982.png)
+![另一种创建入口](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609182146982.png)
 
-![选择 Droplets 服务](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609182216942.png)
+![选择 Droplets 服务](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609182216942.png)
 
 ## 选择地区和系统
 
 进入 Droplet 创建页后，先选机房区域和系统镜像。学习和日常折腾用途可以优先选择离自己近、延迟低的区域；系统镜像一般选 Ubuntu LTS 会比较省心。
 
-![选择地区和系统镜像](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609183432842.png)
+![选择地区和系统镜像](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609183432842.png)
 
 ## 选择套餐
 
@@ -69,7 +69,7 @@ DigitalOcean 里的资源通常挂在 Project 下面。可以先创建一个新�
 - 70 GB NVMe
 - 2 TB 流量
 
-![选择 Droplet CPU 与套餐](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609183044515.png)
+![选择 Droplet CPU 与套餐](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609183044515.png)
 
 这个配置适合学习 Linux、部署轻量服务、跑个人项目和测试环境。正式跑业务前还要根据流量、存储、备份和安全需求重新评估。
 
@@ -80,9 +80,9 @@ DigitalOcean 里的资源通常挂在 Project 下面。可以先创建一个新�
 - 私钥：保存在自己电脑上，不要上传、不要发给别人。
 - 公钥：可以上传到 DigitalOcean，用来让服务器识别你的电脑。
 
-![创建 SSH 密钥入口](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609183952543.png)
+![创建 SSH 密钥入口](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609183952543.png)
 
-![SSH 密钥配置页面](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609184111991.png)
+![SSH 密钥配置页面](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609184111991.png)
 
 在 Windows 上可以打开 PowerShell，生成一对新密钥：
 
@@ -109,21 +109,21 @@ id_ed25519.pub  公钥，复制这一份到 DigitalOcean
 
 如果你使用默认 `ssh-keygen`，文件名也可能是 `id_rsa.pub` 或其他名字，以自己终端实际输出为准。核心原则只有一个：复制 `.pub` 文件，不要复制没有 `.pub` 的私钥文件。
 
-![复制公钥内容](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609185858632.png)
+![复制公钥内容](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609185858632.png)
 
 把公钥内容粘贴到 DigitalOcean 的 SSH key 输入框里，并保存。
 
-![选择已添加的 SSH 密钥](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609190259794.png)
+![选择已添加的 SSH 密钥](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609190259794.png)
 
 ## 创建服务器
 
 确认地区、系统、套餐和 SSH 密钥都没问题后，点击 Create Droplet。
 
-![点击创建服务器](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609190316767.png)
+![点击创建服务器](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609190316767.png)
 
 创建完成后，控制台会显示 Droplet 的公网 IP。
 
-![Droplet 创建中](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609190642206.png)
+![Droplet 创建中](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609190642206.png)
 
 服务器就绪后，可以用 SSH 连接：
 
@@ -133,7 +133,7 @@ ssh root@服务器公网IP
 
 第一次连接会提示确认主机指纹，确认 IP 没填错后输入 `yes`。
 
-![Droplet 创建完成](https://kyro-qu.github.io/blog-images-1/posts/digitalocean-free-vps/image-20260609191437781.png)
+![Droplet 创建完成](https://kyroqu.xyz/blog-images-1/posts/digitalocean-free-vps/image-20260609191437781.png)
 
 ## 成本检查
 

@@ -5,7 +5,7 @@
 当前线上仓库：
 
 - 仓库：`Kyro-Qu/Kyro-Qu.github.io`
-- 站点：[https://kyro-qu.github.io/](https://kyro-qu.github.io/)
+- 站点：[https://kyroqu.xyz/](https://kyroqu.xyz/)
 - 分支：`main`
 - 部署方式：GitHub Actions + GitHub Pages
 
@@ -85,7 +85,7 @@ site/
 - 文章正文里的配图，不再推荐长期放在 `site/static/images/posts/`
 - 图文文章默认推荐发布到 `blog-images-1`
 - 正文里的图片链接一般会变成：
-  `https://kyro-qu.github.io/blog-images-1/posts/<slug>/<filename>`
+  `https://kyroqu.xyz/blog-images-1/posts/<slug>/<filename>`
 
 也就是说：
 

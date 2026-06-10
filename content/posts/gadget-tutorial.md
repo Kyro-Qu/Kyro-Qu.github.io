@@ -40,7 +40,7 @@ Recovery 可以理解成系统外的一套维护环境，类似电脑上的 PE�
 - 原厂自带
 - 常用于恢复出厂、清缓存、安装部分官方更新
 
-![系统自带 Recovery](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515181430314.png)
+![系统自带 Recovery](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515181430314.png)
 
 第三方 Recovery：
 
@@ -52,7 +52,7 @@ Recovery 可以理解成系统外的一套维护环境，类似电脑上的 PE�
 
 - **音量上 + 电源键**
 
-![进入 Recovery 的常见按键](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515181600308.png)
+![进入 Recovery 的常见按键](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515181600308.png)
 
 ### 4. 线刷和卡刷
 
@@ -155,7 +155,7 @@ Recovery 可以理解成系统外的一套维护环境，类似电脑上的 PE�
 4. 手机进 Fastboot
 5. 用 Fastboot 把修补后的镜像刷回对应分区
 
-![修补镜像的基本思路](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515182003821.png)
+![修补镜像的基本思路](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515182003821.png)
 
 #### 1. KernelSU 常见安装方式
 
@@ -180,7 +180,7 @@ Recovery 可以理解成系统外的一套维护环境，类似电脑上的 PE�
 
 KernelSU 修补完成后的界面大致如下：
 
-![KernelSU 修补完成示意](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515200050029.png)
+![KernelSU 修补完成示意](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515200050029.png)
 
 #### 3. 刷回时最关键的一点
 
@@ -268,7 +268,7 @@ fastboot reboot
 - **不要选会重新上锁的选项**
 - 一般就是避免使用 **`clean all and lock`**
 
-![MiFlash 选项示意](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515182228191.png)
+![MiFlash 选项示意](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515182228191.png)
 
 ### 2. 柚坛工具箱：适合把常用操作集中起来做
 
@@ -286,11 +286,11 @@ fastboot reboot
 3. 执行脚本时选 `flash all`
 4. 等待执行完成，成功后一般会自动开机
 
-![柚坛工具箱线刷示意](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515185040378.png)
+![柚坛工具箱线刷示意](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515185040378.png)
 
 如果你要刷入或临时启动 TWRP，柚坛工具箱里也能直接做：
 
-![柚坛工具箱刷入 Recovery 示意](https://kyro-qu.github.io/blog-images-1/posts/gadget-tutorial/image-20260515190713987.png)
+![柚坛工具箱刷入 Recovery 示意](https://kyroqu.xyz/blog-images-1/posts/gadget-tutorial/image-20260515190713987.png)
 
 ## 六、Root 后常见扩展
 
