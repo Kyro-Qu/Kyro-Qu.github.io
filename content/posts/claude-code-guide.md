@@ -3,7 +3,7 @@ title: "Claude Code CLI 使用指南"
 subtitle: "从入门到精通的完整参考手册"
 date: 2026-06-12T20:00:00+08:00
 draft: false
-tags: ["AI", "Claude", "CLI", "开发工具"]
+tags: ["AI"]
 featured: false
 mood: "focus"
 description: "Claude Code CLI 完整使用指南，涵盖基础操作、权限模式、上下文管理、高级功能（Memory、CLAUDE.md、Skills、MCP、SubAgent、Hook）等内容，帮助你快速掌握 Claude Code 的强大功能。"
