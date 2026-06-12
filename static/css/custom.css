@@ -430,11 +430,15 @@ html[data-theme="light"] .not-found-empty {
 }
 
 .toc {
-    overflow: hidden;
+    overflow: visible;
+    min-height: 400px;
+    max-height: calc(100vh - 12rem);
 }
 
 #toc-content {
     max-height: calc(100vh - 11rem);
+    min-height: 200px;
+    overflow-x: hidden;
     padding-right: 0.35rem;
     scroll-behavior: smooth;
 }
