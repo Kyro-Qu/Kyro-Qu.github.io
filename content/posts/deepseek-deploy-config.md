@@ -325,6 +325,6 @@ OLLAMA_HOST="0.0.0.0"
 
 ### 参考资料
 
-- [Ollama 中文镜像](https://ollama.cadn.net.cn/)
-- [Ollama 菜鸟教程](https://www.runoob.com/ollama)
-- [Ollama 实战指南 - 知乎](https://zhuanlan.zhihu.com/p/1913901917786056107)
+- [Ollama 中文镜像](https://ollama.cadn.net.cn/) - Ollama 官方中国镜像加速站
+- [Ollama 菜鸟教程](https://www.runoob.com/ollama) - 从零开始的 Ollama 入门指南
+- [Ollama 实战指南 - 知乎](https://zhuanlan.zhihu.com/p/1913901917786056107) - 详细的 Ollama 使用案例与技巧
