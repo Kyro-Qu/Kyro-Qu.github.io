@@ -38,6 +38,18 @@
         <span class="social-icon x-icon">X</span>
       </a>
       {{ end }}
+
+      {{ with .Site.Params.Social.qq }}
+      <a
+        href="{{ . }}"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        title="QQ"
+      >
+        <i class="fab fa-qq social-icon"></i>
+      </a>
+      {{ end }}
     </div>
   </section>
 
