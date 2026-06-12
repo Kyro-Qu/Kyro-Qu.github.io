@@ -1,5 +1,5 @@
 ---
-title: "申请DigitalOcean 免费VPS 服务器"
+title: "申请 DigitalOcean 免费 VPS 服务器"
 subtitle: "用 GitHub Student Developer Pack 领取 DigitalOcean 额度并创建 Droplet"
 date: 2026-06-10T03:45:00+08:00
 draft: false
