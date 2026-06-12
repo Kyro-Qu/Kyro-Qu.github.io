@@ -3,8 +3,8 @@
 {{- $description := .Site.Params.description -}}
 {{- $isHomeFeed := or .IsHome (eq .Kind "home") -}}
 {{- if not $isHomeFeed -}}
-  {{- $title = printf "%s on %s" .Title .Site.Title -}}
-  {{- $description = printf "Recent content in %s on %s" .Title .Site.Title -}}
+  {{- $title = printf "%s - %s" .Title .Site.Title -}}
+  {{- $description = printf "%s 的文章 - %s" .Title .Site.Title -}}
 {{- else -}}
   {{- $pages = (where .Site.RegularPages "Section" "eq" "posts").ByDate.Reverse -}}
 {{- end -}}
