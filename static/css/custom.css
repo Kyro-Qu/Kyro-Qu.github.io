@@ -1366,6 +1366,21 @@ html[data-theme="dark"] .search-results {
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), var(--glass-inset) !important;
 }
 
+.profile-tagline {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .profile-tagline br {
+        display: inline;
+    }
+
+    .profile-tagline {
+        white-space: normal;
+        text-align: center;
+    }
+}
+
 html[data-theme="dark"] .post-count {
     background: rgba(0, 76, 86, 0.88);
     border: 1px solid rgba(0, 255, 255, 0.42);
