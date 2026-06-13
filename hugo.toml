@@ -28,7 +28,7 @@ enableRobotsTXT = true
 
 [params]
   description = "Kyro Blog built with Hugo, focused on coding, learning, and project notes."
-  tagline = "Building, learning, and shipping."
+  tagline = "怀揣无限好奇心，在广阔世界中不断探索前行。"
 
 [params.giscus]
   enabled = true
