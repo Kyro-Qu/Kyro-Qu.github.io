@@ -38,11 +38,12 @@
         }
 
         .control-panel {
-            background: #f8fafc;
+            background: rgba(248, 250, 252, 0.5);
+            backdrop-filter: blur(8px);
             padding: 12px 16px;
             border-radius: 8px;
             margin-bottom: 10px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(226, 232, 240, 0.6);
             flex-shrink: 0;
         }
 
@@ -97,7 +98,8 @@
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 3px;
-            color: #1e293b;
+            color: currentColor;
+            opacity: 0.8;
             text-align: center;
             flex-shrink: 0;
         }
@@ -124,12 +126,24 @@
 
         .axis-label {
             font-size: 11px;
-            fill: #64748b;
+            fill: currentColor;
+            opacity: 0.6;
         }
 
         .grid-line {
-            stroke: #e2e8f0;
+            stroke: currentColor;
+            stroke-opacity: 0.1;
             stroke-dasharray: 2,2;
+        }
+
+        .axis line, .axis path {
+            stroke: currentColor;
+            stroke-opacity: 0.2;
+        }
+
+        .axis text {
+            fill: currentColor;
+            opacity: 0.7;
         }
 
         .zero-marker {
