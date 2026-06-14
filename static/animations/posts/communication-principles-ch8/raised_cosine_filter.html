@@ -12,25 +12,37 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: transparent;
             color: #1e293b;
+        }
+
+        body {
             padding: 16px;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .control-panel {
             background: #f8fafc;
             padding: 16px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             border: 1px solid #e2e8f0;
+            flex-shrink: 0;
         }
 
         .slider-container {
@@ -38,7 +50,7 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         label {
@@ -63,16 +75,36 @@
             text-align: center;
         }
 
+        .charts-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            min-height: 0;
+        }
+
         .chart-section {
-            margin-bottom: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
         }
 
         .chart-title {
             font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             color: #1e293b;
             text-align: center;
+            flex-shrink: 0;
+        }
+
+        .chart-wrapper {
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
         }
 
         svg {
@@ -80,7 +112,7 @@
             display: block;
             margin: 0 auto;
             max-width: 100%;
-            height: auto;
+            height: 100%;
         }
 
         .line-path {
@@ -135,21 +167,23 @@
         </div>
     </div>
 
-    <div class="chart-section">
-        <div class="chart-title">时域冲击响应 h(t)</div>
-        <div id="timeChart"></div>
-    </div>
+    <div class="charts-container">
+        <div class="chart-section">
+            <div class="chart-title">时域冲击响应 h(t)</div>
+            <div class="chart-wrapper" id="timeChart"></div>
+        </div>
 
-    <div class="chart-section">
-        <div class="chart-title">频域幅频特性 |H(f)|</div>
-        <div id="freqChart"></div>
+        <div class="chart-section">
+            <div class="chart-title">频域幅频特性 |H(f)|</div>
+            <div class="chart-wrapper" id="freqChart"></div>
+        </div>
     </div>
 </div>
 
 <script>
     // 图表尺寸配置 - 适配博客嵌入
     const width = 700;
-    const height = 200;
+    const height = 180;
     const margin = {top: 15, right: 20, bottom: 35, left: 45};
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
