@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>余弦滚降滤波器</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: transparent;
+            color: #1e293b;
+            padding: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .control-panel {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            cursor: pointer;
+        }
+
+        .alpha-val {
+            font-variant-numeric: tabular-nums;
+            font-weight: bold;
+            font-size: 1.05rem;
+            color: #2563eb;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .chart-section {
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        svg {
+            background: transparent;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .line-path {
+            fill: none;
+            stroke: #2563eb;
+            stroke-width: 2.5;
+        }
+
+        .axis-label {
+            font-size: 11px;
+            fill: #64748b;
+        }
+
+        .grid-line {
+            stroke: #e2e8f0;
+            stroke-dasharray: 2,2;
+        }
+
+        .zero-marker {
+            stroke: #ef4444;
+            stroke-width: 1;
+            stroke-dasharray: 3,3;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            .control-panel {
+                padding: 12px;
+            }
+
+            label {
+                font-size: 0.9rem;
+            }
+
+            .alpha-val {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="control-panel">
+        <div class="slider-container">
+            <label for="alphaSlider">滚降系数 α:</label>
+            <input type="range" id="alphaSlider" min="0" max="1" step="0.01" value="0.5">
+            <span id="alphaValue" class="alpha-val">0.50</span>
+        </div>
+    </div>
+
+    <div class="chart-section">
+        <div class="chart-title">时域冲击响应 h(t)</div>
+        <div id="timeChart"></div>
+    </div>
+
+    <div class="chart-section">
+        <div class="chart-title">频域幅频特性 |H(f)|</div>
+        <div id="freqChart"></div>
+    </div>
+</div>
+
+<script>
+    // 图表尺寸配置 - 适配博客嵌入
+    const width = 700;
+    const height = 200;
+    const margin = {top: 15, right: 20, bottom: 35, left: 45};
+    const chartWidth = width - margin.left - margin.right;
+    const chartHeight = height - margin.top - margin.bottom;
+
+    // --- 1. 数学公式实现 ---
+    function sinc(x) {
+        if (Math.abs(x) < 1e-8) return 1.0;
+        return Math.sin(Math.PI * x) / (Math.PI * x);
+    }
+
+    function getTimeResponse(t, alpha) {
+        const num = Math.cos(Math.PI * alpha * t);
+        const den = 1.0 - Math.pow(2.0 * alpha * t, 2);
+
+        if (Math.abs(den) < 1e-6) {
+            return (Math.PI / 4.0) * sinc(1.0 / (2.0 * alpha));
+        }
+        return sinc(t) * (num / den);
+    }
+
+    function getFreqResponse(f, alpha) {
+        const absF = Math.abs(f);
+        const f1 = (1.0 - alpha) / 2.0;
+        const f2 = (1.0 + alpha) / 2.0;
+
+        if (absF <= f1) {
+            return 1.0;
+        } else if (absF > f1 && absF <= f2) {
+            if (alpha === 0) return 0.0;
+            return 0.5 * (1.0 + Math.cos((Math.PI / alpha) * (absF - f1)));
+        } else {
+            return 0.0;
+        }
+    }
+
+    // --- 2. 坐标轴与画布初始化 ---
+    const xScaleTime = d3.scaleLinear().domain([-5, 5]).range([0, chartWidth]);
+    const yScaleTime = d3.scaleLinear().domain([-0.3, 1.1]).range([chartHeight, 0]);
+
+    const xScaleFreq = d3.scaleLinear().domain([-1, 1]).range([0, chartWidth]);
+    const yScaleFreq = d3.scaleLinear().domain([0, 1.2]).range([chartHeight, 0]);
+
+    function initSvg(containerId) {
+        return d3.select(containerId)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet")
+            .append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    }
+
+    const svgTime = initSvg("#timeChart");
+    const svgFreq = initSvg("#freqChart");
+
+    // 绘制网格与轴
+    function drawAxes(svg, xScale, yScale, xLabel, yLabel, isTimeDomain = false) {
+        svg.append("g")
+            .attr("transform", `translate(0, ${yScale(0)})`)
+            .call(d3.axisBottom(xScale).ticks(10))
+            .selectAll(".tick text")
+            .attr("transform", `translate(0, ${isTimeDomain ? (yScale(0) > chartHeight - 15 ? -15 : 5) : (chartHeight - yScale(0))})`);
+
+        svg.append("g")
+            .call(d3.axisLeft(yScale).ticks(5));
+
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("text-anchor", "end")
+            .attr("x", chartWidth)
+            .attr("y", chartHeight + 25)
+            .text(xLabel);
+
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("text-anchor", "start")
+            .attr("x", -margin.left + 5)
+            .attr("y", -5)
+            .text(yLabel);
+
+        if (isTimeDomain) {
+            const samplingPoints = [-4, -3, -2, -1, 1, 2, 3, 4];
+            samplingPoints.forEach(p => {
+                svg.append("line")
+                    .attr("class", "zero-marker")
+                    .attr("x1", xScale(p))
+                    .attr("y1", yScale(-0.3))
+                    .attr("x2", xScale(p))
+                    .attr("y2", yScale(1.1));
+            });
+        }
+    }
+
+    drawAxes(svgTime, xScaleTime, yScaleTime, "时间 t / Ts", "幅度 h(t)", true);
+    drawAxes(svgFreq, xScaleFreq, yScaleFreq, "归一化频率 f * Ts", "幅度 |H(f)|", false);
+
+    // --- 3. 数据线段绘制与更新逻辑 ---
+    const timeLineGen = d3.line()
+        .x(d => xScaleTime(d.x))
+        .y(d => yScaleTime(d.y));
+
+    const freqLineGen = d3.line()
+        .x(d => xScaleFreq(d.x))
+        .y(d => yScaleFreq(d.y));
+
+    const timePath = svgTime.append("path").attr("class", "line-path");
+    const freqPath = svgFreq.append("path").attr("class", "line-path");
+
+    function updateCharts(alpha) {
+        const timeData = [];
+        for (let t = -5; t <= 5; t += 0.02) {
+            timeData.push({ x: t, y: getTimeResponse(t, alpha) });
+        }
+        timePath.datum(timeData).attr("d", timeLineGen);
+
+        const freqData = [];
+        for (let f = -1; f <= 1; f += 0.005) {
+            freqData.push({ x: f, y: getFreqResponse(f, alpha) });
+        }
+        freqPath.datum(freqData).attr("d", freqLineGen);
+    }
+
+    // --- 4. 事件监听 ---
+    const slider = document.getElementById("alphaSlider");
+    const alphaLabel = document.getElementById("alphaValue");
+
+    slider.addEventListener("input", function() {
+        const alpha = parseFloat(this.value);
+        alphaLabel.textContent = alpha.toFixed(2);
+        updateCharts(alpha);
+    });
+
+    updateCharts(0.5);
+
+</script>
+</body>
+</html>
