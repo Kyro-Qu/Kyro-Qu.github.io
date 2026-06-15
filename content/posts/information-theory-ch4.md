@@ -1,7 +1,7 @@
 ---
 title: "失真理论（第四章）"
 subtitle: "失真矩阵、率失真函数与转移概率矩阵"
-date: 2026-06-15T00:00:00+08:00
+date: 2026-06-15T19:31:00+08:00
 draft: false
 tags: ["信息论"]
 featured: false
