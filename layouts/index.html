@@ -11,7 +11,7 @@
     </div>
 
     <p class="profile-tagline">
-      {{ .Site.Params.tagline | default "Building, learning, and shipping." | markdownify }}
+      {{ .Site.Params.tagline | default "Building, learning, and shipping." | safeHTML }}
     </p>
 
     <div class="social-links">
