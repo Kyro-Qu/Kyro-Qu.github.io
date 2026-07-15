@@ -8,25 +8,6 @@ featured: false
 mood: "focus"
 description: "Claude Code CLI 完整使用指南，涵盖基础操作、权限模式、上下文管理、高级功能（Memory、CLAUDE.md、Skills、MCP、SubAgent、Hook）等内容，帮助你快速掌握 Claude Code 的强大功能。"
 ---
-## 目录
-
-- [基础操作](#基础操作)
-- [权限模式](#权限模式)
-- [上下文管理](#上下文管理)
-- [常用命令](#常用命令)
-- [文件访问](#文件访问)
-- [高级功能](#高级功能)
-  - [记忆系统（Memory）](#记忆系统memory)
-  - [CLAUDE.md 配置](#claudemd-配置)
-  - [Skills 技能扩展](#skills-技能扩展)
-  - [MCP（Model Context Protocol）](#mcpmodel-context-protocol)
-  - [SubAgent 子代理](#subagent-子代理)
-  - [Hook 钩子](#hook-钩子)
-- [快捷键](#快捷键)
-- [获取帮助](#获取帮助)
-
----
-
 ## 基础操作
 
 ### 启动 Claude

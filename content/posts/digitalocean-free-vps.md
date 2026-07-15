@@ -3,7 +3,7 @@ title: "申请 DigitalOcean 免费 VPS 服务器"
 subtitle: "用 GitHub Student Developer Pack 领取 DigitalOcean 额度并创建 Droplet"
 date: 2026-06-10T03:45:00+08:00
 draft: false
-tags: ["云服务"]
+tags: ["云服务", "Linux"]
 featured: false
 mood: "focus"
 description: "记录通过 GitHub Student Developer Pack 领取 DigitalOcean 学生额度、绑定支付方式、创建项目、选择 Droplet 配置并上传 SSH 公钥的完整流程。"

@@ -129,7 +129,12 @@
 />
 {{ end -}}
 
-<!-- KaTeX -->
+<!-- KaTeX（仅含公式的页面加载） -->
+{{ $needsMath := false }}
+{{ if .IsPage }}
+  {{ if findRE `\$|\\\(|\\\[` .RawContent 1 }}{{ $needsMath = true }}{{ end }}
+{{ end }}
+{{ if $needsMath }}
 <link rel="stylesheet" href="{{ "vendor/katex/katex.min.css" | absLangURL }}">
 <script defer src="{{ "vendor/katex/katex.min.js" | absLangURL }}"></script>
 <script defer src="{{ "vendor/katex/contrib/auto-render.min.js" | absLangURL }}"
@@ -142,3 +147,4 @@
     ],
     throwOnError: false
   });"></script>
+{{ end }}
