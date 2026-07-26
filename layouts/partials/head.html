@@ -1,9 +1,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
-  {{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{
-  .Title }} - {{ .Site.Title }}{{ end }}
-</title>
+<title>{{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline | plainify | replaceRE `\s+` "" }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+<!-- 在首次绘制前应用主题，避免暗色用户看到亮色闪烁 -->
+<script>
+  (function () {
+    var theme;
+    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    if (!theme) {
+      theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ .Permalink }}" />
@@ -102,13 +111,15 @@
 }
 </script>
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Fonts (self-hosted) -->
 <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
-  rel="stylesheet"
+  rel="preload"
+  href="{{ "vendor/fonts/inter-var.woff2" | absLangURL }}"
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
+<link rel="stylesheet" href="{{ "vendor/fonts/fonts.css" | absLangURL }}" />
 
 <!-- FontAwesome (self-hosted) -->
 <link
