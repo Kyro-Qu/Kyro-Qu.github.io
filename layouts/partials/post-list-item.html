@@ -21,7 +21,7 @@
     {{ end }}
 
     <p class="post-excerpt-vaporwave">
-      {{ .Summary | plainify | truncate 160 }}
+      {{ .Description | default (.Summary | plainify | truncate 160) }}
     </p>
 
     {{ if .Params.tags }}

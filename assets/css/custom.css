@@ -1389,3 +1389,43 @@ html[data-theme="dark"] .post-count {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
     box-shadow: 0 8px 18px rgba(0, 206, 209, 0.12);
 }
+
+/* Real copy button replaces the theme's pseudo-element click hotzone
+   (see assets/js/main.js initializeCodeFences). */
+.highlight::after,
+.highlight:hover::after,
+.highlight[data-copied="true"]::after {
+    content: none;
+}
+
+.code-copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    border: none;
+    user-select: none;
+}
+
+.code-copy-btn:hover,
+.code-copy-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.code-copy-btn:focus-visible {
+    outline: 2px solid var(--accent-secondary, #00FFFF);
+    outline-offset: 2px;
+}
+
+.code-copy-btn.copied {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--accent-primary);
+}

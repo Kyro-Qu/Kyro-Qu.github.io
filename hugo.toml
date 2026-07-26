@@ -3,9 +3,46 @@ locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 title = "Kyro Blog"
-theme = "loficode"
 enableEmoji = true
 enableRobotsTXT = true
+
+# 显式声明 mounts 以替代 theme = "loficode"：
+# - 排除主题音频（环境音效已停用，避免 ~3.5MB 死重发布）
+# - 主题 css/js 不再直接发布，而是挂载到 assets 走 Hugo Pipes（minify + fingerprint）
+[module]
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.imports]]
+    path = "loficode"
+    [[module.imports.mounts]]
+      source = "layouts"
+      target = "layouts"
+    [[module.imports.mounts]]
+      source = "static"
+      target = "static"
+      files = ["!audio/**", "!css/**", "!js/**"]
+    [[module.imports.mounts]]
+      source = "static/css"
+      target = "assets/css"
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "pages"]
@@ -52,6 +89,7 @@ enableRobotsTXT = true
 [params.social]
   github = "https://github.com/Kyro-Qu"
   twitter = "https://x.com/ShiChao_Qu"
+  xHandle = "@ShiChao_Qu"
   qq = "https://qm.qq.com/cgi-bin/qm/qr?k=lsdR_o7GkoOFEa6mVNJKXmv9ayiISKnY"
 
 [[menu.main]]

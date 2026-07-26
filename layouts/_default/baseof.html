@@ -16,7 +16,7 @@
         {{ block "main" . }}{{ end }}
     </main>
 
-    <script src="{{ "js/main.js" | absLangURL }}"></script>
-    <script src="{{ "js/custom-ui.js" | absLangURL }}"></script>
+    {{ $js := slice (resources.Get "js/main.js") (resources.Get "js/custom-ui.js") | resources.Concat "js/bundle.js" | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}"></script>
 </body>
 </html>

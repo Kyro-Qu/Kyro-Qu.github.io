@@ -1,14 +1,15 @@
 {{- $posts := slice -}}
 {{- range (where .Site.RegularPages "Section" "eq" "posts") -}}
+  {{- /* description 优先：正文摘要可能含未渲染的 LaTeX 源码 */ -}}
+  {{- $excerpt := .Description | default (.Summary | plainify | truncate 200) -}}
   {{- $post := dict
     "title" .Title
     "url" .Permalink
     "permalink" .Permalink
     "date" (.Date.Format "2006-01-02")
     "dateFormatted" (.Date.Format "2006.01.02")
-    "summary" .Summary
-    "content" .Content
-    "excerpt" (.Summary | plainify | truncate 200)
+    "summary" $excerpt
+    "excerpt" $excerpt
     "tags" .Params.tags
     "subtitle" .Params.subtitle
     "mood" .Params.mood

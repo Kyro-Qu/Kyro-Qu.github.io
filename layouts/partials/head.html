@@ -46,6 +46,7 @@
 />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:locale" content="zh_CN" />
 {{ if .Params.image }}
 <meta property="og:image" content="{{ .Params.image | absURL }}" />
 {{ else if .Site.Params.defaultImage }}
@@ -56,6 +57,10 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
+{{ with .Site.Params.social.xHandle }}
+<meta name="twitter:site" content="{{ . }}" />
+<meta name="twitter:creator" content="{{ . }}" />
+{{ end }}
 <meta
   name="twitter:title"
   content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}"
@@ -127,9 +132,9 @@
   href="{{ "vendor/fontawesome/css/all.min.css" | absLangURL }}"
 />
 
-<!-- Styles -->
-<link rel="stylesheet" href="{{ "css/style.css" | absLangURL }}">
-<link rel="stylesheet" href="{{ "css/custom.css" | absLangURL }}">
+<!-- Styles (bundled, minified and fingerprinted via Hugo Pipes) -->
+{{ $css := slice (resources.Get "css/style.css") (resources.Get "css/custom.css") | resources.Concat "css/bundle.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}

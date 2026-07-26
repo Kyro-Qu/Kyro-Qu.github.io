@@ -266,46 +266,6 @@
     });
   }
 
-  function localizeAmbientControls(root) {
-    const labelMap = {
-      "Click to start ambient sounds": "选择背景音效",
-      "Coffee Shop not available": "咖啡馆音效暂不可用",
-      "Rain not available": "雨声音效暂不可用",
-      "Fireplace not available": "壁炉音效暂不可用",
-    };
-
-    root.querySelectorAll(".ambient-label").forEach((node) => {
-      const text = node.textContent.trim();
-      if (labelMap[text]) {
-        node.textContent = labelMap[text];
-        return;
-      }
-
-      node.textContent = text
-        .replace(/^Playing:\s*Coffee Shop$/i, "正在播放：咖啡馆")
-        .replace(/^Playing:\s*Rain$/i, "正在播放：雨声")
-        .replace(/^Playing:\s*Fireplace$/i, "正在播放：壁炉")
-        .replace(/^Paused:\s*Coffee Shop$/i, "已暂停：咖啡馆")
-        .replace(/^Paused:\s*Rain$/i, "已暂停：雨声")
-        .replace(/^Paused:\s*Fireplace$/i, "已暂停：壁炉");
-    });
-
-    const controls = [
-      [".mute-toggle", "切换背景音效"],
-      ['.ambient-icon[data-sound="coffee"]', "咖啡馆音效"],
-      ['.ambient-icon[data-sound="rain"]', "雨声音效"],
-      ['.ambient-icon[data-sound="fireplace"]', "壁炉音效"],
-      [".volume-slider", "背景音量"],
-    ];
-
-    controls.forEach(([selector, label]) => {
-      root.querySelectorAll(selector).forEach((node) => {
-        node.setAttribute("title", label);
-        node.setAttribute("aria-label", label);
-      });
-    });
-  }
-
   function localizeRelatedContent(root) {
     root.querySelectorAll(".related-posts h3").forEach((node) => {
       if (/^Related Content$/i.test(node.textContent.trim())) {
@@ -343,7 +303,6 @@
     localizeLoadMore(root);
     localizeSearchResults(root);
     localizePostCards(root);
-    localizeAmbientControls(root);
     localizeRelatedContent(root);
     restorePostItemMotion(root);
   }
