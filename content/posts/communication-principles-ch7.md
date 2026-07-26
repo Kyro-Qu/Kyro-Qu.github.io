@@ -7,6 +7,7 @@ tags: ["通信原理"]
 featured: false
 mood: "focus"
 description: "通信原理第七章笔记，涵盖码元周期与载波周期的关系、ASK/FSK/PSK调制方式、多进制调制（QPSK、8PSK、QAM）以及频带利用率等核心概念。"
+image: "/images/og/communication-principles-ch7.png"
 ---
 ## 码元周期与载波周期的关系
 

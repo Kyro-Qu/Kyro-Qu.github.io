@@ -7,6 +7,7 @@ tags: ["信息论"]
 featured: false
 mood: "focus"
 description: "信息论第二章笔记，涵盖自信息量、信息熵、联合熵、条件熵、互信息量及连续型随机变量的微分熵。"
+image: "/images/og/information-theory-ch2.png"
 ---
 ## 第二章 信息量与熵
 

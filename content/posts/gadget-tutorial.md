@@ -7,6 +7,7 @@ tags: ["Android"]
 featured: false
 mood: "focus"
 description: "一篇面向新手的安卓搞机流程梳理，涵盖 BL、Fastboot、Recovery、TWRP、Magisk 与 KernelSU。"
+image: "/images/og/gadget-tutorial.png"
 ---
 这份笔记按“先备份，再刷机，最后扩展”的顺序整理，尽量把概念和操作主线分开。
 

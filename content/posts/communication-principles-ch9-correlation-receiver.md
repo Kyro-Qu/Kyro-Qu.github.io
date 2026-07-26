@@ -7,6 +7,7 @@ tags: ["通信原理"]
 featured: false
 mood: "focus"
 description: "详细讲解 M 进制信号相关接收机的工作原理，包括乘法器、积分器、抽样判决三个核心环节，以及为什么相关接收机是 AWGN 信道下的最佳接收机"
+image: "/images/og/communication-principles-ch9-correlation-receiver.png"
 ---
 ![image-20260615021042540](https://kyro-qu.github.io/blog-images-1/posts/communication-principles-ch9-correlation-receiver/image-20260615021042540.png)
 

@@ -7,6 +7,7 @@ tags: ["AI"]
 featured: false
 mood: "focus"
 description: "Claude Code 四种权限模式详解及 Bypass Permissions 模式的开启步骤。"
+image: "/images/og/claude-code-permissions.png"
 ---
 这篇笔记记录 Claude Code 的权限模式差异，以及如何开启更高权限模式，减少反复确认带来的中断。
 

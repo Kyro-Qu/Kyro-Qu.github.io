@@ -7,6 +7,7 @@ tags: ["AI"]
 featured: false
 mood: "focus"
 description: "Claude Code CLI 完整使用指南，涵盖基础操作、权限模式、上下文管理、高级功能（Memory、CLAUDE.md、Skills、MCP、SubAgent、Hook）等内容，帮助你快速掌握 Claude Code 的强大功能。"
+image: "/images/og/claude-code-guide.png"
 ---
 ## 基础操作
 

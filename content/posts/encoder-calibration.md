@@ -7,6 +7,7 @@ tags: ["FOC"]
 featured: false
 mood: "focus"
 description: "梳理 FOC 编码器零点校准、偏移量计算、上电预定位与 ABZ 编码器校准流程。"
+image: "/images/og/encoder-calibration.png"
 ---
 ## 1. 初始位置定位 (Rotor Alignment)
 

@@ -7,6 +7,7 @@ tags: ["AI", "Linux"]
 featured: false
 mood: "focus"
 description: "DeepSeek 蒸馏模型与 Ollama 本地部署配置记录。"
+image: "/images/og/deepseek-deploy-config.png"
 ---
 ## DeepSeek 
 

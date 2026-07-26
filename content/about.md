@@ -36,7 +36,6 @@ GitHub:
 你可以通过下面这些方式联系我：
 
 - GitHub: [https://github.com/Kyro-Qu](https://github.com/Kyro-Qu)
-- QQ: `2258459541`
 
 ### 微信
 

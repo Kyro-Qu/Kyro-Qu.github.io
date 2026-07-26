@@ -7,6 +7,7 @@ tags: ["金融"]
 featured: false
 mood: "focus"
 description: "把利率、一级二级市场、IPO、基金、定投、资本杠杆和个人规划整理成一份适合反复回看的金融学习笔记。"
+image: "/images/og/finance-study-notes.png"
 ---
 这篇文章把零散的经济与金融基础概念重新整理成一份可复习的学习笔记，适合用来快速建立框架，再按主题回看细节。
 

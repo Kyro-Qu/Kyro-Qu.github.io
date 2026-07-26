@@ -66,6 +66,7 @@ enableRobotsTXT = true
 [params]
   description = "Kyro Blog built with Hugo, focused on coding, learning, and project notes."
   tagline = "怀揣无限好奇心，在广阔世界中<br>不断探索前行。"
+  defaultImage = "images/og/default.png"
 
 [params.giscus]
   enabled = true

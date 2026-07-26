@@ -7,6 +7,7 @@ tags: ["Linux"]
 featured: false
 mood: "focus"
 description: "记录 Windows 11 上启用虚拟化、安装 WSL2、部署 Ubuntu 以及常见注意事项。"
+image: "/images/og/windows11-wsl2-ubuntu-setup.png"
 ---
 这篇记录 Windows 11 上安装和维护 WSL2 Ubuntu 的常用流程。
 

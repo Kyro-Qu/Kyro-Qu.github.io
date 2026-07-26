@@ -7,6 +7,7 @@ tags: ["英语"]
 featured: false
 mood: "focus"
 description: "整理英语语法核心知识、常见句型、词语辨析与固定搭配，适合作为考试和日常复习清单。"
+image: "/images/og/english-grammar-notes.png"
 ---
 > 这篇文章整理自本地 Word 笔记《英语总笔记》和《固定搭配》。我把原文中零散的语法点、例句、表格和固定搭配重新归类，统一成适合复习的 Markdown 结构；个别明显拼写、术语和标点问题也一并修正。
 

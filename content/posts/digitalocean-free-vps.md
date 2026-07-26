@@ -7,6 +7,7 @@ tags: ["云服务", "Linux"]
 featured: false
 mood: "focus"
 description: "记录通过 GitHub Student Developer Pack 领取 DigitalOcean 学生额度、绑定支付方式、创建项目、选择 Droplet 配置并上传 SSH 公钥的完整流程。"
+image: "/images/og/digitalocean-free-vps.png"
 ---
 这次申请到的是一年的 VPS 服务器，可以把它当成年抛来用：通过 GitHub Student Developer Pack 领取一笔 DigitalOcean 平台额度，再用这笔额度去创建 Droplet。只要月费控制在额度范围内，就可以把它当作一台长期学习用 VPS。
 

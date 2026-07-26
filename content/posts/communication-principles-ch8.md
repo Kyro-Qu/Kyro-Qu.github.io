@@ -7,6 +7,7 @@ tags: ["通信原理"]
 featured: false
 mood: "focus"
 description: "通信原理第八章笔记，详细介绍 MSK（最小频移键控）的频率设计与相位连续性、余弦滚降滤波器的原理与工程选择、MPSK（多进制相移键控）的带宽与频带利用率。"
+image: "/images/og/communication-principles-ch8.png"
 ---
 ## MSK - 最小频移键控 (Minimum Shift Keying)
 

@@ -7,6 +7,7 @@ tags: ["信息论"]
 featured: false
 mood: "focus"
 description: "信息论第五章笔记，涵盖信源符号熵、平均码长、编码效率的计算，以及哈夫曼编码和香农编码的原理与应用。"
+image: "/images/og/information-theory-ch5.png"
 ---
 ## 一、基本概念
 

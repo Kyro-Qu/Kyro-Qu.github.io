@@ -7,6 +7,7 @@ tags: ["AI"]
 featured: false
 mood: "focus"
 description: "一篇关于 Voice Agent 架构的入门笔记，整理唤醒、语音识别、LLM、MCP 与 TTS 的协作链路。"
+image: "/images/og/voice-agent-overview.png"
 ---
 Voice Agent 是一种融合了语音处理与大语言模型推理能力的智能体，能够实现实时、自然、类人化的语音交互体验，就像钢铁侠的贾维斯。
 
