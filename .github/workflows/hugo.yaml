@@ -37,7 +37,7 @@ jobs:
 
       - name: Cache Hugo binary
         id: cache-hugo
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/hugo-bin
           key: hugo-${{ env.HUGO_VERSION }}-linux-amd64
