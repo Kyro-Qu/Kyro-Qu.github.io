@@ -1429,3 +1429,11 @@ html[data-theme="dark"] .post-count {
     background: rgba(255, 255, 255, 0.9);
     color: var(--accent-primary);
 }
+
+.sidebar .toc {
+    overflow: hidden;
+}
+
+.sidebar .toc::before {
+    border-radius: 0;
+}
