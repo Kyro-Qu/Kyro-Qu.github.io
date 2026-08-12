@@ -2504,12 +2504,6 @@ ________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a
 
 Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
 
-例题 2：
-
-________ (Cherish/To cherish) your time with your pet dog, for the lifespan of a dog is not long.
-
-Cherish 珍视，珍爱，由于这里是劝告的话，所以用动词原形
-
 祈使句 + and/or + 陈述句:
 
 and 表示 祈使句作用后的结果：

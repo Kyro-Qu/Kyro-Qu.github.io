@@ -1,0 +1,20 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    {{ $startYear := 2026 }}
+    {{ $currentYear := now.Year }}
+    <p>
+      © {{ if eq $startYear $currentYear }}{{ $currentYear }}{{ else }}{{ $startYear }}–{{ $currentYear }}{{ end }}
+      {{ .Site.Params.Author.name | default .Site.Title }}
+    </p>
+    <p>使用 Hugo 与 LofiCode 构建，部署于 GitHub Pages。</p>
+    <div class="footer-links">
+      <a href="{{ "index.xml" | absLangURL }}" title="订阅本站 RSS">RSS 订阅</a>
+      {{ with .Site.Params.Social.github }}
+      <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+      {{ end }}
+      {{ with .Site.Params.icp }}
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">{{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
+</footer>

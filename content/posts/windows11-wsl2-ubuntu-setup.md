@@ -319,10 +319,6 @@ wsl --shutdown
 
 # 导出指定的发行版到D盘
 wsl --export Ubuntu-22.04 D:\Ubuntu_2204.tar
-
-
-# 导出指定的发行版到D盘
-wsl --export Ubuntu-22.04 D:\Ubuntu_2204.tar
 ```
 
 

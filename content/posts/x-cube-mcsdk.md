@@ -9,19 +9,6 @@ mood: "focus"
 description: "整理 X-CUBE-MCSDK 的 Workbench、Motor Pilot、Motor Profiler 使用流程，以及火柴 FOC 驱动板配置与定时器参数。"
 image: "/images/og/x-cube-mcsdk.png"
 ---
-## 目录
-
-- [1. 简介](#1-简介)
-- [2. 软件工具](#2-软件工具)
-- [3. 参考硬件](#3-参考硬件)
-- [4. 开发流程](#4-开发流程)
-- [5. Motor Control Workbench](#5-motor-control-workbench)
-- [6. Motor Pilot](#6-motor-pilot)
-- [7. Motor Profiler](#7-motor-profiler)
-- [8. 火柴 FOC 驱动板配置](#8-火柴-foc-驱动板配置)
-
----
-
 ## 1. 简介
 
 X-CUBE-MCSDK 是 ST（意法半导体）面向 STM32 的电机控制软件开发套件（Motor Control Software Development Kit，MCSDK）。完成电机、功率板和控制参数配置后，可以生成 FOC 或六步换相工程，从而减少底层初始化和控制框架的搭建工作。

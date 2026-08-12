@@ -176,9 +176,15 @@
   // Table of contents generation and highlighting
   function generateTOC() {
     const tocContent = document.getElementById("toc-content");
-    const headings = document.querySelectorAll(".post-body h2, .post-body h3");
+    const headings = document.querySelectorAll(
+      ".post-body h2, .post-body h3, .post-body h4"
+    );
 
     if (!tocContent || headings.length === 0) return;
+
+    // Hugo already renders .TableOfContents in the page template. Only build
+    // a client-side fallback when that server-rendered TOC is absent.
+    if (tocContent.querySelector("a")) return;
 
     const tocList = document.createElement("ul");
 
@@ -210,7 +216,9 @@
   }
 
   function updateTOC() {
-    const headings = document.querySelectorAll(".post-body h2, .post-body h3");
+    const headings = document.querySelectorAll(
+      ".post-body h2, .post-body h3, .post-body h4"
+    );
     const tocLinks = document.querySelectorAll("#toc-content a");
 
     if (headings.length === 0 || tocLinks.length === 0) return;

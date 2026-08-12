@@ -16,6 +16,8 @@
         {{ block "main" . }}{{ end }}
     </main>
 
+    {{ partial "footer.html" . }}
+
     {{ $js := slice (resources.Get "js/main.js") (resources.Get "js/custom-ui.js") | resources.Concat "js/bundle.js" | minify | fingerprint }}
     <script src="{{ $js.RelPermalink }}"></script>
 </body>
