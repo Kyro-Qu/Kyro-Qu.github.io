@@ -2,3 +2,5 @@
 public/
 resources/
 Thumbs.db
+*.bak
+

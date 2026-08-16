@@ -37,9 +37,7 @@
 
   <div class="post-meta-sidebar">
     <div class="reading-time-vaporwave">
-      {{ $cupsToShow := .ReadingTime }}
-      {{ if gt .ReadingTime 5 }}{{ $cupsToShow = 5 }}{{ end }}
-      <span class="coffee-cups">{{ strings.Repeat $cupsToShow "☕" }}</span>
+      <span class="reading-time-icon">⏱️</span>
       <span>{{ .ReadingTime }} min</span>
     </div>
   </div>

@@ -38,7 +38,6 @@
     article.className = `post-item${post.featured ? " featured" : ""}`;
 
     const readingTime = Number(post.readingTime) || 1;
-    const cupsToShow = Math.min(readingTime, 5);
     const tags = Array.isArray(post.tags) ? post.tags.filter(Boolean) : [];
     const tagsHtml = tags
       .map((tag) => `<span class="post-tag-vaporwave">${escapeHtml(tag)}</span>`)
@@ -75,7 +74,7 @@
 
       <div class="post-meta-sidebar">
         <div class="reading-time-vaporwave">
-          <span class="coffee-cups">${"☕".repeat(cupsToShow)}</span>
+          <span class="reading-time-icon">⏱️</span>
           <span>${readingTime} min</span>
         </div>
       </div>
@@ -205,16 +204,17 @@
       }
 
       const readingTime = parseInt(match[1], 10);
-      const cupsToShow = Math.min(readingTime, 5);
-      let cupsNode = node.querySelector(".coffee-cups");
+      let iconNode = node.querySelector(".reading-time-icon, .coffee-cups");
 
-      if (!cupsNode) {
-        cupsNode = document.createElement("span");
-        cupsNode.className = "coffee-cups";
-        node.insertBefore(cupsNode, textNode);
+      if (!iconNode) {
+        iconNode = document.createElement("span");
+        iconNode.className = "reading-time-icon";
+        node.insertBefore(iconNode, textNode);
+      } else {
+        iconNode.className = "reading-time-icon";
       }
 
-      cupsNode.textContent = "☕".repeat(cupsToShow);
+      iconNode.textContent = "⏱️";
       textNode.textContent = `${readingTime} min`;
     });
   }
@@ -713,7 +713,8 @@
     const media = window.matchMedia("(max-width: 768px)");
     let lastScrollY = scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
     let ticking = false;
-    let revealTimer = null;
+    let accumulatedUpDelta = 0;
+    let accumulatedDownDelta = 0;
 
     function getScrollY() {
       return scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
@@ -728,24 +729,11 @@
     }
 
     function resetHeaderState() {
+      accumulatedUpDelta = 0;
+      accumulatedDownDelta = 0;
       forEachHeader((header) => {
         header.classList.remove("is-hidden", "is-compact", "is-revealed");
       });
-    }
-
-    function markRevealed() {
-      forEachHeader((header) => {
-        header.classList.remove("is-revealed");
-        void header.offsetWidth;
-        header.classList.add("is-revealed");
-      });
-
-      window.clearTimeout(revealTimer);
-      revealTimer = window.setTimeout(() => {
-        forEachHeader((header) => {
-          header.classList.remove("is-revealed");
-        });
-      }, 520);
     }
 
     function updateHeader() {
@@ -759,28 +747,42 @@
 
       const currentScrollY = Math.max(getScrollY(), 0);
       const delta = currentScrollY - lastScrollY;
-      const goingDown = delta > 0;
-      const goingUp = delta < 0;
-      const passedThreshold = currentScrollY > 96;
 
       forEachHeader((header) => {
-        header.classList.toggle("is-compact", currentScrollY > 18);
+        header.classList.toggle("is-compact", currentScrollY > 20);
       });
 
-      if (passedThreshold && goingDown && delta > 6) {
-        forEachHeader((header) => {
-          header.classList.add("is-hidden");
-        });
-      } else if (goingUp && Math.abs(delta) > 4) {
-        const hadHiddenHeader = headers.some((header) => header.classList.contains("is-hidden"));
-        forEachHeader((header) => {
-          header.classList.remove("is-hidden");
-        });
-        if (hadHiddenHeader) {
-          markRevealed();
-        }
-      } else if (currentScrollY <= 12) {
+      // 接近页面顶部时直接显示完整顶部栏并重置
+      if (currentScrollY <= 60) {
         resetHeaderState();
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (delta > 0) {
+        // 向下滚动：累积向下距离，重置向上累积
+        accumulatedDownDelta += delta;
+        accumulatedUpDelta = 0;
+
+        // 持续向下滚动超过 10px 时隐藏顶部栏
+        if (accumulatedDownDelta > 10) {
+          forEachHeader((header) => {
+            header.classList.add("is-hidden");
+            header.classList.remove("is-revealed");
+          });
+        }
+      } else if (delta < 0) {
+        // 向上滚动：累积向上距离，重置向下累积
+        const upDistance = Math.abs(delta);
+        accumulatedUpDelta += upDistance;
+        accumulatedDownDelta = 0;
+
+        // 只有明确向上滑动累计超过 18px 时，才重新显示顶部栏，避免滚轮微抖动误触发
+        if (accumulatedUpDelta > 18) {
+          forEachHeader((header) => {
+            header.classList.remove("is-hidden");
+          });
+        }
       }
 
       lastScrollY = currentScrollY;
@@ -940,6 +942,71 @@
     window.requestAnimationFrame(updateActiveToc);
   }
 
+  function setupImageLightbox() {
+    let lightbox = document.getElementById("imageLightbox");
+    if (!lightbox) {
+      lightbox = document.createElement("div");
+      lightbox.id = "imageLightbox";
+      lightbox.className = "image-lightbox";
+      lightbox.innerHTML = `
+        <button class="image-lightbox-close" aria-label="关闭预览">×</button>
+        <img class="image-lightbox-img" src="" alt="全屏图片预览" />
+      `;
+      document.body.appendChild(lightbox);
+
+      const closeBtn = lightbox.querySelector(".image-lightbox-close");
+      const lightboxImg = lightbox.querySelector(".image-lightbox-img");
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        setTimeout(() => {
+          lightboxImg.src = "";
+        }, 250);
+      }
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target !== lightboxImg) {
+          closeLightbox();
+        }
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+    }
+
+    const postImages = document.querySelectorAll(".post-body img");
+    postImages.forEach((img) => {
+      if (img.dataset.lightboxBound === "true") {
+        return;
+      }
+
+      // 排除微信/QQ 联系二维码
+      const src = img.getAttribute("src") || "";
+      const alt = img.getAttribute("alt") || "";
+      if (
+        src.includes("contact-wechat") ||
+        src.includes("contact-qq") ||
+        alt.includes("二维码") ||
+        alt.includes("微信") ||
+        alt.includes("QQ")
+      ) {
+        return;
+      }
+
+      img.dataset.lightboxBound = "true";
+      img.addEventListener("click", () => {
+        const lightboxImg = lightbox.querySelector(".image-lightbox-img");
+        lightboxImg.src = img.currentSrc || img.src;
+        lightbox.classList.add("active");
+      });
+    });
+  }
+
   let scheduled = false;
   function scheduleLocalization() {
     if (scheduled) {
@@ -949,6 +1016,7 @@
     window.requestAnimationFrame(() => {
       scheduled = false;
       localizeDom();
+      setupImageLightbox();
     });
   }
 
@@ -958,6 +1026,7 @@
   setupHomepageTagFilter();
   setupJsonBackedSearch();
   setupGiscusThemeSync();
+  setupImageLightbox();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", scheduleLocalization, {

@@ -52,6 +52,36 @@ html[data-theme="dark"] .not-found-card {
     --glass-glow: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.035) 45%, rgba(0, 206, 209, 0.08));
 }
 
+/* === 全局画布背景与滚动条区域统一（防止浏览器出现黑条/白条/不同色块） === */
+:root {
+    --scrollbar-track-bg: #e6c8da;
+}
+
+html[data-theme="dark"] {
+    --scrollbar-track-bg: #1c1538;
+}
+
+html {
+    background: var(--bg-primary) !important;
+    background-attachment: fixed !important;
+    background-color: var(--scrollbar-track-bg) !important;
+    color-scheme: light dark;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+body {
+    background: transparent !important;
+    min-height: 100vh;
+}
+
+/* 消除外层默认滚动条，统一由 post-overlay-content 接管单页/详情页滚动，避免两个滚动条重叠出现黑条 */
+body:has(.post-overlay.active) {
+    overflow: hidden !important;
+}
+
 .site-header,
 .post-overlay .site-header,
 .post-overlay-header,
@@ -59,10 +89,35 @@ html[data-theme="dark"] .not-found-card {
 .ambient-bar {
     background: linear-gradient(135deg, var(--glass-surface-strong), var(--glass-surface)) !important;
     border-color: var(--glass-border) !important;
-    box-shadow: var(--glass-shadow), var(--glass-inset) !important;
+    box-shadow: var(--glass-shadow) !important;
     -webkit-backdrop-filter: blur(22px) saturate(160%);
     backdrop-filter: blur(22px) saturate(160%);
 }
+
+/* 顶部导航栏与浏览器顶部/左右完全贴合融入：去除上边框与左右边框，去除顶部inset亮线 */
+.site-header,
+.post-overlay-header {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    margin-top: 0 !important;
+}
+
+.site-header.is-compact,
+.post-overlay-header.is-compact {
+    box-shadow: 0 14px 36px rgba(15, 10, 32, 0.14) !important;
+}
+
+.site-header::before,
+.post-overlay-header::before,
+.site-header::after,
+.post-overlay-header::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 .site-header,
 .post-overlay-header {
@@ -81,10 +136,6 @@ html[data-theme="dark"] .not-found-card {
     will-change: transform, opacity;
 }
 
-.site-header.is-compact,
-.post-overlay-header.is-compact {
-    box-shadow: 0 14px 36px rgba(15, 10, 32, 0.14), var(--glass-inset) !important;
-}
 
 .site-header.is-hidden,
 .post-overlay-header.is-hidden {
@@ -120,8 +171,6 @@ html[data-theme="dark"] .site-header {
     border-bottom-color: var(--glass-border) !important;
 }
 
-.site-header::before,
-.post-overlay-header::before,
 .search-form-container::before,
 .ambient-bar::before,
 .home-intro-card::before,
@@ -146,7 +195,6 @@ html[data-theme="dark"] .site-header {
     pointer-events: none;
 }
 
-.site-header::before,
 .search-form-container::before,
 .ambient-bar::before {
     border-radius: 0;
@@ -825,21 +873,16 @@ html[data-theme="light"] .not-found-empty {
 .comments-shell {
     position: relative;
     overflow: hidden;
-    padding: 1.25rem 1.3rem 1.35rem;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 26px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.018));
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 1.6rem 1.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-card);
+    box-shadow: 0 8px 32px var(--shadow-color);
     backdrop-filter: blur(16px);
 }
 
 .comments-shell::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    content: none;
 }
 
 .comments-head,
@@ -854,7 +897,9 @@ html[data-theme="light"] .not-found-empty {
     gap: 1rem 1.5rem;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .comments-heading-group {
@@ -1187,8 +1232,8 @@ html[data-theme="light"] .comments-embed {
     }
 
     .post-overlay-header {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1rem !important;
+        padding-right: 1.25rem !important;
     }
 
     .post-layout {
@@ -1437,3 +1482,337 @@ html[data-theme="dark"] .post-count {
 .sidebar .toc::before {
     border-radius: 0;
 }
+
+/* === 目录（TOC）标准单列自上而下层次排版 === */
+#toc-content {
+    display: block !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+#toc-content nav#TableOfContents {
+    display: block !important;
+    width: 100% !important;
+}
+
+#toc-content ul {
+    display: block !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#toc-content ul ul {
+    display: block !important;
+    padding-left: 0.85rem !important;
+    margin: 0.25rem 0 !important;
+    border-left: 1px solid var(--border-color) !important;
+}
+
+#toc-content li {
+    display: block !important;
+    width: 100% !important;
+    margin: 0.25rem 0 !important;
+    float: none !important;
+}
+
+#toc-content a {
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.45 !important;
+    padding: 0.3rem 0.5rem !important;
+    border-radius: 6px !important;
+}
+
+
+/* === 社交图标 圆形质感与悬浮流光效果 === */
+.social-links {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html[data-theme="dark"] .social-link {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.08);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px var(--glow-color);
+}
+
+.social-link:hover .social-icon,
+.social-link:hover .x-icon {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+.social-icon {
+    font-size: 1.55rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.social-icon.x-icon {
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+/* === 文章顶部阅读进度条 === */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+    box-shadow: 0 0 10px var(--accent-primary);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.08s ease-out;
+}
+
+/* === 文章弹窗内头部与右侧关闭按钮间距适配（避免贴着滚动条与进度条） === */
+.post-overlay-header {
+    padding: 0.85rem 1.75rem 0.85rem 1.5rem !important;
+    gap: 1rem;
+}
+
+.post-overlay-close {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* === 滚动条自定义：主页与全局使用底色融合轨道，文章弹窗内部保持纯净透明 === */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 0, 128, 0.4) var(--scrollbar-track-bg);
+}
+
+html[data-theme="dark"] * {
+    scrollbar-color: rgba(0, 255, 255, 0.45) var(--scrollbar-track-bg);
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: var(--scrollbar-track-bg) !important;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track-piece {
+    background: var(--scrollbar-track-bg) !important;
+    background-color: var(--scrollbar-track-bg) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+*::-webkit-scrollbar-corner {
+    background: var(--scrollbar-track-bg) !important;
+}
+
+*::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 128, 0.38) !important;
+    border-radius: 999px !important;
+    border: none !important;
+    transition: background-color 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 0, 128, 0.75) !important;
+}
+
+html[data-theme="dark"] *::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 255, 255, 0.38) !important;
+}
+
+html[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 255, 255, 0.8) !important;
+}
+
+/* === 文章弹窗内部及代码块/目录等容器：恢复透明轻量轨道 === */
+.post-overlay,
+.post-overlay-content,
+.post-layout,
+.post-content,
+#toc-content,
+pre,
+code,
+.highlight {
+    scrollbar-color: rgba(255, 0, 128, 0.4) transparent !important;
+}
+
+html[data-theme="dark"] .post-overlay,
+html[data-theme="dark"] .post-overlay-content,
+html[data-theme="dark"] .post-layout,
+html[data-theme="dark"] .post-content,
+html[data-theme="dark"] #toc-content,
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code,
+html[data-theme="dark"] .highlight {
+    scrollbar-color: rgba(0, 255, 255, 0.45) transparent !important;
+}
+
+.post-overlay ::-webkit-scrollbar,
+.post-overlay-content::-webkit-scrollbar,
+#toc-content::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar,
+.highlight::-webkit-scrollbar {
+    background-color: transparent !important;
+}
+
+.post-overlay ::-webkit-scrollbar-track,
+.post-overlay ::-webkit-scrollbar-track-piece,
+.post-overlay-content::-webkit-scrollbar-track,
+.post-overlay-content::-webkit-scrollbar-track-piece,
+#toc-content::-webkit-scrollbar-track,
+#toc-content::-webkit-scrollbar-track-piece,
+pre::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track-piece,
+code::-webkit-scrollbar-track,
+code::-webkit-scrollbar-track-piece,
+.highlight::-webkit-scrollbar-track,
+.highlight::-webkit-scrollbar-track-piece {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
+/* === 正文与关于页图片尺寸适配（防止二维码/单图撑满超大） === */
+.post-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.25rem auto;
+    cursor: zoom-in;
+    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease;
+}
+
+.post-body img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* 针对微信/QQ 联系二维码以及联系卡片中的二维码缩放至原来一半左右 */
+.post-body img[src*="contact-wechat"],
+.post-body img[src*="contact-qq"],
+.post-body img[alt*="二维码"],
+.post-body img[alt*="微信"],
+.post-body img[alt*="QQ"],
+.post-body img[alt*="wechat"],
+.post-body img[alt*="qq"] {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    cursor: default;
+}
+
+.post-body img[src*="contact-wechat"]:hover,
+.post-body img[src*="contact-qq"]:hover,
+.post-body img[alt*="二维码"]:hover,
+.post-body img[alt*="微信"]:hover,
+.post-body img[alt*="QQ"]:hover,
+.post-body img[alt*="wechat"]:hover,
+.post-body img[alt*="qq"]:hover {
+    transform: none;
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+/* === 原生轻量图片灯箱（全屏沉浸式无裁剪无失真预览） === */
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 6, 20, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    cursor: zoom-out;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 1.5rem;
+}
+
+.image-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-lightbox-img {
+    max-width: 92vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transform: scale(0.92);
+    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    user-select: none;
+}
+
+.image-lightbox.active .image-lightbox-img {
+    transform: scale(1);
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.image-lightbox-close:hover {
+    background: rgba(255, 0, 128, 0.8);
+    transform: scale(1.1);
+}
+
+
+
+
