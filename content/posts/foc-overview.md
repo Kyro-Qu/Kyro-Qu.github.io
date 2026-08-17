@@ -9,7 +9,7 @@ mood: "focus"
 description: "系统梳理无刷电机、三相逆变器、坐标变换、SVPWM、开闭环控制、编码器及软件架构等 FOC 核心知识。"
 image: "/images/og/foc-overview.png"
 ---
-**专题文章：** [电流采集与重构](/posts/foc-current-sensing/) · 编码器校准（暂未发布）
+**专题文章：** [电流采集与重构](/posts/foc-current-sensing/) · [CAN 总线通信](/posts/can-bus/) · 编码器校准（暂未发布）
 
 ## 1. 项目概览
 
