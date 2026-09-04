@@ -1,7 +1,7 @@
 ---
-title: "弱磁控制与先进电机控制策略"
+title: "FOC 弱磁控制与 MTPA"
 subtitle: "从凸极特性、极限椭圆约束到 MTPA 与高速弱磁调速"
-date: 2026-09-04T16:52:44+08:00
+date: 2026-09-04T18:33:28+08:00
 draft: false
 tags: ["FOC"]
 featured: false
