@@ -899,13 +899,37 @@ html[data-theme="dark"] .search-form-container {
    8. Article Reading Experience (Single Page)
    ========================================================================== */
 
-/* Seamless Page Container */
-.post-overlay {
-    position: relative !important;
-    z-index: 1 !important;
+/* Standard Page Container (Native Scrolling, No SPA Overlay Lock) */
+.post-page-container {
+    max-width: 1260px !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 1.5rem 5rem !important;
+    box-sizing: border-box !important;
     width: 100% !important;
-    min-height: 100vh !important;
+}
+
+@media (min-width: 1440px) {
+    .post-page-container {
+        max-width: 1340px !important;
+        padding: 3rem 2rem 6rem !important;
+    }
+}
+
+@media (min-width: 1800px) {
+    .post-page-container {
+        max-width: 1400px !important;
+    }
+}
+
+/* Neutralize any legacy SPA overlay classes completely */
+.post-overlay {
+    position: static !important;
+    z-index: auto !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
     background: transparent !important;
+    overflow: visible !important;
 }
 
 .post-overlay-backdrop {
@@ -913,27 +937,49 @@ html[data-theme="dark"] .search-form-container {
 }
 
 .post-overlay-content {
-    position: relative !important;
+    position: static !important;
     width: 100% !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding: 2.5rem 1.5rem 5rem !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    overflow: visible !important;
 }
 
 /* Article Layout Grid (Content + macOS Sidebar TOC) */
 .post-layout {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 260px !important;
+    grid-template-columns: minmax(0, 1fr) 290px !important;
     gap: 3.5rem !important;
     align-items: start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 1440px) {
+    .post-layout {
+        grid-template-columns: minmax(0, 1fr) 300px !important;
+        gap: 4rem !important;
+    }
+}
+
+.post-layout-no-toc {
+    grid-template-columns: minmax(0, 1fr) !important;
+    max-width: 860px !important;
+    margin: 0 auto !important;
 }
 
 .post-content {
-    max-width: 760px !important;
+    width: 100% !important;
+    max-width: 860px !important;
+    min-width: 0 !important;
     margin: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* Post Header */
@@ -1069,13 +1115,16 @@ html[data-theme="dark"] .search-form-container {
 
 /* Tables */
 .post-body table {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 1.75rem 0;
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-md) !important;
-    overflow: hidden;
 }
 
 .post-body table th,
@@ -1281,69 +1330,114 @@ html[data-theme="dark"] .search-form-container {
 .sidebar {
     position: sticky !important;
     top: 5rem !important;
-    max-height: calc(100vh - 6rem) !important;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-color) transparent;
-}
-
-.sidebar::-webkit-scrollbar {
-    width: 4px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 4px;
+    width: 100% !important;
+    max-width: 300px !important;
+    box-sizing: border-box !important;
+    height: fit-content !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .toc {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     background: var(--bg-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-lg) !important;
-    padding: 1.25rem 1.4rem !important;
+    padding: 1.25rem 1.25rem 1.25rem 1.35rem !important;
     box-shadow: var(--shadow-sm) !important;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .toc h4 {
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    margin: 0 0 0.85rem;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--text-muted) !important;
+    margin: 0 0 0.85rem !important;
+    padding: 0 4px !important;
+    text-align: left !important;
+}
+
+#toc-content {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-right: 4px !important;
+    max-height: calc(100vh - 10rem) !important;
+    scrollbar-width: none !important;
+}
+
+#toc-content:hover {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--border-color) transparent !important;
+}
+
+#toc-content::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+#toc-content::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+#toc-content::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    border-radius: 9999px !important;
+    transition: background var(--transition-fast) !important;
+}
+
+#toc-content:hover::-webkit-scrollbar-thumb {
+    background: var(--border-color) !important;
+}
+
+#toc-content::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted) !important;
+}
+
+#toc-content::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 #toc-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 #toc-content ul ul {
-    padding-left: 0.85rem;
-    border-left: 1px solid var(--border-color);
-    margin-top: 0.25rem;
+    padding-left: 0.75rem !important;
+    border-left: 1px solid var(--border-color) !important;
+    margin-top: 0.25rem !important;
 }
 
 #toc-content li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem !important;
 }
 
 #toc-content a {
-    display: block;
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    line-height: 1.4;
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+    display: block !important;
+    font-size: 0.85rem !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    line-height: 1.45 !important;
+    padding: 4px 8px !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all var(--transition-fast) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
 }
 
 #toc-content a:hover {
-    color: var(--text-primary);
-    background: var(--bg-hover);
+    color: var(--text-primary) !important;
+    background: var(--bg-hover) !important;
 }
 
 #toc-content .active {

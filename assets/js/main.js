@@ -222,6 +222,9 @@
   }
 
   function updateTOC() {
+    const tocContent = document.getElementById("toc-content");
+    if (!tocContent || tocContent.dataset.scrollSyncReady === "true") return;
+
     const headings = document.querySelectorAll(
       ".post-body h2, .post-body h3, .post-body h4"
     );

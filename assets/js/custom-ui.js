@@ -715,42 +715,25 @@
   }
 
   function setupSmartHeader() {
-    const headers = Array.from(
-      document.querySelectorAll(".site-header, .post-overlay-header")
-    );
-    if (!headers.length) {
+    const header = document.querySelector(".site-header");
+    if (!header) {
       return;
     }
 
-    const overlayContent = document.querySelector(".post-overlay-content");
-    const scrollContainer =
-      overlayContent && overlayContent.scrollHeight > overlayContent.clientHeight
-        ? overlayContent
-        : window;
     const media = window.matchMedia("(max-width: 768px)");
-    let lastScrollY = scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
+    let lastScrollY = window.scrollY || window.pageYOffset || 0;
     let ticking = false;
     let accumulatedUpDelta = 0;
     let accumulatedDownDelta = 0;
 
     function getScrollY() {
-      return scrollContainer === window ? window.scrollY : overlayContent.scrollTop;
-    }
-
-    function forEachHeader(callback) {
-      headers.forEach((header) => {
-        if (header) {
-          callback(header);
-        }
-      });
+      return window.scrollY || window.pageYOffset || 0;
     }
 
     function resetHeaderState() {
       accumulatedUpDelta = 0;
       accumulatedDownDelta = 0;
-      forEachHeader((header) => {
-        header.classList.remove("is-hidden", "is-compact", "is-revealed");
-      });
+      header.classList.remove("is-hidden", "is-compact", "is-revealed");
     }
 
     function updateHeader() {
@@ -765,9 +748,7 @@
       const currentScrollY = Math.max(getScrollY(), 0);
       const delta = currentScrollY - lastScrollY;
 
-      forEachHeader((header) => {
-        header.classList.toggle("is-compact", currentScrollY > 20);
-      });
+      header.classList.toggle("is-compact", currentScrollY > 20);
 
       // 接近页面顶部时直接显示完整顶部栏并重置
       if (currentScrollY <= 60) {
@@ -783,10 +764,8 @@
 
         // 持续向下滚动超过 10px 时隐藏顶部栏
         if (accumulatedDownDelta > 10) {
-          forEachHeader((header) => {
-            header.classList.add("is-hidden");
-            header.classList.remove("is-revealed");
-          });
+          header.classList.add("is-hidden");
+          header.classList.remove("is-revealed");
         }
       } else if (delta < 0) {
         // 向上滚动：累积向上距离，重置向下累积
@@ -796,9 +775,7 @@
 
         // 只有明确向上滑动累计超过 18px 时，才重新显示顶部栏，避免滚轮微抖动误触发
         if (accumulatedUpDelta > 18) {
-          forEachHeader((header) => {
-            header.classList.remove("is-hidden");
-          });
+          header.classList.remove("is-hidden");
         }
       }
 
@@ -812,7 +789,7 @@
       }
     }
 
-    scrollContainer.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     updateHeader();
   }
@@ -849,29 +826,13 @@
 
     tocContent.dataset.scrollSyncReady = "true";
 
-    const overlayContent = document.querySelector(".post-overlay-content");
-    const usesOverlayScroll =
-      overlayContent && overlayContent.scrollHeight > overlayContent.clientHeight;
-    const scrollTarget = usesOverlayScroll ? overlayContent : window;
-
     function getOffset() {
-      if (usesOverlayScroll) {
-        return (document.querySelector(".post-overlay-header")?.offsetHeight || 0) + 36;
-      }
-
-      return (document.querySelector(".site-header")?.offsetHeight || 0) + 36;
+      return (document.querySelector(".site-header")?.offsetHeight || 56) + 24;
     }
 
     function isAtBottom() {
-      if (usesOverlayScroll) {
-        return (
-          overlayContent.scrollTop + overlayContent.clientHeight >=
-          overlayContent.scrollHeight - 4
-        );
-      }
-
       const page = document.documentElement;
-      return window.scrollY + window.innerHeight >= page.scrollHeight - 4;
+      return (window.scrollY || window.pageYOffset || 0) + window.innerHeight >= page.scrollHeight - 4;
     }
 
     function setActive(activeIndex) {
@@ -895,14 +856,11 @@
     }
 
     function updateActiveToc() {
-      const containerTop = usesOverlayScroll
-        ? overlayContent.getBoundingClientRect().top
-        : 0;
       const threshold = getOffset();
       let activeIndex = 0;
 
       pairs.forEach(({ heading }, index) => {
-        const top = heading.getBoundingClientRect().top - containerTop;
+        const top = heading.getBoundingClientRect().top;
         if (top <= threshold) {
           activeIndex = index;
         }
@@ -916,20 +874,8 @@
     }
 
     function scrollToHeading(heading) {
-      const offset = getOffset() - 8;
-
-      if (usesOverlayScroll) {
-        const containerTop = overlayContent.getBoundingClientRect().top;
-        const top =
-          heading.getBoundingClientRect().top -
-          containerTop +
-          overlayContent.scrollTop -
-          offset;
-        overlayContent.scrollTo({ top, behavior: "smooth" });
-        return;
-      }
-
-      const top = heading.getBoundingClientRect().top + window.scrollY - offset;
+      const offset = getOffset();
+      const top = heading.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }
 
@@ -954,7 +900,7 @@
       true
     );
 
-    scrollTarget.addEventListener("scroll", updateActiveToc, { passive: true });
+    window.addEventListener("scroll", updateActiveToc, { passive: true });
     window.addEventListener("resize", updateActiveToc);
     window.requestAnimationFrame(updateActiveToc);
   }

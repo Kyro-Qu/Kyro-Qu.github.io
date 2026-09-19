@@ -1,87 +1,87 @@
 {{ define "main" }}
 {{ $isPost := eq .Section "posts" }}
 {{ $toc := .TableOfContents }}
-<div class="post-overlay active">
-    <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
-        <div class="post-layout">
-            <article class="post-content{{ if .Params.contactCards }} page-contact{{ end }}">
-                <header class="post-header">
-                    {{ if $isPost }}
-                    <div class="post-meta">
-                        <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
-                        <div class="reading-time-post">
-                            <span>{{ .ReadingTime }} 分钟阅读</span>
-                        </div>
-                    </div>
-                    {{ end }}
-                    <h1 class="post-title">{{ .Title }}</h1>
-                    {{ if .Params.subtitle }}
-                    <p class="post-subtitle">{{ .Params.subtitle }}</p>
-                    {{ end }}
-
-                    {{ if and $isPost .Params.tags }}
-                    <div class="post-tags-header">
-                        {{ range .Params.tags }}
-                        <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
-                        {{ end }}
-                    </div>
-                    {{ end }}
-                </header>
-                <div class="post-body">
-                    {{ .Content }}
-                </div>
-
+<div class="container post-page-container">
+    <div class="post-layout{{ if not $toc }} post-layout-no-toc{{ end }}">
+        <article class="post-content{{ if .Params.contactCards }} page-contact{{ end }}">
+            <header class="post-header">
                 {{ if $isPost }}
-                {{ $related := .Site.RegularPages.Related . | first 3 }}
-                {{ with $related }}
-                <div class="related-posts">
-                    <h3>相关文章</h3>
-                    <div class="related-grid">
-                        {{ range . }}
-                        <div class="related-post">
-                            <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-                            <div class="related-meta">
-                                {{ .Date.Format "2006.01.02" }} | {{ .ReadingTime }} 分钟阅读
-                            </div>
-                        </div>
-                        {{ end }}
+                <div class="post-meta">
+                    <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
+                    <div class="reading-time-post">
+                        <span>{{ .ReadingTime }} 分钟阅读</span>
                     </div>
                 </div>
                 {{ end }}
-
-                {{ partial "comments.html" . }}
-
-                <nav class="post-navigation">
-                    {{ with .PrevInSection }}
-                    <a href="{{ .Permalink }}" class="nav-previous">
-                        <span class="nav-label">上一篇</span>
-                        <span class="nav-title">{{ .Title }}</span>
-                    </a>
-                    {{ else }}
-                    <div></div>
-                    {{ end }}
-
-                    {{ with .NextInSection }}
-                    <a href="{{ .Permalink }}" class="nav-next">
-                        <span class="nav-label">下一篇</span>
-                        <span class="nav-title">{{ .Title }}</span>
-                    </a>
-                    {{ else }}
-                    <div></div>
-                    {{ end }}
-                </nav>
+                <h1 class="post-title">{{ .Title }}</h1>
+                {{ if .Params.subtitle }}
+                <p class="post-subtitle">{{ .Params.subtitle }}</p>
                 {{ end }}
-            </article>
 
-            <aside class="sidebar{{ if not $toc }} sidebar-empty{{ end }}">
-                <nav class="toc"{{ if not $toc }} aria-hidden="true"{{ end }}>
-                    <h4>目录</h4>
-                    <div id="toc-content">
-                        {{ $toc }}
+                {{ if and $isPost .Params.tags }}
+                <div class="post-tags-header">
+                    {{ range .Params.tags }}
+                    <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </header>
+            <div class="post-body">
+                {{ .Content }}
+            </div>
+
+            {{ if $isPost }}
+            {{ $related := .Site.RegularPages.Related . | first 3 }}
+            {{ with $related }}
+            <div class="related-posts">
+                <h3>相关文章</h3>
+                <div class="related-grid">
+                    {{ range . }}
+                    <div class="related-post">
+                        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                        <div class="related-meta">
+                            {{ .Date.Format "2006.01.02" }} | {{ .ReadingTime }} 分钟阅读
+                        </div>
                     </div>
-                </nav>
-            </aside>
-        </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ partial "comments.html" . }}
+
+            <nav class="post-navigation">
+                {{ with .PrevInSection }}
+                <a href="{{ .Permalink }}" class="nav-previous">
+                    <span class="nav-label">上一篇</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+
+                {{ with .NextInSection }}
+                <a href="{{ .Permalink }}" class="nav-next">
+                    <span class="nav-label">下一篇</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+            </nav>
+            {{ end }}
+        </article>
+
+        {{ if $toc }}
+        <aside class="sidebar">
+            <nav class="toc">
+                <h4>目录</h4>
+                <div id="toc-content">
+                    {{ $toc }}
+                </div>
+            </nav>
+        </aside>
+        {{ end }}
     </div>
 </div>
 {{ end }}
