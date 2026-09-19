@@ -11,7 +11,8 @@
    1. Design Tokens & Semantic Variables
    ========================================================================== */
 
-:root {
+:root,
+html[data-theme="light"] {
     /* Apple System Typography Stack */
     --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     --font-mono: "SF Mono", Menlo, Monaco, "Cascadia Mono", Consolas, "JetBrains Mono", monospace;
@@ -1048,8 +1049,8 @@ html[data-theme="dark"] .search-results {
 /* Article Layout Grid (Content + macOS Sidebar TOC) */
 .post-layout {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 290px !important;
-    gap: 3.5rem !important;
+    grid-template-columns: minmax(0, 1fr) 320px !important;
+    gap: 2.5rem !important;
     align-items: start !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -1059,8 +1060,8 @@ html[data-theme="dark"] .search-results {
 
 @media (min-width: 1440px) {
     .post-layout {
-        grid-template-columns: minmax(0, 1fr) 300px !important;
-        gap: 4rem !important;
+        grid-template-columns: minmax(0, 1fr) 345px !important;
+        gap: 3rem !important;
     }
 }
 
@@ -1427,7 +1428,7 @@ html[data-theme="dark"] .search-results {
     position: sticky !important;
     top: 5rem !important;
     width: 100% !important;
-    max-width: 300px !important;
+    max-width: 345px !important;
     box-sizing: border-box !important;
     height: fit-content !important;
     overflow: visible !important;
@@ -1442,19 +1443,19 @@ html[data-theme="dark"] .search-results {
     background: var(--bg-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-lg) !important;
-    padding: 1.25rem 1.25rem 1.25rem 1.35rem !important;
+    padding: 0.75rem 0.45rem 0.75rem 0.55rem !important;
     box-shadow: var(--shadow-sm) !important;
     overflow: hidden !important;
 }
 
 .toc h4 {
-    font-size: 0.82rem !important;
+    font-size: 0.78rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
     color: var(--text-muted) !important;
-    margin: 0 0 0.85rem !important;
-    padding: 0 4px !important;
+    margin: 0 0 0.55rem !important;
+    padding: 0 5px !important;
     text-align: left !important;
 }
 
@@ -1463,39 +1464,34 @@ html[data-theme="dark"] .search-results {
     box-sizing: border-box !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    padding-right: 4px !important;
-    max-height: calc(100vh - 10rem) !important;
-    scrollbar-width: none !important;
+    padding: 0 1px 0 0 !important;
+    max-height: calc(100vh - 9rem) !important;
 }
 
-#toc-content:hover {
-    scrollbar-width: thin !important;
-    scrollbar-color: var(--border-color) transparent !important;
-}
-
-#toc-content::-webkit-scrollbar {
+#toc-content::-webkit-scrollbar,
+#toc-content *::-webkit-scrollbar {
     width: 4px !important;
+    height: 0 !important;
 }
 
-#toc-content::-webkit-scrollbar-track {
+#toc-content::-webkit-scrollbar-track,
+#toc-content *::-webkit-scrollbar-track {
     background: transparent !important;
 }
 
-#toc-content::-webkit-scrollbar-thumb {
-    background: transparent !important;
+#toc-content::-webkit-scrollbar-thumb,
+#toc-content *::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 128, 0.25) !important;
     border-radius: 9999px !important;
-    transition: background var(--transition-fast) !important;
 }
 
-#toc-content:hover::-webkit-scrollbar-thumb {
-    background: var(--border-color) !important;
+#toc-content:hover::-webkit-scrollbar-thumb,
+#toc-content *::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 128, 0.45) !important;
 }
 
-#toc-content::-webkit-scrollbar-thumb:hover {
-    background: var(--text-muted) !important;
-}
-
-#toc-content::-webkit-scrollbar-button {
+#toc-content::-webkit-scrollbar-button,
+#toc-content *::-webkit-scrollbar-button {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
@@ -1508,22 +1504,22 @@ html[data-theme="dark"] .search-results {
 }
 
 #toc-content ul ul {
-    padding-left: 0.75rem !important;
+    padding-left: 0.45rem !important;
     border-left: 1px solid var(--border-color) !important;
-    margin-top: 0.25rem !important;
+    margin-top: 0.2rem !important;
 }
 
 #toc-content li {
-    margin-bottom: 0.35rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 #toc-content a {
     display: block !important;
-    font-size: 0.85rem !important;
+    font-size: 0.84rem !important;
     color: var(--text-secondary) !important;
     text-decoration: none !important;
-    line-height: 1.45 !important;
-    padding: 4px 8px !important;
+    line-height: 1.4 !important;
+    padding: 3px 5px !important;
     border-radius: var(--radius-sm) !important;
     transition: all var(--transition-fast) !important;
     white-space: normal !important;
