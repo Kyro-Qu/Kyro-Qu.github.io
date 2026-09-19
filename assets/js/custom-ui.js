@@ -646,6 +646,16 @@
         toggleSearch(false);
       }
     });
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("open-search") === "1") {
+        toggleSearch(true);
+        const query = params.get("q") || "Claude";
+        searchInput.value = query;
+        runSearch(query);
+      }
+    } catch (e) {}
   }
 
   function setupMobileMenu() {
@@ -695,6 +705,13 @@
         setOpen(false);
       }
     });
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("open-menu") === "1") {
+        setOpen(true);
+      }
+    } catch (e) {}
   }
 
   function setupSmartHeader() {

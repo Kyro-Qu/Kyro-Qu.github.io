@@ -6,7 +6,17 @@
 <script>
   (function () {
     var theme;
-    try { theme = localStorage.getItem("theme"); } catch (e) {}
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var queryTheme = params.get("theme");
+      if (queryTheme === "light" || queryTheme === "dark") {
+        theme = queryTheme;
+        try { localStorage.setItem("theme", theme); } catch (e) {}
+      }
+    } catch (e) {}
+    if (!theme) {
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+    }
     if (!theme) {
       theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }

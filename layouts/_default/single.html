@@ -2,16 +2,7 @@
 {{ $isPost := eq .Section "posts" }}
 {{ $toc := .TableOfContents }}
 <div class="post-overlay active">
-    <div class="post-overlay-backdrop"></div>
     <div class="post-overlay-content" style="position: relative; min-height: 100vh; padding: 0; transform: translateY(0);">
-        <div class="post-overlay-header">
-            <div class="post-overlay-title">
-                <a href="/" class="overlay-site-title">{{ partial "site-brand.html" . }}</a>
-            </div>
-            <button class="post-overlay-close" aria-label="关闭文章" onclick="window.location.href='/'">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
         <div class="post-layout">
             <article class="post-content{{ if .Params.contactCards }} page-contact{{ end }}">
                 <header class="post-header">
@@ -62,19 +53,19 @@
 
                 <nav class="post-navigation">
                     {{ with .PrevInSection }}
-                    <div class="nav-previous">
+                    <a href="{{ .Permalink }}" class="nav-previous">
                         <span class="nav-label">上一篇</span>
-                        <a href="{{ .Permalink }}" class="nav-title">{{ .Title }}</a>
-                    </div>
+                        <span class="nav-title">{{ .Title }}</span>
+                    </a>
                     {{ else }}
                     <div></div>
                     {{ end }}
 
                     {{ with .NextInSection }}
-                    <div class="nav-next">
+                    <a href="{{ .Permalink }}" class="nav-next">
                         <span class="nav-label">下一篇</span>
-                        <a href="{{ .Permalink }}" class="nav-title">{{ .Title }}</a>
-                    </div>
+                        <span class="nav-title">{{ .Title }}</span>
+                    </a>
                     {{ else }}
                     <div></div>
                     {{ end }}

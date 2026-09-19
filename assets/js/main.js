@@ -9,6 +9,12 @@
 
   // Auto-detect theme preference
   function getInitialTheme() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const themeParam = urlParams.get("theme");
+    if (themeParam === "light" || themeParam === "dark") {
+      return themeParam;
+    }
+
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       return savedTheme;
@@ -812,60 +818,11 @@
             this.showHome();
           }
         });
-      } else {
-        // On real post pages, add a "back to home" button
-        this.addBackToHomeButton();
       }
     }
 
     addBackToHomeButton() {
-      // Check if there's already a back button
-      if (document.querySelector('.back-to-home-btn')) return;
-
-      // Create back to home button
-      const backButton = document.createElement('button');
-      backButton.className = 'back-to-home-btn';
-      backButton.innerHTML = '<i class="fas fa-times"></i>';
-      backButton.title = 'Back to Home';
-      backButton.style.cssText = `
-        position: fixed;
-        top: 2rem;
-        right: 2rem;
-        z-index: 1000;
-        background: var(--bg-secondary);
-        border: 2px solid var(--accent-primary);
-        border-radius: 50%;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: var(--text-primary);
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      `;
-
-      // Add hover effects
-      backButton.addEventListener('mouseenter', () => {
-        backButton.style.transform = 'scale(1.1)';
-        backButton.style.background = 'var(--accent-primary)';
-        backButton.style.color = 'var(--bg-primary)';
-      });
-
-      backButton.addEventListener('mouseleave', () => {
-        backButton.style.transform = 'scale(1)';
-        backButton.style.background = 'var(--bg-secondary)';
-        backButton.style.color = 'var(--text-primary)';
-      });
-
-      // Navigate to home when clicked
-      backButton.addEventListener('click', () => {
-        window.location.href = '/';
-      });
-
-      document.body.appendChild(backButton);
+      // Disabled in Apple HIG design - navigation is handled cleanly by the top frosted header
     }
 
     handleInitialRoute() {

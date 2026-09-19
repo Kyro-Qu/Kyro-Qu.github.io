@@ -44,39 +44,39 @@ main {
   --color-btn-inset-shadow: 0 0 transparent;
   --color-btn-hover-bg: rgba(255, 255, 255, 0.08);
   --color-btn-hover-border: rgba(255, 255, 255, 0.18);
-  --color-btn-active-bg: rgba(255, 92, 168, 0.16);
-  --color-btn-active-border: rgba(255, 92, 168, 0.34);
-  --color-btn-selected-bg: rgba(255, 92, 168, 0.18);
+  --color-btn-active-bg: rgba(10, 132, 255, 0.16);
+  --color-btn-active-border: rgba(10, 132, 255, 0.34);
+  --color-btn-selected-bg: rgba(10, 132, 255, 0.18);
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-bg: #ff5ca8;
-  --color-btn-primary-border: rgba(255, 138, 92, 0.45);
+  --color-btn-primary-bg: #0a84ff;
+  --color-btn-primary-border: rgba(10, 132, 255, 0.45);
   --color-btn-primary-shadow: 0 0 transparent;
   --color-btn-primary-inset-shadow: 0 0 transparent;
-  --color-btn-primary-hover-bg: #ff6fb3;
-  --color-btn-primary-hover-border: rgba(255, 138, 92, 0.6);
-  --color-btn-primary-selected-bg: #ff5ca8;
+  --color-btn-primary-hover-bg: #409cff;
+  --color-btn-primary-hover-border: rgba(10, 132, 255, 0.6);
+  --color-btn-primary-selected-bg: #0a84ff;
   --color-btn-primary-selected-shadow: 0 0 transparent;
   --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.8);
-  --color-btn-primary-disabled-bg: rgba(255, 92, 168, 0.42);
-  --color-btn-primary-disabled-border: rgba(255, 92, 168, 0.28);
+  --color-btn-primary-disabled-bg: rgba(10, 132, 255, 0.42);
+  --color-btn-primary-disabled-border: rgba(10, 132, 255, 0.28);
   --color-action-list-item-default-hover-bg: rgba(255, 255, 255, 0.06);
   --color-segmented-control-bg: rgba(255, 255, 255, 0.04);
   --color-segmented-control-button-bg: rgba(255, 255, 255, 0.02);
   --color-segmented-control-button-selected-border: rgba(255, 255, 255, 0.14);
-  --color-fg-default: #edf0ff;
-  --color-fg-muted: rgba(237, 240, 255, 0.72);
-  --color-fg-subtle: rgba(237, 240, 255, 0.52);
-  --color-canvas-default: rgba(23, 28, 52, 0.9);
-  --color-canvas-overlay: rgba(17, 21, 40, 0.96);
-  --color-canvas-inset: rgba(18, 21, 38, 0.82);
-  --color-canvas-subtle: rgba(36, 44, 78, 0.72);
-  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-fg-default: #f5f5f7;
+  --color-fg-muted: #a1a1a6;
+  --color-fg-subtle: #636366;
+  --color-canvas-default: #1c1c1e;
+  --color-canvas-overlay: #2c2c2e;
+  --color-canvas-inset: #141416;
+  --color-canvas-subtle: #2c2c2e;
+  --color-border-default: rgba(255, 255, 255, 0.12);
   --color-border-muted: rgba(255, 255, 255, 0.08);
   --color-neutral-muted: rgba(255, 255, 255, 0.05);
-  --color-accent-fg: #ff7bb9;
-  --color-accent-emphasis: #ff5ca8;
-  --color-accent-muted: rgba(255, 92, 168, 0.34);
-  --color-accent-subtle: rgba(255, 92, 168, 0.12);
+  --color-accent-fg: #0a84ff;
+  --color-accent-emphasis: #0a84ff;
+  --color-accent-muted: rgba(10, 132, 255, 0.34);
+  --color-accent-subtle: rgba(10, 132, 255, 0.12);
   --color-success-fg: #63d58a;
   --color-attention-fg: #f2b764;
   --color-attention-muted: rgba(242, 183, 100, 0.36);
@@ -195,13 +195,17 @@ main .gsc-left-header .link-secondary {
 main .btn.btn-primary,
 main .gsc-comment-box-buttons .btn-primary {
   border: 0;
-  background: linear-gradient(135deg, #ff5ca8, #ff8a5c);
-  box-shadow: 0 12px 28px rgba(255, 92, 168, 0.18);
+  border-radius: 9999px;
+  background: #0a84ff;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.25);
+  transition: all 0.2s ease;
 }
 
 main .btn.btn-primary:hover,
 main .gsc-comment-box-buttons .btn-primary:hover {
-  background: linear-gradient(135deg, #ff71b5, #ff9d73);
+  background: #409cff;
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.35);
 }
 
 main .gsc-comment-box-is-reply {
