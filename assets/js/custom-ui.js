@@ -383,11 +383,13 @@
     }
 
     let searchToggle = replaceWithClone(document.querySelector(".search-toggle"));
-    let searchSubmit = replaceWithClone(document.querySelector(".search-submit"));
+    let searchSubmit = document.querySelector(".search-submit")
+      ? replaceWithClone(document.querySelector(".search-submit"))
+      : null;
     let searchClose = replaceWithClone(document.querySelector(".search-close"));
     let searchInput = replaceWithClone(document.getElementById("searchInput"));
 
-    if (!searchToggle || !searchSubmit || !searchClose || !searchInput) {
+    if (!searchToggle || !searchClose || !searchInput) {
       return;
     }
 
@@ -606,9 +608,31 @@
       toggleSearch(false);
     });
 
-    searchSubmit.addEventListener("click", (event) => {
-      event.preventDefault();
-      runSearch(searchInput.value);
+    if (searchSubmit) {
+      searchSubmit.addEventListener("click", (event) => {
+        event.preventDefault();
+        runSearch(searchInput.value);
+      });
+    }
+
+    // Close search when clicking outside
+    document.addEventListener("click", (event) => {
+      if (
+        isSearchOpen &&
+        searchForm &&
+        !searchForm.contains(event.target) &&
+        searchToggle &&
+        !searchToggle.contains(event.target)
+      ) {
+        toggleSearch(false);
+      }
+    });
+
+    // Close search with global Escape key
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isSearchOpen) {
+        toggleSearch(false);
+      }
     });
 
     searchInput.addEventListener("input", () => {
