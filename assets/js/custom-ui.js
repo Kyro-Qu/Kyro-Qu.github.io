@@ -429,6 +429,19 @@
       isSearchOpen = nextState;
 
       if (nextState) {
+        // Close mobile menu if open
+        const mobileToggle = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.getElementById("siteNavLinks");
+        if (navLinks && navLinks.classList.contains("is-open")) {
+          navLinks.classList.remove("is-open");
+          document.documentElement.classList.remove("mobile-menu-open");
+          if (mobileToggle) {
+            mobileToggle.setAttribute("aria-expanded", "false");
+            mobileToggle.setAttribute("aria-label", "打开导航菜单");
+            mobileToggle.title = "打开导航菜单";
+          }
+        }
+
         searchForm.classList.add("active");
         window.setTimeout(() => {
           searchInput.focus();
@@ -691,6 +704,14 @@
     }
 
     function setOpen(isOpen) {
+      if (isOpen) {
+        // Close search if open
+        const searchClose = document.querySelector(".search-close");
+        const searchForm = document.getElementById("searchForm");
+        if (searchForm && searchForm.classList.contains("active") && searchClose) {
+          searchClose.click();
+        }
+      }
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.setAttribute("aria-label", isOpen ? "关闭导航菜单" : "打开导航菜单");
       toggle.title = isOpen ? "关闭导航菜单" : "打开导航菜单";
