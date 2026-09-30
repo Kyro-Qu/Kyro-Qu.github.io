@@ -353,6 +353,14 @@ Fusion 360 本质上是一款参数化特征建模软件。其核心优势在于
 
 ![渲染图库下载成品大图](https://kyro-qu.github.io/blog-images-1/posts/fusion-360-guide/image-20260929214511125.png)
 
+#### 渲染成品
+
+![_2026-Sep-29_01-27-32PM-000_CustomizedView29262193273](https://kyro-qu.github.io/blog-images-1/posts/fusion-360-guide/2026-sep-2901-27-32pm-000customizedview29262193273.png)
+
+#### AI 做的宣传图
+
+![e-3c162d7e49e2](https://kyro-qu.github.io/blog-images-1/posts/fusion-360-guide/e-3c162d7e49e2.png)
+
 ---
 
 ## 3D 打印
