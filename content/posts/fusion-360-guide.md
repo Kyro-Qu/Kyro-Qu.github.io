@@ -1,7 +1,7 @@
 ---
-title: "Fusion 360 参数化建模与 3D 打印实践笔记"
+title: "Fusion 360 建模与 3D 打印"
 subtitle: "从草图特征、实体建模到材质渲染与 Bambu Studio 切片实操指南"
-date: 2026-09-30T00:17:18+08:00
+date: 2026-09-30T08:48:14+08:00
 draft: false
 tags: ["3D打印"]
 featured: false
