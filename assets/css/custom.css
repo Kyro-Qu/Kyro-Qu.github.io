@@ -739,48 +739,10 @@ html[data-theme="dark"] .search-results {
     background: var(--bg-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-lg) !important;
-    padding: 1.35rem 2rem 1.45rem !important;
+    padding: 1.15rem 1.75rem !important;
     box-shadow: var(--shadow-sm) !important;
     box-sizing: border-box;
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.filter-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-color-soft);
-}
-
-.filter-header-left {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.filter-icon {
-    width: 16px;
-    height: 16px;
-    color: var(--accent-primary);
-    flex-shrink: 0;
-}
-
-.filter-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-}
-
-.filter-count-badge {
-    font-size: 0.75rem;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-    background: var(--bg-tertiary);
-    padding: 2px 8px;
-    border-radius: var(--radius-capsule);
 }
 
 .filter-tags {
