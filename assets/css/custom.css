@@ -729,61 +729,141 @@ html[data-theme="dark"] .search-results {
    ========================================================================== */
 
 .filter-section {
+    width: 100%;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+.filter-card {
+    width: 100%;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 1.35rem 2rem 1.45rem !important;
+    box-shadow: var(--shadow-sm) !important;
+    box-sizing: border-box;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filter-header {
     display: flex;
-    justify-content: center;
-    margin-bottom: 2.5rem;
-    padding: 0 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color-soft);
+}
+
+.filter-header-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.filter-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.filter-count-badge {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 2px 8px;
+    border-radius: var(--radius-capsule);
 }
 
 .filter-tags {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap !important;
-    gap: 6px;
-    background: var(--bg-tertiary) !important;
-    padding: 6px;
-    border-radius: 20px;
-    max-width: 860px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
-}
-
-.filter-tags::-webkit-scrollbar {
-    display: none;
+    gap: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .filter-tags .tag {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
     padding: 6px 14px;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
-    background: transparent !important;
-    border: none !important;
-    border-radius: var(--radius-capsule);
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-capsule) !important;
     cursor: pointer;
     white-space: nowrap;
     user-select: none;
-    transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filter-tags .tag .tag-name {
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.filter-tags .tag .tag-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    line-height: 1;
+    padding: 2px 6px;
+    min-width: 16px;
+    border-radius: var(--radius-capsule);
+    background: var(--bg-hover);
+    color: var(--text-muted);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .filter-tags .tag:hover {
-    color: var(--text-primary);
+    color: var(--accent-primary);
     background: var(--bg-hover) !important;
+    border-color: var(--accent-primary) !important;
+    transform: translateY(-1.5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-tags .tag:hover .tag-count,
+html[data-theme="dark"] .filter-tags .tag:hover .tag-count,
+html[data-theme="light"] .filter-tags .tag:hover .tag-count {
+    background: var(--accent-subtle) !important;
+    color: var(--accent-primary) !important;
 }
 
 .filter-tags .tag:active {
     transform: scale(0.96);
 }
 
-/* Active Segmented Slider */
+/* Active Segmented Pill (Apple System Blue Glow) */
 .filter-tags .tag.active {
-    background: var(--bg-card) !important;
-    color: var(--text-primary) !important;
+    background: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+    color: #ffffff !important;
     font-weight: 600;
-    box-shadow: var(--shadow-sm) !important;
+    box-shadow: 0 4px 14px rgba(10, 132, 255, 0.38) !important;
+}
+
+.filter-tags .tag.active .tag-count,
+html[data-theme="dark"] .filter-tags .tag.active .tag-count,
+html[data-theme="light"] .filter-tags .tag.active .tag-count {
+    background: rgba(255, 255, 255, 0.28) !important;
+    color: #ffffff !important;
 }
 
 /* ==========================================================================
@@ -2280,6 +2360,19 @@ html[data-theme="dark"] .tag-count {
     .post-item {
         grid-template-columns: 1fr;
         padding: 1.35rem 1.25rem !important;
+    }
+
+    .filter-card {
+        padding: 1.15rem 1.25rem 1.25rem !important;
+    }
+
+    .filter-tags {
+        gap: 6px 8px;
+    }
+
+    .filter-tags .tag {
+        padding: 5px 12px;
+        font-size: 0.82rem;
     }
 
     .post-meta-sidebar {

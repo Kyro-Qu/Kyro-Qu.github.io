@@ -180,6 +180,19 @@
         true
       );
     });
+
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlTag = params.get("tag");
+      if (urlTag) {
+        const targetTag = Array.from(filterTags).find(
+          (t) => normalizeTagName(t.dataset.tag || t.textContent) === normalizeTagName(urlTag)
+        );
+        if (targetTag) {
+          targetTag.click();
+        }
+      }
+    } catch (e) {}
   }
 
   function localizeReadingTime(root) {
