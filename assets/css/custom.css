@@ -725,24 +725,23 @@ html[data-theme="dark"] .search-results {
 }
 
 /* ==========================================================================
-   6. Apple Segmented Control (Category / Tag Filter)
+   6. Apple Segmented Control (Category / Tag Filter - Minimal Adaptive Pills)
    ========================================================================== */
 
 .filter-section {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     box-sizing: border-box;
 }
 
 .filter-card {
     width: 100%;
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: var(--radius-lg) !important;
-    padding: 1.25rem 1.5rem !important;
-    box-shadow: var(--shadow-sm) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     box-sizing: border-box;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .filter-tags {
@@ -750,7 +749,7 @@ html[data-theme="dark"] .search-results {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px 10px;
     width: 100%;
     margin: 0 !important;
     margin-bottom: 0 !important;
@@ -758,39 +757,23 @@ html[data-theme="dark"] .search-results {
     box-sizing: border-box;
 }
 
-.filter-tags.is-balanced {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 11px;
-}
-
-.filter-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 11px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .filter-tags .tag {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 7px 18px;
+    gap: 7px;
+    padding: 6px 14px;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
-    background: var(--bg-tertiary) !important;
+    background: var(--bg-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-capsule) !important;
     cursor: pointer;
     white-space: nowrap;
     user-select: none;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -807,7 +790,7 @@ html[data-theme="dark"] .search-results {
     font-family: var(--font-mono);
     font-weight: 600;
     line-height: 1;
-    padding: 2px 6px;
+    padding: 2px 7px;
     min-width: 16px;
     border-radius: var(--radius-capsule);
     background: var(--bg-hover);
@@ -817,7 +800,7 @@ html[data-theme="dark"] .search-results {
 
 .filter-tags .tag:hover {
     color: var(--accent-primary);
-    background: var(--bg-hover) !important;
+    background: var(--bg-tertiary) !important;
     border-color: var(--accent-primary) !important;
     transform: translateY(-1.5px);
     box-shadow: var(--shadow-sm);
@@ -840,10 +823,17 @@ html[data-theme="light"] .filter-tags .tag:hover .tag-count {
     border-color: var(--accent-primary) !important;
     color: #ffffff !important;
     font-weight: 600;
-    box-shadow: 0 4px 14px rgba(10, 132, 255, 0.38) !important;
+    box-shadow: 0 3px 12px rgba(10, 132, 255, 0.35) !important;
+}
+
+.filter-tags .tag.active:hover {
+    color: #ffffff !important;
+    background: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
 }
 
 .filter-tags .tag.active .tag-count,
+.filter-tags .tag.active:hover .tag-count,
 html[data-theme="dark"] .filter-tags .tag.active .tag-count,
 html[data-theme="light"] .filter-tags .tag.active .tag-count {
     background: rgba(255, 255, 255, 0.28) !important;
@@ -2346,8 +2336,14 @@ html[data-theme="dark"] .tag-count {
         padding: 1.35rem 1.25rem !important;
     }
 
+    .filter-section {
+        margin-bottom: 2rem;
+    }
+
     .filter-card {
-        padding: 1.15rem 1.25rem 1.25rem !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
     }
 
     .filter-tags {
