@@ -124,6 +124,8 @@ enableRobotsTXT = true
     [markup.goldmark.extensions.passthrough.delimiters]
       inline = [['$', '$'], ['\\(', '\\)']]
       block = [['$$', '$$'], ['\\[', '\\]']]
+  [markup.goldmark.renderer]
+    unsafe = true
 
 [taxonomies]
   tag = "tags"

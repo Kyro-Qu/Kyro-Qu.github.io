@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycloidal Drive Animation</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #fdfcfc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    html, body { background: #1a1a2e; }
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .viewport {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    .controls { background: rgba(255,255,255,0.06); }
+  }
+  .play-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  @media (prefers-color-scheme: dark) {
+    .play-btn { color: #e0e0e0; background: #2a2a3e; border-color: #444; }
+  }
+  .info-text {
+    font-size: 12px;
+    color: #666;
+  }
+  @media (prefers-color-scheme: dark) {
+    .info-text { color: #aaa; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="viewport">
+    <canvas id="vizCanvas"></canvas>
+  </div>
+  <div class="controls">
+    <button id="playBtn" class="play-btn">暂停</button>
+    <span class="info-text">摆线针轮减速器 · 10 针齿 / 9 摆线齿 · 减速比 9:1</span>
+  </div>
+</div>
+
+<script>
+const state = {
+  inputAngle: 0,
+  isPlaying: true,
+  Zp: 10,
+  Zc: 9,
+  eccentricity: 6,
+  R_pins: 110,
+  r_pin: 10,
+  R_out: 55,
+  r_out_pin: 7,
+  num_out_pins: 6
+};
+
+let canvas, ctx;
+let lastTime = performance.now();
+const isDark = () => window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+
+function init() {
+  canvas = document.getElementById('vizCanvas');
+  ctx = canvas.getContext('2d');
+
+  document.getElementById('playBtn').addEventListener('click', () => {
+    state.isPlaying = !state.isPlaying;
+    document.getElementById('playBtn').textContent = state.isPlaying ? '暂停' : '播放';
+  });
+
+  requestAnimationFrame(loop);
+}
+
+function loop(now) {
+  const dt = Math.min(0.05, (now - lastTime) / 1000);
+  lastTime = now;
+
+  if (state.isPlaying) {
+    state.inputAngle = (state.inputAngle + dt * 120) % 3600;
+  }
+
+  updateViz();
+  requestAnimationFrame(loop);
+}
+
+function updateViz() {
+  if (!canvas || !ctx) return;
+
+  const box = canvas.parentElement;
+  const w = box.clientWidth || 600;
+  const h = box.clientHeight || 380;
+  const dpr = window.devicePixelRatio || 1;
+
+  if (canvas.width !== Math.floor(w * dpr) || canvas.height !== Math.floor(h * dpr)) {
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+  }
+
+  ctx.save();
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+
+  const cx = w / 2;
+  const cy = h / 2;
+  const scale = Math.min(w, h) / 300;
+
+  const dark = isDark();
+  const colorCam = '#2575fc';
+  const colorDisc = dark ? '#96a7d6' : '#5b6e9e';
+  const colorPins = dark ? '#50e389' : '#228a49';
+  const colorOutput = dark ? '#f5d77f' : '#997112';
+  const colorOnSurface = dark ? '#e0e0e0' : '#000000';
+  const colorOutline = dark ? '#555' : '#cccccc';
+  const colorSurfaceDim = dark ? '#1a1a2e' : '#f2f0f0';
+
+  const aRad = (state.inputAngle * Math.PI) / 180;
+  const discAngle = -aRad / state.Zc;
+
+  const e = state.eccentricity * scale;
+  const R_pins = state.R_pins * scale;
+  const r_pin = state.r_pin * scale;
+  const R_out = state.R_out * scale;
+  const r_out_pin = state.r_out_pin * scale;
+  const r_out_hole = r_out_pin + e;
+
+  const ex = cx + e * Math.cos(aRad);
+  const ey = cy + e * Math.sin(aRad);
+
+  // Housing ring
+  ctx.strokeStyle = colorOutline;
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.arc(cx, cy, R_pins, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Fixed outer pins
+  for (let i = 0; i < state.Zp; i++) {
+    const pAngle = (i * 2 * Math.PI) / state.Zp;
+    const px = cx + R_pins * Math.cos(pAngle);
+    const py = cy + R_pins * Math.sin(pAngle);
+    ctx.fillStyle = colorPins;
+    ctx.beginPath();
+    ctx.arc(px, py, r_pin, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = colorOnSurface;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(px, py, 2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Cycloid disc
+  ctx.save();
+  ctx.translate(ex, ey);
+  ctx.rotate(discAngle);
+
+  ctx.beginPath();
+  const steps = 360;
+  const N = state.Zp;
+
+  for (let i = 0; i <= steps; i++) {
+    const phi = (i * 2 * Math.PI) / steps;
+    const gamma = (1 - N) * phi;
+    const psi = Math.atan2(Math.sin(gamma), (R_pins / (e * N)) - Math.cos(gamma));
+    const dx = R_pins * Math.cos(phi) - e * Math.cos(N * phi) - r_pin * Math.cos(phi + psi);
+    const dy = R_pins * Math.sin(phi) - e * Math.sin(N * phi) - r_pin * Math.sin(phi + psi);
+    if (i === 0) ctx.moveTo(dx, dy);
+    else ctx.lineTo(dx, dy);
+  }
+  ctx.closePath();
+  ctx.fillStyle = colorDisc + '33';
+  ctx.fill();
+  ctx.strokeStyle = colorDisc;
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  // Disc output holes
+  for (let i = 0; i < state.num_out_pins; i++) {
+    const hAngle = (i * 2 * Math.PI) / state.num_out_pins;
+    const hx = R_out * Math.cos(hAngle);
+    const hy = R_out * Math.sin(hAngle);
+    ctx.beginPath();
+    ctx.arc(hx, hy, r_out_hole, 0, Math.PI * 2);
+    ctx.fillStyle = colorSurfaceDim;
+    ctx.fill();
+    ctx.strokeStyle = colorDisc;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  // Disc center line
+  ctx.strokeStyle = colorDisc;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(R_out * 0.7, 0);
+  ctx.stroke();
+  ctx.restore();
+
+  // Output pins
+  for (let i = 0; i < state.num_out_pins; i++) {
+    const baseAngle = (i * 2 * Math.PI) / state.num_out_pins;
+    const currentOutAngle = baseAngle + discAngle;
+    const opx = cx + R_out * Math.cos(currentOutAngle);
+    const opy = cy + R_out * Math.sin(currentOutAngle);
+    ctx.fillStyle = colorOutput;
+    ctx.beginPath();
+    ctx.arc(opx, opy, r_out_pin, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = colorOnSurface;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(opx, opy, 2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Output ring
+  ctx.strokeStyle = colorOutput;
+  ctx.lineWidth = 2;
+  ctx.setLineDash([2, 2]);
+  ctx.beginPath();
+  ctx.arc(cx, cy, R_out, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Input shaft
+  ctx.fillStyle = colorCam;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 6 * scale, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = colorCam;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(ex, ey);
+  ctx.stroke();
+  ctx.fillStyle = colorCam;
+  ctx.beginPath();
+  ctx.arc(ex, ey, 5 * scale, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Center cross
+  ctx.strokeStyle = colorOnSurface;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(cx - 5, cy); ctx.lineTo(cx + 5, cy);
+  ctx.moveTo(cx, cy - 5); ctx.lineTo(cx, cy + 5);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
